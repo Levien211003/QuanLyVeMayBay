@@ -25,5 +25,17 @@ namespace MayBay.Controllers
         {
             return database.ChuyenBays.OrderBy(r => r.MaCB).ToList();
         }
+
+        public ActionResult Details(string id)
+        {
+            ChuyenBay chuyenBay = database.ChuyenBays.FirstOrDefault(r => r.MaCB == id);
+
+            if (chuyenBay == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(chuyenBay);
+        }
     }
 }

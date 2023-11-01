@@ -1,33 +1,92 @@
 ﻿@using MayBay.Models
 @model List<Cart>
 
+<!DOCTYPE html>
+<html>
+<head>
+    <title>THÔNG TIN GIỎ HÀNG</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1; /* Màu xanh da trời nhạt */
+        }
 
-<h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-<div>
-    @foreach (var chuyenBay in Model)
-    {
-    <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">
-        <h4>Mã Phòng: @chuyenBay.MaCB</h4>
-        <h4> Giá: 100$</h4>
-        <h4>Thời Gian Bay: @chuyenBay.ThoiGianBay</h4>
-        <h4>Ngày Giờ: @chuyenBay.NgayGio</h4>
+        .cart-item {
+            border: 1px solid black;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
 
+        h2 {
+            text-align: center;
+        }
 
+        h4 {
+            margin: 5px 0;
+        }
 
+        .total {
+            font-weight: bold;
+            text-align: right;
+            color: red;
+            margin-top: 20px;
+        }
 
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+        }
 
+            .btn:hover {
+                background-color: #0056b3;
+            }
+
+        .text-center {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>THÔNG TIN GIỎ HÀNG</h2>
+
+        <div>
+            @foreach (var chuyenBay in Model)
+            {
+                var imageFileName = "r" + chuyenBay.MaCB;
+                <a href="@Url.Action("Details", "KhachHang", new { id = chuyenBay.MaCB })">
+                    <div class="cart-item">
+                        <img class="card-img-top hotel-picture" src="~/hinh/@(imageFileName).jpg" alt=" Image 1">
+                        <h4>Mã chuyến bay: @chuyenBay.MaCB</h4>
+                        <h4>Giá: 100$</h4>
+                        <h4>Thời Gian Bay: @chuyenBay.ThoiGianBay</h4>
+                        <h4>Ngày Giờ: @chuyenBay.NgayGio</h4>
+                    </div>
+
+                </a>
+            }
+        </div>
+
+        <div class="total">
+            <p>Tổng số lượng: </p>
+            <p>Tổng tiền: $</p>
+        </div>
+
+        <div class="text-center">
+            <a class="btn" href="@Url.Action("DSachCB", "KhachHang")">Đi đến đặt vé?</a>
+        </div>
     </div>
-    }
-</div>
-
-<div style="font-weight:bold; text-align:right; color:red;">
-    @*<p>Tổng số lượng: @ViewBag.TongSL</p>
-    <p>Tổng tiền: @ViewBag.TongTien</p>*@
-    <p>Tổng số lượng: 1</p>
-    <p>Tổng tiền: 100$</p>
-</div>
-
-<div style="text-align:center; margin-top: 20px;">
-    <a class="btn btn-primary" href="@Url.Action("DSachCB", "KhachHang")">Đi đến đặt vé ?</a>
-</div>
+</body>
+</html>

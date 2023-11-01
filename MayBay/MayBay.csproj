@@ -300,8 +300,6 @@
     <Content Include="hinh\logo.png" />
     <Content Include="hinh\massage-service.jpg" />
     <Content Include="hinh\may-bay-phuong-tien-di-chuyen-tien-loi-va-an-toan-nhat-1.jpg" />
-    <Content Include="hinh\neo-img.jpg" />
-    <Content Include="hinh\neo.jpg" />
     <Content Include="hinh\pexels-pixabay-62623.jpg" />
     <Content Include="hinh\place-01.jpg" />
     <Content Include="hinh\place-02.jpg" />
@@ -495,6 +493,7 @@
     <Content Include="Views\KhachHang\Shared\_LayoutPage2.cshtml" />
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\HienThiGioHang.cshtml" />
+    <Content Include="Views\KhachHang\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

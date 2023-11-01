@@ -1,0 +1,133 @@
+﻿@using MayBay.Models
+@model ChuyenBay
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chi Tiết Chuyến Bay</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f1f8ff;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        .room-details {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .room-image {
+            max-width: 100%;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+
+        .room-info {
+            margin-top: 20px;
+        }
+
+        h2 {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        p {
+            margin-bottom: 10px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        .book-button {
+            background-color: #0074cc;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            .book-button:hover {
+                background-color: #00579a;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Chi Tiết Chuyến Bay</h1>
+    </header>
+    <div class="room-details">
+        @if (Model != null)
+        {
+            var imageFileName = "r" + Model.MaCB;
+            <a href="@Url.Action("Details", "KhachHang", new { id = Model.MaCB })">
+                <img class="room-image" src="~/hinh/@(imageFileName).jpg" alt="Room Image 1" width="300" height="200">
+            </a>
+            <div class="room-info">
+                @{
+                    string[] roomTypes = new string[] { "normal", "Vip", "Superior Deluxe", "luxury" };
+                    Random random = new Random();
+                    string randomRoomName = roomTypes[random.Next(roomTypes.Length)];
+                }
+
+                <h2>Tên chuyến bay: @randomRoomName</h2>
+
+                <p>Giá: $</p>
+
+                <p>
+                    Mô tả: Bay đến nơi, về đến nơi!
+                </p>
+            </div>
+
+            <div class="col-md-6">
+                <fieldset>
+                    <label for="departure">Ngày nhận phòng:</label>
+                    <input name="deparure" id="deparure" type="date" class="form-control date01" min="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Select date..." required="">
+                </fieldset>
+            </div>
+            <div class="col-md-6">
+                <fieldset>
+                    <label for="return">Ngày trả phòng:</label>
+                    <input name="return" id="return" disabled type="date" class="form-control date01" min="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder="Select date..." required="">
+                </fieldset>
+            </div>
+
+            <a class="book-button" href="@Url.Action("AddTicketToCart", "Cart", new { MaCB = Model.MaCB })" onclick="redirectToCart()">
+                Đặt vé
+            </a>
+
+            <script>
+                function redirectToCart() {
+                    window.location.href = '@Url.Action("HienThiGioHang", "Cart")';
+                }
+            </script>
+        }
+    </div>
+</body>
+</html>
