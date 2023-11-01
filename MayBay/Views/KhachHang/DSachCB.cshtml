@@ -1,0 +1,234 @@
+﻿@using MayBay.Models
+@model IEnumerable<ChuyenBay>
+@{
+    ViewBag.Title = "Danh sách chuyến đi";
+    Layout = "~/Views/KhachHang/Shared/_LayoutPage2.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Danh sách chuyến bay</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333333;
+            font-size: 30px;
+            margin-top: 40px;
+        }
+
+        #logout-message-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logout-success-message {
+            background-color: #e1f3d8;
+            color: #333333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #cbList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .room-card {
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 300px;
+        }
+
+            .room-card img {
+                width: 100%;
+                height: auto;
+                border-radius: 5px;
+                margin-bottom: 10px;
+            }
+
+        .card-text {
+            color: #333333;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+
+        .book-button {
+            background-color: #4caf50;
+            color: #ffffff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+            .book-button:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Danh Sách Chuyến Bay</h1>
+
+        <div id="logout-message-container">
+            @if (!string.IsNullOrEmpty(ViewBag.LogoutMessage))
+            {
+                <div class="logout-success-message">@ViewBag.LogoutMessage</div>
+            }
+        </div>
+
+        <div id="cbList">
+            @foreach (var chuyenBay in Model)
+            {
+                var imageFileName = "r" + chuyenBay.MaCB;
+                <a href="@Url.Action("DSachCB", "KhachHang", new { id = chuyenBay.MaCB })">
+                    <div class="room-card">
+                        <img class="card-img-top hotel-picture" src="~/hinh/@(imageFileName).jpg" alt="Room Image 1">
+                        <p class="card-text">Mã Chuyến Bay: @chuyenBay.MaCB</p>
+                        <p class="card-text">Mã Máy Bay: @chuyenBay.MaMB</p>
+                        <p class="card-text">Mã Tuyến Bay: @chuyenBay.MaTBay</p>
+                        <p class="card-text">Ngày Giờ: @chuyenBay.NgayGio</p>
+                        <p>Thời gian bay: @chuyenBay.ThoiGianBay</p>
+                        <p>Số lượng ghế hạng 1: @chuyenBay.SoLuongGheHang1</p>
+                        <p>Số lượng ghế hạng 2: @chuyenBay.SoLuongGheHang2</p>
+                        <p>Số lượng ghế hạng 3: @chuyenBay.SoLuongGheHang3</p>
+                        <p>Tình trạng: @chuyenBay.TinhTrang</p>
+                        <a class="btn btn-primary" href="@Url.Action("AddTicketToCart", "Cart", new { MaCB = chuyenBay.MaCB })" onclick="redirectToCart()">
+                            Đặt vé
+                        </a>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+
+<section id="most-visited">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Most Visited Places</h2>
+                </div>
+            </div>
+            <div class="col-md-12">
+                <div id="owl-mostvisited" class="owl-carousel owl-theme">
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-01.jpg" alt="">
+                            <div class="text-content">
+                                <h4>River Views</h4>
+                                <span>New York</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-02.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Lorem ipsum dolor</h4>
+                                <span>Tokyo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-03.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Proin dignissim</h4>
+                                <span>Paris</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-04.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Fusce sed ipsum</h4>
+                                <span>Hollywood</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-02.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Vivamus egestas</h4>
+                                <span>Tokyo</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-04.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Aliquam elit metus</h4>
+                                <span>New York</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-03.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Phasellus pharetra</h4>
+                                <span>Paris</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-04.jpg" alt="">
+                            <div class="text-content">
+                                <h4>In in quam efficitur</h4>
+                                <span>Hollywood</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-01.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Sed faucibus odio</h4>
+                                <span>NEW YORK</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item col-md-12">
+                        <div class="visited-item">
+                            <img src="~/hinh/place-02.jpg" alt="">
+                            <div class="text-content">
+                                <h4>Donec varius porttitor</h4>
+                                <span>Tokyo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>

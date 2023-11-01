@@ -1,0 +1,257 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingAirLightModelStoreContainer" CdmEntityContainer="BookingAirLightEntities">
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BookingAirLightModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietChuyenBays">
+      <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietChuyenBay">
+        <MappingFragment StoreEntitySet="ChiTietChuyenBays">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="MaCTCB" ColumnName="MaCTCB" />
+          <ScalarProperty Name="SanBayTrungGian" ColumnName="SanBayTrungGian" />
+          <ScalarProperty Name="ThoiGianDung" ColumnName="ThoiGianDung" />
+          <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietHDs">
+      <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietHD">
+        <MappingFragment StoreEntitySet="ChiTietHDs">
+          <ScalarProperty Name="STT" ColumnName="STT" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChucVus">
+      <EntityTypeMapping TypeName="BookingAirLightModel.ChucVu">
+        <MappingFragment StoreEntitySet="ChucVus">
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="TenCV" ColumnName="TenCV" />
+          <ScalarProperty Name="ViTri" ColumnName="ViTri" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuyenBays">
+      <EntityTypeMapping TypeName="BookingAirLightModel.ChuyenBay">
+        <MappingFragment StoreEntitySet="ChuyenBays">
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+          <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+          <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+          <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+          <ScalarProperty Name="SoLuongGheHang1" ColumnName="SoLuongGheHang1" />
+          <ScalarProperty Name="SoLuongGheHang2" ColumnName="SoLuongGheHang2" />
+          <ScalarProperty Name="SoLuongGheHang3" ColumnName="SoLuongGheHang3" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoanhThuNams">
+      <EntityTypeMapping TypeName="BookingAirLightModel.DoanhThuNam">
+        <MappingFragment StoreEntitySet="DoanhThuNams">
+          <ScalarProperty Name="MaDTNam" ColumnName="MaDTNam" />
+          <ScalarProperty Name="MaDTThang" ColumnName="MaDTThang" />
+          <ScalarProperty Name="SoLuongVeBan" ColumnName="SoLuongVeBan" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DoanhThuThangs">
+      <EntityTypeMapping TypeName="BookingAirLightModel.DoanhThuThang">
+        <MappingFragment StoreEntitySet="DoanhThuThangs">
+          <ScalarProperty Name="MaDTThang" ColumnName="MaDTThang" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="SoLuongVeBan" ColumnName="SoLuongVeBan" />
+          <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HangVes">
+      <EntityTypeMapping TypeName="BookingAirLightModel.HangVe">
+        <MappingFragment StoreEntitySet="HangVes">
+          <ScalarProperty Name="MaHV" ColumnName="MaHV" />
+          <ScalarProperty Name="TenHV" ColumnName="TenHV" />
+          <ScalarProperty Name="PhuPhi" ColumnName="PhuPhi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HoaDons">
+      <EntityTypeMapping TypeName="BookingAirLightModel.HoaDon">
+        <MappingFragment StoreEntitySet="HoaDons">
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaPhi" ColumnName="MaPhi" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="NgayLap" ColumnName="NgayLap" />
+          <ScalarProperty Name="ThanhTien" ColumnName="ThanhTien" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="MaVC" ColumnName="MaVC" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KhachHangs">
+      <EntityTypeMapping TypeName="BookingAirLightModel.KhachHang">
+        <MappingFragment StoreEntitySet="KhachHangs">
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="MaLKH" ColumnName="MaLKH" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TenKH" ColumnName="TenKH" />
+          <ScalarProperty Name="SDT" ColumnName="SDT" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LoaiKHs">
+      <EntityTypeMapping TypeName="BookingAirLightModel.LoaiKH">
+        <MappingFragment StoreEntitySet="LoaiKHs">
+          <ScalarProperty Name="MaLKH" ColumnName="MaLKH" />
+          <ScalarProperty Name="TenLKH" ColumnName="TenLKH" />
+          <ScalarProperty Name="ChietKhau" ColumnName="ChietKhau" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MayBays">
+      <EntityTypeMapping TypeName="BookingAirLightModel.MayBay">
+        <MappingFragment StoreEntitySet="MayBays">
+          <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+          <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NhanViens">
+      <EntityTypeMapping TypeName="BookingAirLightModel.NhanVien">
+        <MappingFragment StoreEntitySet="NhanViens">
+          <ScalarProperty Name="IDNV" ColumnName="IDNV" />
+          <ScalarProperty Name="MaCV" ColumnName="MaCV" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="TenNV" ColumnName="TenNV" />
+          <ScalarProperty Name="SDT_NV" ColumnName="SDT_NV" />
+          <ScalarProperty Name="Email_NV" ColumnName="Email_NV" />
+          <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
+          <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderStatus">
+      <EntityTypeMapping TypeName="BookingAirLightModel.OrderStatu">
+        <MappingFragment StoreEntitySet="OrderStatus">
+          <ScalarProperty Name="IDUser" ColumnName="IDUser" />
+          <ScalarProperty Name="MaCBdi" ColumnName="MaCBdi" />
+          <ScalarProperty Name="MaCBve" ColumnName="MaCBve" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PhieuDatChoes">
+      <EntityTypeMapping TypeName="BookingAirLightModel.PhieuDatCho">
+        <MappingFragment StoreEntitySet="PhieuDatChoes">
+          <ScalarProperty Name="MaPhieu" ColumnName="MaPhieu" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="NgayDat" ColumnName="NgayDat" />
+          <ScalarProperty Name="SoGhe" ColumnName="SoGhe" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Phis">
+      <EntityTypeMapping TypeName="BookingAirLightModel.Phi">
+        <MappingFragment StoreEntitySet="Phis">
+          <ScalarProperty Name="MaPhi" ColumnName="MaPhi" />
+          <ScalarProperty Name="TenPhi" ColumnName="TenPhi" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="DonVi" ColumnName="DonVi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SanBays">
+      <EntityTypeMapping TypeName="BookingAirLightModel.SanBay">
+        <MappingFragment StoreEntitySet="SanBays">
+          <ScalarProperty Name="MaSB" ColumnName="MaSB" />
+          <ScalarProperty Name="TenSB" ColumnName="TenSB" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="save_log_chuyenbay">
+      <EntityTypeMapping TypeName="BookingAirLightModel.save_log_chuyenbay">
+        <MappingFragment StoreEntitySet="save_log_chuyenbay">
+          <ScalarProperty Name="Malog" ColumnName="Malog" />
+          <ScalarProperty Name="ThaoTac" ColumnName="ThaoTac" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+          <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+          <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+          <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TuyenBays">
+      <EntityTypeMapping TypeName="BookingAirLightModel.TuyenBay">
+        <MappingFragment StoreEntitySet="TuyenBays">
+          <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+          <ScalarProperty Name="SanBayDi" ColumnName="SanBayDi" />
+          <ScalarProperty Name="SanBayDen" ColumnName="SanBayDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ves">
+      <EntityTypeMapping TypeName="BookingAirLightModel.Ve">
+        <MappingFragment StoreEntitySet="Ves">
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="MaHV" ColumnName="MaHV" />
+          <ScalarProperty Name="IDKH" ColumnName="IDKH" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+          <ScalarProperty Name="GiaVe" ColumnName="GiaVe" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+          <ScalarProperty Name="XacNhan" ColumnName="XacNhan" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vouchers">
+      <EntityTypeMapping TypeName="BookingAirLightModel.Voucher">
+        <MappingFragment StoreEntitySet="Vouchers">
+          <ScalarProperty Name="MaVC" ColumnName="MaVC" />
+          <ScalarProperty Name="TenVC" ColumnName="TenVC" />
+          <ScalarProperty Name="ChietKhau" ColumnName="ChietKhau" />
+          <ScalarProperty Name="NgayApDung" ColumnName="NgayApDung" />
+          <ScalarProperty Name="NgayHetHan" ColumnName="NgayHetHan" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Wishlists">
+      <EntityTypeMapping TypeName="BookingAirLightModel.Wishlist">
+        <MappingFragment StoreEntitySet="Wishlists">
+          <ScalarProperty Name="MaWL" ColumnName="MaWL" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="MaKH" ColumnName="MaKH" />
+          <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
+          <ScalarProperty Name="MaCBVe" ColumnName="MaCBVe" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

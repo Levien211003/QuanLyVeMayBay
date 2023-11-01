@@ -1,0 +1,33 @@
+﻿@using MayBay.Models
+@model List<Cart>
+
+
+<h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+
+<div>
+    @foreach (var chuyenBay in Model)
+    {
+    <div style="border: 1px solid black; padding: 10px; margin-bottom: 10px;">
+        <h4>Mã Phòng: @chuyenBay.MaCB</h4>
+        <h4> Giá: 100$</h4>
+        <h4>Thời Gian Bay: @chuyenBay.ThoiGianBay</h4>
+        <h4>Ngày Giờ: @chuyenBay.NgayGio</h4>
+
+
+
+
+
+    </div>
+    }
+</div>
+
+<div style="font-weight:bold; text-align:right; color:red;">
+    @*<p>Tổng số lượng: @ViewBag.TongSL</p>
+    <p>Tổng tiền: @ViewBag.TongTien</p>*@
+    <p>Tổng số lượng: 1</p>
+    <p>Tổng tiền: 100$</p>
+</div>
+
+<div style="text-align:center; margin-top: 20px;">
+    <a class="btn btn-primary" href="@Url.Action("DSachCB", "KhachHang")">Đi đến đặt vé ?</a>
+</div>
