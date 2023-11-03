@@ -136,6 +136,7 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -494,6 +495,8 @@
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\HienThiGioHang.cshtml" />
     <Content Include="Views\KhachHang\Details.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\SignUp.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
