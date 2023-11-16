@@ -21,7 +21,6 @@ namespace MayBay.Controllers
         public ActionResult Login(string user, string password)
         {
             var data = database.NhanViens.Where(s => s.UserName == user && s.Password == password).FirstOrDefault();
-            var taikhoan = database.NhanViens.SingleOrDefault(s => s.UserName == user && s.Password == password);
             if (data == null)
             {
                 TempData["error"] = "Tài khoản đăng nhập không đúng";
@@ -30,11 +29,9 @@ namespace MayBay.Controllers
             else
             {
                 Session["userNV"] = data;
-                return RedirectToAction("TrangChu", "NhanVien");
+                return RedirectToAction("Index", "Admin/ChuyenBays");
             }
-         
         }
-
 
         public ActionResult LogOut()
         {

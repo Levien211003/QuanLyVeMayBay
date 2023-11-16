@@ -5,7 +5,7 @@
     ViewBag.Title = "Hoàn thành đơn hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
 
-    var customer = Session["UserKH"] as AccountInfo;
+    var customer = Session["UserKH"] as KhachHang;
 
 }
 
@@ -17,8 +17,8 @@
 
 
     <h4>Thông tin người đặt hàng:</h4>
-    <p>Tên: @customer.FullName</p>
-    <p>Số điện thoại: @customer.PhoneNumber</p>
+    <p>Tên: @customer.TenKH</p>
+    <p>Số điện thoại: @customer.SDT</p>
     <p>Email: @customer.Email</p>
 
 

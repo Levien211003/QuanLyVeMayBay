@@ -130,11 +130,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\Authentication.cs" />
-    <Compile Include="App_Start\AuthenticationNV.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\ChuyenBaysController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MayBaysController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TuyenBaysController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
@@ -384,6 +386,10 @@
     <Content Include="lib\font-awesome\webfonts\fa-solid-900.woff2" />
     <Content Include="lib\font-awesome\webfonts\fa-v4compatibility.ttf" />
     <Content Include="lib\font-awesome\webfonts\fa-v4compatibility.woff2" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\web.config" />
+    <Content Include="Areas\Admin\Views\ChuyenBays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MayBays\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -513,31 +519,6 @@
     <Content Include="Views\KhachHangHA\TrangChu.cshtml" />
     <Content Include="Views\LoginUser\ForgotPassword.cshtml" />
     <Content Include="Views\LoginUser\ResetPass.cshtml" />
-    <Content Include="Views\NhanVien\AddSchedulea.cshtml" />
-    <Content Include="Views\NhanVien\Chitietcb.cshtml" />
-    <Content Include="Views\NhanVien\CreatePromotion.cshtml" />
-    <Content Include="Views\NhanVien\CreateStaff.cshtml" />
-    <Content Include="Views\NhanVien\CustomerManagement.cshtml" />
-    <Content Include="Views\NhanVien\DetailCus.cshtml" />
-    <Content Include="Views\NhanVien\DetailFlight.cshtml" />
-    <Content Include="Views\NhanVien\DetailFR.cshtml" />
-    <Content Include="Views\NhanVien\DetailStaff.cshtml" />
-    <Content Include="Views\NhanVien\DetailTotalRevenue.cshtml" />
-    <Content Include="Views\NhanVien\EditMyinfor.cshtml" />
-    <Content Include="Views\NhanVien\EditPro.cshtml" />
-    <Content Include="Views\NhanVien\FlightRoute.cshtml" />
-    <Content Include="Views\NhanVien\History.cshtml" />
-    <Content Include="Views\NhanVien\Myinfor.cshtml" />
-    <Content Include="Views\NhanVien\Plane.cshtml" />
-    <Content Include="Views\NhanVien\Promotion.cshtml" />
-    <Content Include="Views\NhanVien\Reports.cshtml" />
-    <Content Include="Views\NhanVien\Scheduleaflight.cshtml" />
-    <Content Include="Views\NhanVien\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Views\NhanVien\Staff.cshtml" />
-    <Content Include="Views\NhanVien\TicketList.cshtml" />
-    <Content Include="Views\NhanVien\TicketManagement.cshtml" />
-    <Content Include="Views\NhanVien\TotalRevenue.cshtml" />
-    <Content Include="Views\NhanVien\TrangChu.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

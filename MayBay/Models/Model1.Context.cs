@@ -28,7 +28,6 @@ namespace MayBay.Models
         }
     
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
-        public virtual DbSet<ChiTietHD> ChiTietHDs { get; set; }
         public virtual DbSet<ChuyenBay> ChuyenBays { get; set; }
         public virtual DbSet<HoaDon> HoaDons { get; set; }
         public virtual DbSet<KhachHang> KhachHangs { get; set; }
@@ -41,6 +40,7 @@ namespace MayBay.Models
         public virtual DbSet<Ve> Ves { get; set; }
         public virtual DbSet<Voucher> Vouchers { get; set; }
         public virtual DbSet<save_log_chuyenbay1> save_log_chuyenbay1 { get; set; }
+        public virtual DbSet<ChiTietHD> ChiTietHDs { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

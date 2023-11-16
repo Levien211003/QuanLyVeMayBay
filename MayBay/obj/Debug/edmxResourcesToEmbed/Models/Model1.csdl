@@ -10,20 +10,6 @@
     <Property Name="version" Type="Int32" />
     <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
-  <EntityType Name="ChiTietHD">
-    <Key>
-      <PropertyRef Name="STT" />
-      <PropertyRef Name="MaHD" />
-    </Key>
-    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="MaVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="SoLuong" Type="Int32" />
-    <Property Name="DonGia" Type="Double" />
-    <Property Name="TongTien" Type="Double" />
-    <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="HoaDon" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="ChiTietHD" ToRole="HoaDon" />
-  </EntityType>
   <EntityType Name="ChuyenBay">
     <Key>
       <PropertyRef Name="MaCB" />
@@ -55,11 +41,11 @@
     <Property Name="IDKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="MaVC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="ChiTietHDs" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="HoaDon" ToRole="ChiTietHD" />
     <NavigationProperty Name="KhachHang" Relationship="BookingAirLightModel.FK_HoaDon_KhachHang1" FromRole="HoaDon" ToRole="KhachHang" />
     <NavigationProperty Name="NhanVien" Relationship="BookingAirLightModel.FK_HoaDon_NhanVien" FromRole="HoaDon" ToRole="NhanVien" />
     <NavigationProperty Name="Phi" Relationship="BookingAirLightModel.FK_HoaDon_Phi" FromRole="HoaDon" ToRole="Phi" />
     <NavigationProperty Name="Voucher" Relationship="BookingAirLightModel.FK_HoaDon_Voucher" FromRole="HoaDon" ToRole="Voucher" />
+    <NavigationProperty Name="ChiTietHDs" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="HoaDon" ToRole="ChiTietHD" />
   </EntityType>
   <EntityType Name="KhachHang">
     <Key>
@@ -172,7 +158,6 @@
   </EntityType>
   <EntityContainer Name="BookingAirLightEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-    <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHD" />
     <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBay" />
     <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
     <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
@@ -184,10 +169,6 @@
     <EntitySet Name="TuyenBays" EntityType="Self.TuyenBay" />
     <EntitySet Name="Ves" EntityType="Self.Ve" />
     <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
-    <AssociationSet Name="FK_ChiTietHD_HoaDon" Association="BookingAirLightModel.FK_ChiTietHD_HoaDon">
-      <End Role="HoaDon" EntitySet="HoaDons" />
-      <End Role="ChiTietHD" EntitySet="ChiTietHDs" />
-    </AssociationSet>
     <AssociationSet Name="FK_ChuyenBay_MayBay" Association="BookingAirLightModel.FK_ChuyenBay_MayBay">
       <End Role="MayBay" EntitySet="MayBays" />
       <End Role="ChuyenBay" EntitySet="ChuyenBays" />
@@ -255,21 +236,12 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="save_log_chuyenbay1" EntityType="BookingAirLightModel.save_log_chuyenbay1" />
+    <EntitySet Name="ChiTietHDs" EntityType="BookingAirLightModel.ChiTietHD" />
+    <AssociationSet Name="FK_ChiTietHD_HoaDon" Association="BookingAirLightModel.FK_ChiTietHD_HoaDon">
+      <End Role="HoaDon" EntitySet="HoaDons" />
+      <End Role="ChiTietHD" EntitySet="ChiTietHDs" />
+    </AssociationSet>
   </EntityContainer>
-  <Association Name="FK_ChiTietHD_HoaDon">
-    <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="1">
-      <OnDelete Action="Cascade" />
-    </End>
-    <End Type="BookingAirLightModel.ChiTietHD" Role="ChiTietHD" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="HoaDon">
-        <PropertyRef Name="MaHD" />
-      </Principal>
-      <Dependent Role="ChiTietHD">
-        <PropertyRef Name="MaHD" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_ChuyenBay_MayBay">
     <End Type="BookingAirLightModel.MayBay" Role="MayBay" Multiplicity="0..1">
       <OnDelete Action="Cascade" />
@@ -417,4 +389,31 @@
     <Property Name="NgayGio" Type="DateTime" Precision="3" />
     <Property Name="ThoiGianBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="ChiTietHD">
+    <Key>
+      <PropertyRef Name="STT" />
+    </Key>
+    <Property Name="STT" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="MaHD" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="MaVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="SoLuong" Type="Int32" />
+    <Property Name="DonGia" Type="Double" />
+    <Property Name="TongTien" Type="Double" />
+    <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="HoaDon" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="ChiTietHD" ToRole="HoaDon" />
+  </EntityType>
+  <Association Name="FK_ChiTietHD_HoaDon">
+    <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="BookingAirLightModel.ChiTietHD" Role="ChiTietHD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDon">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="ChiTietHD">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

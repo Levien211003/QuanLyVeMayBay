@@ -12,19 +12,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="ChiTietHDs">
-      <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietHD">
-        <MappingFragment StoreEntitySet="ChiTietHDs">
-          <ScalarProperty Name="STT" ColumnName="STT" />
-          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
-          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
-          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
-          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
-          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="ChuyenBays">
       <EntityTypeMapping TypeName="BookingAirLightModel.ChuyenBay">
         <MappingFragment StoreEntitySet="ChuyenBays">
@@ -196,6 +183,19 @@
           <ScalarProperty Name="MaCB" ColumnName="MaCB" />
           <ScalarProperty Name="ThaoTac" ColumnName="ThaoTac" />
           <ScalarProperty Name="Malog" ColumnName="Malog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChiTietHDs">
+      <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietHD">
+        <MappingFragment StoreEntitySet="ChiTietHDs">
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="TongTien" ColumnName="TongTien" />
+          <ScalarProperty Name="DonGia" ColumnName="DonGia" />
+          <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+          <ScalarProperty Name="MaVe" ColumnName="MaVe" />
+          <ScalarProperty Name="MaHD" ColumnName="MaHD" />
+          <ScalarProperty Name="STT" ColumnName="STT" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

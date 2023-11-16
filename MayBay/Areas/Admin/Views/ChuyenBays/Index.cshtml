@@ -1,0 +1,94 @@
+﻿@using MayBay.Models
+@inherits System.Web.Mvc.WebViewPage<List<ChuyenBay>>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="/lib/fontawesome/css/all.min.css" />
+<script src="/lib/font-awesome/js/all.min.js"></script>
+
+<style>
+    .list-title {
+        text-align: center;
+        background-color: #f0f5ff;
+        padding: 10px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+        .table th,
+        .table td {
+            padding: 10px;
+            border: 1px solid #ccc;
+        }
+
+    .hotel-image {
+        width: 100px;
+        height: 75px;
+        object-fit: cover;
+        margin-right: 10px;
+    }
+
+    .hotel-details {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .action-links {
+        font-size: 16px;
+    }
+</style>
+
+<div class="list-title">
+    <h1>List of Hotels</h1>
+</div>
+
+<p>
+    @Html.ActionLink("Thêm mới", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Chuyến Bay
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.MaCB)
+                    </div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.MaMB)
+                    </div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.MaTBay)
+                    </div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.NgayGio)
+                    </div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.ThoiGianBay)
+                    </div>
+
+                </div>
+            </td>
+            <td>
+                <div class="action-links">
+                    @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.MaCB }) |
+                    @Html.ActionLink("Xóa", "Delete", new { id = item.MaCB }) |
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

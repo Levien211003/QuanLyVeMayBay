@@ -72,7 +72,6 @@ C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\System.Web.WebPages.Razor.xml
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\Newtonsoft.Json.xml
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\Antlr3.Runtime.pdb
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Mr.Vien\source\repos\MayBay\MayBay\obj\Debug\MayBay.csproj.AssemblyReference.cache
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\obj\Debug\MayBay.csproj.CoreCompileInputs.cache
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\obj\Debug\MayBay.csproj.CopyComplete
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\obj\Debug\MayBay.dll
