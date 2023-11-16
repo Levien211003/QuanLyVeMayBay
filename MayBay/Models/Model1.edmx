@@ -4,25 +4,10 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="BookingAirLightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChiTietChuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ChiTietChuyenBays">
-          <Key>
-            <PropertyRef Name="STT" />
-          </Key>
-          <Property Name="STT" Type="int" Nullable="false" />
-          <Property Name="MaCTCB" Type="varchar" MaxLength="10" />
-          <Property Name="SanBayTrungGian" Type="nvarchar" MaxLength="50" />
-          <Property Name="ThoiGianDung" Type="nvarchar" MaxLength="50" />
-          <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChiTietHDs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+    <Schema Namespace="BookingAirLightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ChiTietHDs">
           <Key>
             <PropertyRef Name="STT" />
-            <PropertyRef Name="MaHD" />
           </Key>
           <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
@@ -32,18 +17,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.ChiTietHDs' does not have a pr
           <Property Name="TongTien" Type="float" />
           <Property Name="MaCB" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChucVus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="ChucVus">
-          <Key>
-            <PropertyRef Name="MaCV" />
-          </Key>
-          <Property Name="MaCV" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenCV" Type="nvarchar" MaxLength="50" />
-          <Property Name="ViTri" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="ChuyenBays">
           <Key>
             <PropertyRef Name="MaCB" />
@@ -58,40 +31,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.ChuyenBays' does not have a pr
           <Property Name="SoLuongGheHang3" Type="int" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.DoanhThuNams' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="DoanhThuNams">
-          <Key>
-            <PropertyRef Name="MaDTNam" />
-          </Key>
-          <Property Name="MaDTNam" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaDTThang" Type="varchar" MaxLength="10" />
-          <Property Name="SoLuongVeBan" Type="int" />
-          <Property Name="DoanhThu" Type="float" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.DoanhThuThangs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="DoanhThuThangs">
-          <Key>
-            <PropertyRef Name="MaDTThang" />
-          </Key>
-          <Property Name="MaDTThang" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaHD" Type="varchar" MaxLength="10" />
-          <Property Name="SoLuongVeBan" Type="int" />
-          <Property Name="DoanhThu" Type="float" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.HangVes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="HangVes">
-          <Key>
-            <PropertyRef Name="MaHV" />
-          </Key>
-          <Property Name="MaHV" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenHV" Type="nvarchar" MaxLength="50" />
-          <Property Name="PhuPhi" Type="float" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.HoaDons' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="HoaDons">
           <Key>
             <PropertyRef Name="MaHD" />
@@ -106,8 +45,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.HoaDons' does not have a prima
           <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
           <Property Name="MaVC" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.KhachHangs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="KhachHangs">
           <Key>
             <PropertyRef Name="IDKH" />
@@ -124,18 +61,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.KhachHangs' does not have a pr
           <Property Name="NgaySinh" Type="nvarchar" MaxLength="50" />
           <Property Name="HinhAnh" Type="nvarchar" MaxLength="500" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.LoaiKHs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="LoaiKHs">
-          <Key>
-            <PropertyRef Name="MaLKH" />
-          </Key>
-          <Property Name="MaLKH" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenLKH" Type="nvarchar" MaxLength="50" />
-          <Property Name="ChietKhau" Type="float" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.MayBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="MayBays">
           <Key>
             <PropertyRef Name="MaMB" />
@@ -143,8 +68,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.MayBays' does not have a prima
           <Property Name="MaMB" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="LoaiMayBay" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.NhanViens' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="NhanViens">
           <Key>
             <PropertyRef Name="IDNV" />
@@ -159,8 +82,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.NhanViens' does not have a pri
           <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" />
           <Property Name="NgaySinh" Type="datetime" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.OrderStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="OrderStatus">
           <Key>
             <PropertyRef Name="IDUser" />
@@ -170,8 +91,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.OrderStatus' does not have a p
           <Property Name="MaCBve" Type="varchar" MaxLength="10" />
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.PhieuDatChoes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="PhieuDatChoes">
           <Key>
             <PropertyRef Name="MaPhieu" />
@@ -183,8 +102,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.PhieuDatChoes' does not have a
           <Property Name="NgayDat" Type="datetime" />
           <Property Name="SoGhe" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Phis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Phis">
           <Key>
             <PropertyRef Name="MaPhi" />
@@ -194,17 +111,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Phis' does not have a primary 
           <Property Name="DonGia" Type="float" />
           <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.SanBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="SanBays">
-          <Key>
-            <PropertyRef Name="MaSB" />
-          </Key>
-          <Property Name="MaSB" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="TenSB" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.save_log_chuyenbay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="save_log_chuyenbay">
           <Key>
             <PropertyRef Name="Malog" />
@@ -227,8 +133,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.save_log_chuyenbay' does not h
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.TuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="TuyenBays">
           <Key>
             <PropertyRef Name="MaTBay" />
@@ -237,8 +141,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.TuyenBays' does not have a pri
           <Property Name="SanBayDi" Type="varchar" MaxLength="10" />
           <Property Name="SanBayDen" Type="varchar" MaxLength="10" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Ves' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Ves">
           <Key>
             <PropertyRef Name="MaVe" />
@@ -253,8 +155,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Ves' does not have a primary k
           <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
           <Property Name="XacNhan" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Vouchers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Vouchers">
           <Key>
             <PropertyRef Name="MaVC" />
@@ -266,223 +166,232 @@ warning 6002: The table/view 'BookingAirLight.dbo.Vouchers' does not have a prim
           <Property Name="NgayHetHan" Type="datetime" />
           <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Wishlists">
-          <Key>
-            <PropertyRef Name="MaWL" />
-          </Key>
-          <Property Name="MaWL" Type="varchar" MaxLength="10" Nullable="false" />
-          <Property Name="MaCB" Type="varchar" MaxLength="10" />
-          <Property Name="MaKH" Type="varchar" MaxLength="10" />
-          <Property Name="NgayThem" Type="datetime" />
-          <Property Name="MaCBVe" Type="varchar" MaxLength="10" />
-          <Property Name="SoLuong" Type="int" />
-        </EntityType>
+        <Association Name="FK_ChiTietHD_HoaDon">
+          <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChiTietHDs" Type="Self.ChiTietHDs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDons">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="ChiTietHDs">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenBay_MayBay">
+          <End Role="MayBays" Type="Self.MayBays" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MayBays">
+              <PropertyRef Name="MaMB" />
+            </Principal>
+            <Dependent Role="ChuyenBays">
+              <PropertyRef Name="MaMB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenBay_TuyenBay">
+          <End Role="TuyenBays" Type="Self.TuyenBays" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TuyenBays">
+              <PropertyRef Name="MaTBay" />
+            </Principal>
+            <Dependent Role="ChuyenBays">
+              <PropertyRef Name="MaTBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_KhachHang1">
+          <End Role="KhachHangs" Type="Self.KhachHangs" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHangs">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="HoaDons">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_NhanVien">
+          <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanViens">
+              <PropertyRef Name="IDNV" />
+            </Principal>
+            <Dependent Role="HoaDons">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_Phi">
+          <End Role="Phis" Type="Self.Phis" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phis">
+              <PropertyRef Name="MaPhi" />
+            </Principal>
+            <Dependent Role="HoaDons">
+              <PropertyRef Name="MaPhi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_Voucher">
+          <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vouchers">
+              <PropertyRef Name="MaVC" />
+            </Principal>
+            <Dependent Role="HoaDons">
+              <PropertyRef Name="MaVC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuDatCho_ChuyenBay">
+          <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="PhieuDatChoes" Type="Self.PhieuDatChoes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBays">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="PhieuDatChoes">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ve_ChuyenBay">
+          <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ves" Type="Self.Ves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBays">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="Ves">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ve_KhachHang">
+          <End Role="KhachHangs" Type="Self.KhachHangs" Multiplicity="0..1" />
+          <End Role="Ves" Type="Self.Ves" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHangs">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="Ves">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="version" Type="int" Mode="In" />
+          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+        </Function>
+        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+          <Parameter Name="owner_id" Type="int" Mode="In" />
+          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+        </Function>
+        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="BookingAirLightModelStoreContainer">
+          <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHDs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HoaDons" EntityType="Self.HoaDons" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="KhachHangs" EntityType="Self.KhachHangs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MayBays" EntityType="Self.MayBays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NhanViens" EntityType="Self.NhanViens" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PhieuDatChoes" EntityType="Self.PhieuDatChoes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Phis" EntityType="Self.Phis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="save_log_chuyenbay" EntityType="Self.save_log_chuyenbay" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="ChiTietChuyenBays" EntityType="Self.ChiTietChuyenBays" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ChiTietChuyenBays].[STT] AS [STT], 
-    [ChiTietChuyenBays].[MaCTCB] AS [MaCTCB], 
-    [ChiTietChuyenBays].[SanBayTrungGian] AS [SanBayTrungGian], 
-    [ChiTietChuyenBays].[ThoiGianDung] AS [ThoiGianDung], 
-    [ChiTietChuyenBays].[GhiChu] AS [GhiChu]
-    FROM [dbo].[ChiTietChuyenBays] AS [ChiTietChuyenBays]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHDs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ChiTietHDs].[STT] AS [STT], 
-    [ChiTietHDs].[MaHD] AS [MaHD], 
-    [ChiTietHDs].[MaVe] AS [MaVe], 
-    [ChiTietHDs].[SoLuong] AS [SoLuong], 
-    [ChiTietHDs].[DonGia] AS [DonGia], 
-    [ChiTietHDs].[TongTien] AS [TongTien], 
-    [ChiTietHDs].[MaCB] AS [MaCB]
-    FROM [dbo].[ChiTietHDs] AS [ChiTietHDs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ChucVus" EntityType="Self.ChucVus" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ChucVus].[MaCV] AS [MaCV], 
-    [ChucVus].[TenCV] AS [TenCV], 
-    [ChucVus].[ViTri] AS [ViTri]
-    FROM [dbo].[ChucVus] AS [ChucVus]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBays" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [ChuyenBays].[MaCB] AS [MaCB], 
-    [ChuyenBays].[MaMB] AS [MaMB], 
-    [ChuyenBays].[MaTBay] AS [MaTBay], 
-    [ChuyenBays].[NgayGio] AS [NgayGio], 
-    [ChuyenBays].[ThoiGianBay] AS [ThoiGianBay], 
-    [ChuyenBays].[SoLuongGheHang1] AS [SoLuongGheHang1], 
-    [ChuyenBays].[SoLuongGheHang2] AS [SoLuongGheHang2], 
-    [ChuyenBays].[SoLuongGheHang3] AS [SoLuongGheHang3], 
-    [ChuyenBays].[TinhTrang] AS [TinhTrang]
-    FROM [dbo].[ChuyenBays] AS [ChuyenBays]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DoanhThuNams" EntityType="Self.DoanhThuNams" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DoanhThuNams].[MaDTNam] AS [MaDTNam], 
-    [DoanhThuNams].[MaDTThang] AS [MaDTThang], 
-    [DoanhThuNams].[SoLuongVeBan] AS [SoLuongVeBan], 
-    [DoanhThuNams].[DoanhThu] AS [DoanhThu]
-    FROM [dbo].[DoanhThuNams] AS [DoanhThuNams]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="DoanhThuThangs" EntityType="Self.DoanhThuThangs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [DoanhThuThangs].[MaDTThang] AS [MaDTThang], 
-    [DoanhThuThangs].[MaHD] AS [MaHD], 
-    [DoanhThuThangs].[SoLuongVeBan] AS [SoLuongVeBan], 
-    [DoanhThuThangs].[DoanhThu] AS [DoanhThu]
-    FROM [dbo].[DoanhThuThangs] AS [DoanhThuThangs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="HangVes" EntityType="Self.HangVes" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [HangVes].[MaHV] AS [MaHV], 
-    [HangVes].[TenHV] AS [TenHV], 
-    [HangVes].[PhuPhi] AS [PhuPhi]
-    FROM [dbo].[HangVes] AS [HangVes]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="HoaDons" EntityType="Self.HoaDons" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [HoaDons].[MaHD] AS [MaHD], 
-    [HoaDons].[IDNV] AS [IDNV], 
-    [HoaDons].[MaPhi] AS [MaPhi], 
-    [HoaDons].[TinhTrang] AS [TinhTrang], 
-    [HoaDons].[NgayLap] AS [NgayLap], 
-    [HoaDons].[ThanhTien] AS [ThanhTien], 
-    [HoaDons].[IDKH] AS [IDKH], 
-    [HoaDons].[CCCD] AS [CCCD], 
-    [HoaDons].[MaVC] AS [MaVC]
-    FROM [dbo].[HoaDons] AS [HoaDons]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="KhachHangs" EntityType="Self.KhachHangs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [KhachHangs].[IDKH] AS [IDKH], 
-    [KhachHangs].[CCCD] AS [CCCD], 
-    [KhachHangs].[MaLKH] AS [MaLKH], 
-    [KhachHangs].[UserName] AS [UserName], 
-    [KhachHangs].[Password] AS [Password], 
-    [KhachHangs].[TenKH] AS [TenKH], 
-    [KhachHangs].[SDT] AS [SDT], 
-    [KhachHangs].[Email] AS [Email], 
-    [KhachHangs].[GioiTinh] AS [GioiTinh], 
-    [KhachHangs].[NgaySinh] AS [NgaySinh], 
-    [KhachHangs].[HinhAnh] AS [HinhAnh]
-    FROM [dbo].[KhachHangs] AS [KhachHangs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="LoaiKHs" EntityType="Self.LoaiKHs" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [LoaiKHs].[MaLKH] AS [MaLKH], 
-    [LoaiKHs].[TenLKH] AS [TenLKH], 
-    [LoaiKHs].[ChietKhau] AS [ChietKhau]
-    FROM [dbo].[LoaiKHs] AS [LoaiKHs]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="MayBays" EntityType="Self.MayBays" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [MayBays].[MaMB] AS [MaMB], 
-    [MayBays].[LoaiMayBay] AS [LoaiMayBay]
-    FROM [dbo].[MayBays] AS [MayBays]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="NhanViens" EntityType="Self.NhanViens" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [NhanViens].[IDNV] AS [IDNV], 
-    [NhanViens].[MaCV] AS [MaCV], 
-    [NhanViens].[UserName] AS [UserName], 
-    [NhanViens].[Password] AS [Password], 
-    [NhanViens].[TenNV] AS [TenNV], 
-    [NhanViens].[SDT_NV] AS [SDT_NV], 
-    [NhanViens].[Email_NV] AS [Email_NV], 
-    [NhanViens].[GioiTinh] AS [GioiTinh], 
-    [NhanViens].[NgaySinh] AS [NgaySinh]
-    FROM [dbo].[NhanViens] AS [NhanViens]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [OrderStatus].[IDUser] AS [IDUser], 
-    [OrderStatus].[MaCBdi] AS [MaCBdi], 
-    [OrderStatus].[MaCBve] AS [MaCBve], 
-    [OrderStatus].[Status] AS [Status]
-    FROM [dbo].[OrderStatus] AS [OrderStatus]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="PhieuDatChoes" EntityType="Self.PhieuDatChoes" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [PhieuDatChoes].[MaPhieu] AS [MaPhieu], 
-    [PhieuDatChoes].[MaCB] AS [MaCB], 
-    [PhieuDatChoes].[IDKH] AS [IDKH], 
-    [PhieuDatChoes].[CCCD] AS [CCCD], 
-    [PhieuDatChoes].[NgayDat] AS [NgayDat], 
-    [PhieuDatChoes].[SoGhe] AS [SoGhe]
-    FROM [dbo].[PhieuDatChoes] AS [PhieuDatChoes]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Phis" EntityType="Self.Phis" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Phis].[MaPhi] AS [MaPhi], 
-    [Phis].[TenPhi] AS [TenPhi], 
-    [Phis].[DonGia] AS [DonGia], 
-    [Phis].[DonVi] AS [DonVi]
-    FROM [dbo].[Phis] AS [Phis]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="SanBays" EntityType="Self.SanBays" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [SanBays].[MaSB] AS [MaSB], 
-    [SanBays].[TenSB] AS [TenSB]
-    FROM [dbo].[SanBays] AS [SanBays]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="save_log_chuyenbay" EntityType="Self.save_log_chuyenbay" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [save_log_chuyenbay].[Malog] AS [Malog], 
-    [save_log_chuyenbay].[ThaoTac] AS [ThaoTac], 
-    [save_log_chuyenbay].[MaCB] AS [MaCB], 
-    [save_log_chuyenbay].[MaMB] AS [MaMB], 
-    [save_log_chuyenbay].[MaTBay] AS [MaTBay], 
-    [save_log_chuyenbay].[NgayGio] AS [NgayGio], 
-    [save_log_chuyenbay].[ThoiGianBay] AS [ThoiGianBay]
-    FROM [dbo].[save_log_chuyenbay] AS [save_log_chuyenbay]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="TuyenBays" EntityType="Self.TuyenBays" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [TuyenBays].[MaTBay] AS [MaTBay], 
-    [TuyenBays].[SanBayDi] AS [SanBayDi], 
-    [TuyenBays].[SanBayDen] AS [SanBayDen]
-    FROM [dbo].[TuyenBays] AS [TuyenBays]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Ves" EntityType="Self.Ves" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Ves].[MaVe] AS [MaVe], 
-    [Ves].[MaCB] AS [MaCB], 
-    [Ves].[MaHV] AS [MaHV], 
-    [Ves].[IDKH] AS [IDKH], 
-    [Ves].[TinhTrang] AS [TinhTrang], 
-    [Ves].[GiaVe] AS [GiaVe], 
-    [Ves].[CCCD] AS [CCCD], 
-    [Ves].[XacNhan] AS [XacNhan]
-    FROM [dbo].[Ves] AS [Ves]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Vouchers" EntityType="Self.Vouchers" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Vouchers].[MaVC] AS [MaVC], 
-    [Vouchers].[TenVC] AS [TenVC], 
-    [Vouchers].[ChietKhau] AS [ChietKhau], 
-    [Vouchers].[NgayApDung] AS [NgayApDung], 
-    [Vouchers].[NgayHetHan] AS [NgayHetHan], 
-    [Vouchers].[TinhTrang] AS [TinhTrang]
-    FROM [dbo].[Vouchers] AS [Vouchers]</DefiningQuery>
-          </EntitySet>
-          <EntitySet Name="Wishlists" EntityType="Self.Wishlists" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Wishlists].[MaWL] AS [MaWL], 
-    [Wishlists].[MaCB] AS [MaCB], 
-    [Wishlists].[MaKH] AS [MaKH], 
-    [Wishlists].[NgayThem] AS [NgayThem], 
-    [Wishlists].[MaCBVe] AS [MaCBVe], 
-    [Wishlists].[SoLuong] AS [SoLuong]
-    FROM [dbo].[Wishlists] AS [Wishlists]</DefiningQuery>
-          </EntitySet>
+          <EntitySet Name="TuyenBays" EntityType="Self.TuyenBays" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ves" EntityType="Self.Ves" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_ChiTietHD_HoaDon" Association="Self.FK_ChiTietHD_HoaDon">
+            <End Role="HoaDons" EntitySet="HoaDons" />
+            <End Role="ChiTietHDs" EntitySet="ChiTietHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenBay_MayBay" Association="Self.FK_ChuyenBay_MayBay">
+            <End Role="MayBays" EntitySet="MayBays" />
+            <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenBay_TuyenBay" Association="Self.FK_ChuyenBay_TuyenBay">
+            <End Role="TuyenBays" EntitySet="TuyenBays" />
+            <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_KhachHang1" Association="Self.FK_HoaDon_KhachHang1">
+            <End Role="KhachHangs" EntitySet="KhachHangs" />
+            <End Role="HoaDons" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_NhanVien" Association="Self.FK_HoaDon_NhanVien">
+            <End Role="NhanViens" EntitySet="NhanViens" />
+            <End Role="HoaDons" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_Phi" Association="Self.FK_HoaDon_Phi">
+            <End Role="Phis" EntitySet="Phis" />
+            <End Role="HoaDons" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_Voucher" Association="Self.FK_HoaDon_Voucher">
+            <End Role="Vouchers" EntitySet="Vouchers" />
+            <End Role="HoaDons" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuDatCho_ChuyenBay" Association="Self.FK_PhieuDatCho_ChuyenBay">
+            <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+            <End Role="PhieuDatChoes" EntitySet="PhieuDatChoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ve_ChuyenBay" Association="Self.FK_Ve_ChuyenBay">
+            <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+            <End Role="Ves" EntitySet="Ves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ve_KhachHang" Association="Self.FK_Ve_KhachHang">
+            <End Role="KhachHangs" EntitySet="KhachHangs" />
+            <End Role="Ves" EntitySet="Ves" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="BookingAirLightModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -496,16 +405,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <EntityType Name="ChiTietChuyenBay">
-          <Key>
-            <PropertyRef Name="STT" />
-          </Key>
-          <Property Name="STT" Type="Int32" Nullable="false" />
-          <Property Name="MaCTCB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SanBayTrungGian" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ThoiGianDung" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="GhiChu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="ChiTietHD">
           <Key>
             <PropertyRef Name="STT" />
@@ -518,14 +417,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="DonGia" Type="Double" />
           <Property Name="TongTien" Type="Double" />
           <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="ChucVu">
-          <Key>
-            <PropertyRef Name="MaCV" />
-          </Key>
-          <Property Name="MaCV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenCV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ViTri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HoaDon" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="ChiTietHD" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="ChuyenBay">
           <Key>
@@ -540,32 +432,10 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="SoLuongGheHang2" Type="Int32" />
           <Property Name="SoLuongGheHang3" Type="Int32" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="DoanhThuNam">
-          <Key>
-            <PropertyRef Name="MaDTNam" />
-          </Key>
-          <Property Name="MaDTNam" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaDTThang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SoLuongVeBan" Type="Int32" />
-          <Property Name="DoanhThu" Type="Double" />
-        </EntityType>
-        <EntityType Name="DoanhThuThang">
-          <Key>
-            <PropertyRef Name="MaDTThang" />
-          </Key>
-          <Property Name="MaDTThang" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaHD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SoLuongVeBan" Type="Int32" />
-          <Property Name="DoanhThu" Type="Double" />
-        </EntityType>
-        <EntityType Name="HangVe">
-          <Key>
-            <PropertyRef Name="MaHV" />
-          </Key>
-          <Property Name="MaHV" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenHV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="PhuPhi" Type="Double" />
+          <NavigationProperty Name="MayBay" Relationship="BookingAirLightModel.FK_ChuyenBay_MayBay" FromRole="ChuyenBay" ToRole="MayBay" />
+          <NavigationProperty Name="TuyenBay" Relationship="BookingAirLightModel.FK_ChuyenBay_TuyenBay" FromRole="ChuyenBay" ToRole="TuyenBay" />
+          <NavigationProperty Name="PhieuDatChoes" Relationship="BookingAirLightModel.FK_PhieuDatCho_ChuyenBay" FromRole="ChuyenBay" ToRole="PhieuDatCho" />
+          <NavigationProperty Name="Ves" Relationship="BookingAirLightModel.FK_Ve_ChuyenBay" FromRole="ChuyenBay" ToRole="Ve" />
         </EntityType>
         <EntityType Name="HoaDon">
           <Key>
@@ -580,6 +450,11 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="IDKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="MaVC" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChiTietHDs" Relationship="BookingAirLightModel.FK_ChiTietHD_HoaDon" FromRole="HoaDon" ToRole="ChiTietHD" />
+          <NavigationProperty Name="KhachHang" Relationship="BookingAirLightModel.FK_HoaDon_KhachHang1" FromRole="HoaDon" ToRole="KhachHang" />
+          <NavigationProperty Name="NhanVien" Relationship="BookingAirLightModel.FK_HoaDon_NhanVien" FromRole="HoaDon" ToRole="NhanVien" />
+          <NavigationProperty Name="Phi" Relationship="BookingAirLightModel.FK_HoaDon_Phi" FromRole="HoaDon" ToRole="Phi" />
+          <NavigationProperty Name="Voucher" Relationship="BookingAirLightModel.FK_HoaDon_Voucher" FromRole="HoaDon" ToRole="Voucher" />
         </EntityType>
         <EntityType Name="KhachHang">
           <Key>
@@ -596,14 +471,8 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="HinhAnh" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="LoaiKH">
-          <Key>
-            <PropertyRef Name="MaLKH" />
-          </Key>
-          <Property Name="MaLKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenLKH" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="ChietKhau" Type="Double" />
+          <NavigationProperty Name="HoaDons" Relationship="BookingAirLightModel.FK_HoaDon_KhachHang1" FromRole="KhachHang" ToRole="HoaDon" />
+          <NavigationProperty Name="Ves" Relationship="BookingAirLightModel.FK_Ve_KhachHang" FromRole="KhachHang" ToRole="Ve" />
         </EntityType>
         <EntityType Name="MayBay">
           <Key>
@@ -611,6 +480,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           </Key>
           <Property Name="MaMB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="LoaiMayBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBays" Relationship="BookingAirLightModel.FK_ChuyenBay_MayBay" FromRole="MayBay" ToRole="ChuyenBay" />
         </EntityType>
         <EntityType Name="NhanVien">
           <Key>
@@ -625,6 +495,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="Email_NV" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgaySinh" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="HoaDons" Relationship="BookingAirLightModel.FK_HoaDon_NhanVien" FromRole="NhanVien" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="OrderStatu">
           <Key>
@@ -645,6 +516,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NgayDat" Type="DateTime" Precision="3" />
           <Property Name="SoGhe" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBay" Relationship="BookingAirLightModel.FK_PhieuDatCho_ChuyenBay" FromRole="PhieuDatCho" ToRole="ChuyenBay" />
         </EntityType>
         <EntityType Name="Phi">
           <Key>
@@ -654,25 +526,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="TenPhi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="DonGia" Type="Double" />
           <Property Name="DonVi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="SanBay">
-          <Key>
-            <PropertyRef Name="MaSB" />
-          </Key>
-          <Property Name="MaSB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="TenSB" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="save_log_chuyenbay">
-          <Key>
-            <PropertyRef Name="Malog" />
-          </Key>
-          <Property Name="Malog" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ThaoTac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="MaMB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="MaTBay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="NgayGio" Type="DateTime" Precision="3" />
-          <Property Name="ThoiGianBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="HoaDons" Relationship="BookingAirLightModel.FK_HoaDon_Phi" FromRole="Phi" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="TuyenBay">
           <Key>
@@ -681,6 +535,7 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="MaTBay" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="SanBayDi" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="SanBayDen" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ChuyenBays" Relationship="BookingAirLightModel.FK_ChuyenBay_TuyenBay" FromRole="TuyenBay" ToRole="ChuyenBay" />
         </EntityType>
         <EntityType Name="Ve">
           <Key>
@@ -695,6 +550,8 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="GiaVe" Type="Double" />
           <Property Name="CCCD" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="XacNhan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBay" Relationship="BookingAirLightModel.FK_Ve_ChuyenBay" FromRole="Ve" ToRole="ChuyenBay" />
+          <NavigationProperty Name="KhachHang" Relationship="BookingAirLightModel.FK_Ve_KhachHang" FromRole="Ve" ToRole="KhachHang" />
         </EntityType>
         <EntityType Name="Voucher">
           <Key>
@@ -706,42 +563,255 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
           <Property Name="NgayApDung" Type="DateTime" Precision="3" />
           <Property Name="NgayHetHan" Type="DateTime" Precision="3" />
           <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
-        <EntityType Name="Wishlist">
-          <Key>
-            <PropertyRef Name="MaWL" />
-          </Key>
-          <Property Name="MaWL" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="MaKH" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="NgayThem" Type="DateTime" Precision="3" />
-          <Property Name="MaCBVe" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <Property Name="SoLuong" Type="Int32" />
+          <NavigationProperty Name="HoaDons" Relationship="BookingAirLightModel.FK_HoaDon_Voucher" FromRole="Voucher" ToRole="HoaDon" />
         </EntityType>
         <EntityContainer Name="BookingAirLightEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <EntitySet Name="ChiTietChuyenBays" EntityType="Self.ChiTietChuyenBay" />
           <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHD" />
-          <EntitySet Name="ChucVus" EntityType="Self.ChucVu" />
           <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBay" />
-          <EntitySet Name="DoanhThuNams" EntityType="Self.DoanhThuNam" />
-          <EntitySet Name="DoanhThuThangs" EntityType="Self.DoanhThuThang" />
-          <EntitySet Name="HangVes" EntityType="Self.HangVe" />
           <EntitySet Name="HoaDons" EntityType="Self.HoaDon" />
           <EntitySet Name="KhachHangs" EntityType="Self.KhachHang" />
-          <EntitySet Name="LoaiKHs" EntityType="Self.LoaiKH" />
           <EntitySet Name="MayBays" EntityType="Self.MayBay" />
           <EntitySet Name="NhanViens" EntityType="Self.NhanVien" />
           <EntitySet Name="OrderStatus" EntityType="Self.OrderStatu" />
           <EntitySet Name="PhieuDatChoes" EntityType="Self.PhieuDatCho" />
           <EntitySet Name="Phis" EntityType="Self.Phi" />
-          <EntitySet Name="SanBays" EntityType="Self.SanBay" />
-          <EntitySet Name="save_log_chuyenbay" EntityType="Self.save_log_chuyenbay" />
           <EntitySet Name="TuyenBays" EntityType="Self.TuyenBay" />
           <EntitySet Name="Ves" EntityType="Self.Ve" />
           <EntitySet Name="Vouchers" EntityType="Self.Voucher" />
-          <EntitySet Name="Wishlists" EntityType="Self.Wishlist" />
+          <AssociationSet Name="FK_ChiTietHD_HoaDon" Association="BookingAirLightModel.FK_ChiTietHD_HoaDon">
+            <End Role="HoaDon" EntitySet="HoaDons" />
+            <End Role="ChiTietHD" EntitySet="ChiTietHDs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenBay_MayBay" Association="BookingAirLightModel.FK_ChuyenBay_MayBay">
+            <End Role="MayBay" EntitySet="MayBays" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ChuyenBay_TuyenBay" Association="BookingAirLightModel.FK_ChuyenBay_TuyenBay">
+            <End Role="TuyenBay" EntitySet="TuyenBays" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PhieuDatCho_ChuyenBay" Association="BookingAirLightModel.FK_PhieuDatCho_ChuyenBay">
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+            <End Role="PhieuDatCho" EntitySet="PhieuDatChoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ve_ChuyenBay" Association="BookingAirLightModel.FK_Ve_ChuyenBay">
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+            <End Role="Ve" EntitySet="Ves" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_KhachHang1" Association="BookingAirLightModel.FK_HoaDon_KhachHang1">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_NhanVien" Association="BookingAirLightModel.FK_HoaDon_NhanVien">
+            <End Role="NhanVien" EntitySet="NhanViens" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_Phi" Association="BookingAirLightModel.FK_HoaDon_Phi">
+            <End Role="Phi" EntitySet="Phis" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HoaDon_Voucher" Association="BookingAirLightModel.FK_HoaDon_Voucher">
+            <End Role="Voucher" EntitySet="Vouchers" />
+            <End Role="HoaDon" EntitySet="HoaDons" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ve_KhachHang" Association="BookingAirLightModel.FK_Ve_KhachHang">
+            <End Role="KhachHang" EntitySet="KhachHangs" />
+            <End Role="Ve" EntitySet="Ves" />
+          </AssociationSet>
+          <FunctionImport Name="sp_alterdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_creatediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="version" Mode="In" Type="Int32" />
+            <Parameter Name="definition" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="sp_dropdiagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(BookingAirLightModel.sp_helpdiagramdefinition_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(BookingAirLightModel.sp_helpdiagrams_Result)">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="sp_renamediagram">
+            <Parameter Name="diagramname" Mode="In" Type="String" />
+            <Parameter Name="owner_id" Mode="In" Type="Int32" />
+            <Parameter Name="new_diagramname" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="sp_upgraddiagrams" />
+          <EntitySet Name="save_log_chuyenbay1" EntityType="BookingAirLightModel.save_log_chuyenbay1" />
         </EntityContainer>
+        <Association Name="FK_ChiTietHD_HoaDon">
+          <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.ChiTietHD" Role="ChiTietHD" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HoaDon">
+              <PropertyRef Name="MaHD" />
+            </Principal>
+            <Dependent Role="ChiTietHD">
+              <PropertyRef Name="MaHD" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenBay_MayBay">
+          <End Type="BookingAirLightModel.MayBay" Role="MayBay" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.ChuyenBay" Role="ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MayBay">
+              <PropertyRef Name="MaMB" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaMB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ChuyenBay_TuyenBay">
+          <End Type="BookingAirLightModel.TuyenBay" Role="TuyenBay" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.ChuyenBay" Role="ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PhieuDatCho_ChuyenBay">
+          <End Type="BookingAirLightModel.ChuyenBay" Role="ChuyenBay" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.PhieuDatCho" Role="PhieuDatCho" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBay">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="PhieuDatCho">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ve_ChuyenBay">
+          <End Type="BookingAirLightModel.ChuyenBay" Role="ChuyenBay" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.Ve" Role="Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBay">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_KhachHang1">
+          <End Type="BookingAirLightModel.KhachHang" Role="KhachHang" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_NhanVien">
+          <End Type="BookingAirLightModel.NhanVien" Role="NhanVien" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NhanVien">
+              <PropertyRef Name="IDNV" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="IDNV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_Phi">
+          <End Type="BookingAirLightModel.Phi" Role="Phi" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Phi">
+              <PropertyRef Name="MaPhi" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaPhi" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HoaDon_Voucher">
+          <End Type="BookingAirLightModel.Voucher" Role="Voucher" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="BookingAirLightModel.HoaDon" Role="HoaDon" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="MaVC" />
+            </Principal>
+            <Dependent Role="HoaDon">
+              <PropertyRef Name="MaVC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ve_KhachHang">
+          <End Type="BookingAirLightModel.KhachHang" Role="KhachHang" Multiplicity="0..1" />
+          <End Type="BookingAirLightModel.Ve" Role="Ve" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="KhachHang">
+              <PropertyRef Name="IDKH" />
+            </Principal>
+            <Dependent Role="Ve">
+              <PropertyRef Name="IDKH" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="sp_helpdiagramdefinition_Result">
+          <Property Type="Int32" Name="version" Nullable="true" />
+          <Property Type="Binary" Name="definition" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="sp_helpdiagrams_Result">
+          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+          <Property Type="Int32" Name="OwnerID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="save_log_chuyenbay1">
+          <Key>
+            <PropertyRef Name="Malog" />
+          </Key>
+          <Property Name="Malog" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ThaoTac" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaCB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaMB" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="MaTBay" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="NgayGio" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -759,17 +829,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="ChiTietChuyenBays">
-            <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietChuyenBay">
-              <MappingFragment StoreEntitySet="ChiTietChuyenBays">
-                <ScalarProperty Name="STT" ColumnName="STT" />
-                <ScalarProperty Name="MaCTCB" ColumnName="MaCTCB" />
-                <ScalarProperty Name="SanBayTrungGian" ColumnName="SanBayTrungGian" />
-                <ScalarProperty Name="ThoiGianDung" ColumnName="ThoiGianDung" />
-                <ScalarProperty Name="GhiChu" ColumnName="GhiChu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="ChiTietHDs">
             <EntityTypeMapping TypeName="BookingAirLightModel.ChiTietHD">
               <MappingFragment StoreEntitySet="ChiTietHDs">
@@ -780,15 +839,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
                 <ScalarProperty Name="DonGia" ColumnName="DonGia" />
                 <ScalarProperty Name="TongTien" ColumnName="TongTien" />
                 <ScalarProperty Name="MaCB" ColumnName="MaCB" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="ChucVus">
-            <EntityTypeMapping TypeName="BookingAirLightModel.ChucVu">
-              <MappingFragment StoreEntitySet="ChucVus">
-                <ScalarProperty Name="MaCV" ColumnName="MaCV" />
-                <ScalarProperty Name="TenCV" ColumnName="TenCV" />
-                <ScalarProperty Name="ViTri" ColumnName="ViTri" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -804,35 +854,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
                 <ScalarProperty Name="SoLuongGheHang2" ColumnName="SoLuongGheHang2" />
                 <ScalarProperty Name="SoLuongGheHang3" ColumnName="SoLuongGheHang3" />
                 <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DoanhThuNams">
-            <EntityTypeMapping TypeName="BookingAirLightModel.DoanhThuNam">
-              <MappingFragment StoreEntitySet="DoanhThuNams">
-                <ScalarProperty Name="MaDTNam" ColumnName="MaDTNam" />
-                <ScalarProperty Name="MaDTThang" ColumnName="MaDTThang" />
-                <ScalarProperty Name="SoLuongVeBan" ColumnName="SoLuongVeBan" />
-                <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="DoanhThuThangs">
-            <EntityTypeMapping TypeName="BookingAirLightModel.DoanhThuThang">
-              <MappingFragment StoreEntitySet="DoanhThuThangs">
-                <ScalarProperty Name="MaDTThang" ColumnName="MaDTThang" />
-                <ScalarProperty Name="MaHD" ColumnName="MaHD" />
-                <ScalarProperty Name="SoLuongVeBan" ColumnName="SoLuongVeBan" />
-                <ScalarProperty Name="DoanhThu" ColumnName="DoanhThu" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="HangVes">
-            <EntityTypeMapping TypeName="BookingAirLightModel.HangVe">
-              <MappingFragment StoreEntitySet="HangVes">
-                <ScalarProperty Name="MaHV" ColumnName="MaHV" />
-                <ScalarProperty Name="TenHV" ColumnName="TenHV" />
-                <ScalarProperty Name="PhuPhi" ColumnName="PhuPhi" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -865,15 +886,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
                 <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="LoaiKHs">
-            <EntityTypeMapping TypeName="BookingAirLightModel.LoaiKH">
-              <MappingFragment StoreEntitySet="LoaiKHs">
-                <ScalarProperty Name="MaLKH" ColumnName="MaLKH" />
-                <ScalarProperty Name="TenLKH" ColumnName="TenLKH" />
-                <ScalarProperty Name="ChietKhau" ColumnName="ChietKhau" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -932,27 +944,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="SanBays">
-            <EntityTypeMapping TypeName="BookingAirLightModel.SanBay">
-              <MappingFragment StoreEntitySet="SanBays">
-                <ScalarProperty Name="MaSB" ColumnName="MaSB" />
-                <ScalarProperty Name="TenSB" ColumnName="TenSB" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="save_log_chuyenbay">
-            <EntityTypeMapping TypeName="BookingAirLightModel.save_log_chuyenbay">
-              <MappingFragment StoreEntitySet="save_log_chuyenbay">
-                <ScalarProperty Name="Malog" ColumnName="Malog" />
-                <ScalarProperty Name="ThaoTac" ColumnName="ThaoTac" />
-                <ScalarProperty Name="MaCB" ColumnName="MaCB" />
-                <ScalarProperty Name="MaMB" ColumnName="MaMB" />
-                <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
-                <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
-                <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="TuyenBays">
             <EntityTypeMapping TypeName="BookingAirLightModel.TuyenBay">
               <MappingFragment StoreEntitySet="TuyenBays">
@@ -988,15 +979,40 @@ warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a pri
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Wishlists">
-            <EntityTypeMapping TypeName="BookingAirLightModel.Wishlist">
-              <MappingFragment StoreEntitySet="Wishlists">
-                <ScalarProperty Name="MaWL" ColumnName="MaWL" />
+          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="BookingAirLightModel.Store.sp_alterdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="BookingAirLightModel.Store.sp_creatediagram" />
+          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="BookingAirLightModel.Store.sp_dropdiagram" />
+          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="BookingAirLightModel.Store.sp_helpdiagramdefinition">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BookingAirLightModel.sp_helpdiagramdefinition_Result">
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="BookingAirLightModel.Store.sp_helpdiagrams">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BookingAirLightModel.sp_helpdiagrams_Result">
+                <ScalarProperty Name="Database" ColumnName="Database" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Owner" ColumnName="Owner" />
+                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="BookingAirLightModel.Store.sp_renamediagram" />
+          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="BookingAirLightModel.Store.sp_upgraddiagrams" />
+          <EntitySetMapping Name="save_log_chuyenbay1">
+            <EntityTypeMapping TypeName="BookingAirLightModel.save_log_chuyenbay1">
+              <MappingFragment StoreEntitySet="save_log_chuyenbay">
+                <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+                <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+                <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+                <ScalarProperty Name="MaMB" ColumnName="MaMB" />
                 <ScalarProperty Name="MaCB" ColumnName="MaCB" />
-                <ScalarProperty Name="MaKH" ColumnName="MaKH" />
-                <ScalarProperty Name="NgayThem" ColumnName="NgayThem" />
-                <ScalarProperty Name="MaCBVe" ColumnName="MaCBVe" />
-                <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
+                <ScalarProperty Name="ThaoTac" ColumnName="ThaoTac" />
+                <ScalarProperty Name="Malog" ColumnName="Malog" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

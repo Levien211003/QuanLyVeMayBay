@@ -14,6 +14,12 @@ namespace MayBay.Models
     
     public partial class NhanVien
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public NhanVien()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+        }
+    
         public string IDNV { get; set; }
         public string MaCV { get; set; }
         public string UserName { get; set; }
@@ -23,5 +29,8 @@ namespace MayBay.Models
         public string Email_NV { get; set; }
         public string GioiTinh { get; set; }
         public Nullable<System.DateTime> NgaySinh { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

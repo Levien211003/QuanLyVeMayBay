@@ -20,5 +20,7 @@ namespace MayBay.Models
         public string CCCD { get; set; }
         public Nullable<System.DateTime> NgayDat { get; set; }
         public string SoGhe { get; set; }
+    
+        public virtual ChuyenBay ChuyenBay { get; set; }
     }
 }

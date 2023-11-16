@@ -14,6 +14,13 @@ namespace MayBay.Models
     
     public partial class ChuyenBay
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public ChuyenBay()
+        {
+            this.PhieuDatChoes = new HashSet<PhieuDatCho>();
+            this.Ves = new HashSet<Ve>();
+        }
+    
         public string MaCB { get; set; }
         public string MaMB { get; set; }
         public string MaTBay { get; set; }
@@ -23,5 +30,12 @@ namespace MayBay.Models
         public Nullable<int> SoLuongGheHang2 { get; set; }
         public Nullable<int> SoLuongGheHang3 { get; set; }
         public string TinhTrang { get; set; }
+    
+        public virtual MayBay MayBay { get; set; }
+        public virtual TuyenBay TuyenBay { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<PhieuDatCho> PhieuDatChoes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ve> Ves { get; set; }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
@@ -16,10 +17,16 @@ namespace MayBay.Models
         public string ThoiGianBay { get; set; }
         public string NgayGio { get; set; }
         public string TrangThai { get; set; }
-    
+
+        public double ThanhTien()
+        {
+            return SoLuong * Gia;
+        }
+        public double Gia { get; set; }
+        public int SoLuong { get; set; }
 
 
-    
+
 
         public Cart(string MaCB)
         {
@@ -30,6 +37,8 @@ namespace MayBay.Models
             this.TrangThai = CB.TinhTrang;
 
           
+
+            this.SoLuong = 1;
         }
     }
 }

@@ -1,0 +1,65 @@
+﻿@using MayBay.Models
+@using MayBay
+@model List<Cart>
+@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var customer = Session["UserKH"] as AccountInfo;
+}
+<h2 style="text-align:center">THÔNG TIN GIỎ HÀNG</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã Chuyến Bay</th>
+            <th>Mã Máy Bay</th>
+            <th>Mã Tuyến Bay Bay</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var cart in Model)
+        {
+        <tr>
+            <td>@cart.MaCB</td>
+            <td>@cart.MaMB</td>
+            <td>@cart.MaTBay</td>
+
+            @*<td><img src="~/Images/@room.HinhAnh" style="width:100%" /></td>*@
+
+        </tr>
+        }
+        <tr style="font-weight:bold; text-align:right; color:red;">
+        </tr>
+    </tbody>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new
+            { @class = "btn btn - primary" })
+        </td>
+    </tr>
+</table>
+@*<h2 style="text-align:center">THÔNG TIN KHÁCH HÀNG</h2>*@
+@*<table class="table table-bordered">
+    <tr>
+        <td>Họ tên: </td>
+        <td>@customer.FullName</td>
+    </tr>
+    <tr>
+        <td>Địa chỉ: </td>
+        <td>@customer.Address</td>
+    </tr>
+    <tr>
+        <td>Điện thoại: </td>
+        <td>@customer.PhoneNumber</td>
+    </tr>
+    <tr>
+        <td>Ngày đặt: </td>
+        <td>@DateTime.Now.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: center;">
+            @Html.ActionLink("ĐỒNG Ý ĐẶT HÀNG", "DongYDatHang", null, new
+            { @class = "btn btn - primary" })
+        </td>
+    </tr>
+</table>*@

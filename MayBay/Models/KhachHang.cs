@@ -14,6 +14,13 @@ namespace MayBay.Models
     
     public partial class KhachHang
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public KhachHang()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+            this.Ves = new HashSet<Ve>();
+        }
+    
         public string IDKH { get; set; }
         public string CCCD { get; set; }
         public string MaLKH { get; set; }
@@ -25,5 +32,10 @@ namespace MayBay.Models
         public string GioiTinh { get; set; }
         public string NgaySinh { get; set; }
         public string HinhAnh { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Ve> Ves { get; set; }
     }
 }

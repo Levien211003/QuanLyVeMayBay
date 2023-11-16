@@ -12,11 +12,14 @@ namespace MayBay.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class DoanhThuThang
+    public partial class save_log_chuyenbay1
     {
-        public string MaDTThang { get; set; }
-        public string MaHD { get; set; }
-        public Nullable<int> SoLuongVeBan { get; set; }
-        public Nullable<double> DoanhThu { get; set; }
+        public System.DateTime Malog { get; set; }
+        public string ThaoTac { get; set; }
+        public string MaCB { get; set; }
+        public string MaMB { get; set; }
+        public string MaTBay { get; set; }
+        public Nullable<System.DateTime> NgayGio { get; set; }
+        public string ThoiGianBay { get; set; }
     }
 }

@@ -14,11 +14,20 @@ namespace MayBay.Models
     
     public partial class Voucher
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Voucher()
+        {
+            this.HoaDons = new HashSet<HoaDon>();
+        }
+    
         public string MaVC { get; set; }
         public string TenVC { get; set; }
         public Nullable<double> ChietKhau { get; set; }
         public Nullable<System.DateTime> NgayApDung { get; set; }
         public Nullable<System.DateTime> NgayHetHan { get; set; }
         public string TinhTrang { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<HoaDon> HoaDons { get; set; }
     }
 }

@@ -14,7 +14,16 @@ namespace MayBay.Models
     
     public partial class MayBay
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public MayBay()
+        {
+            this.ChuyenBays = new HashSet<ChuyenBay>();
+        }
+    
         public string MaMB { get; set; }
         public string LoaiMayBay { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChuyenBay> ChuyenBays { get; set; }
     }
 }

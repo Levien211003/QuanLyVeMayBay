@@ -22,5 +22,8 @@ namespace MayBay.Models
         public Nullable<double> GiaVe { get; set; }
         public string CCCD { get; set; }
         public string XacNhan { get; set; }
+    
+        public virtual ChuyenBay ChuyenBay { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
     }
 }

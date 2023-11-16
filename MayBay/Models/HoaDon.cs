@@ -14,6 +14,12 @@ namespace MayBay.Models
     
     public partial class HoaDon
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public HoaDon()
+        {
+            this.ChiTietHDs = new HashSet<ChiTietHD>();
+        }
+    
         public string MaHD { get; set; }
         public string IDNV { get; set; }
         public string MaPhi { get; set; }
@@ -23,5 +29,12 @@ namespace MayBay.Models
         public string IDKH { get; set; }
         public string CCCD { get; set; }
         public string MaVC { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ChiTietHD> ChiTietHDs { get; set; }
+        public virtual KhachHang KhachHang { get; set; }
+        public virtual NhanVien NhanVien { get; set; }
+        public virtual Phi Phi { get; set; }
+        public virtual Voucher Voucher { get; set; }
     }
 }

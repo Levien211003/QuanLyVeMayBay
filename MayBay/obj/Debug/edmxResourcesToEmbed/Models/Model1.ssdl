@@ -1,23 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BookingAirLightModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChiTietChuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="ChiTietChuyenBays">
-    <Key>
-      <PropertyRef Name="STT" />
-    </Key>
-    <Property Name="STT" Type="int" Nullable="false" />
-    <Property Name="MaCTCB" Type="varchar" MaxLength="10" />
-    <Property Name="SanBayTrungGian" Type="nvarchar" MaxLength="50" />
-    <Property Name="ThoiGianDung" Type="nvarchar" MaxLength="50" />
-    <Property Name="GhiChu" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChiTietHDs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ChiTietHDs">
     <Key>
       <PropertyRef Name="STT" />
-      <PropertyRef Name="MaHD" />
     </Key>
     <Property Name="STT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaHD" Type="varchar" MaxLength="10" Nullable="false" />
@@ -27,18 +12,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.ChiTietHDs' does not have a pr
     <Property Name="TongTien" Type="float" />
     <Property Name="MaCB" Type="varchar" MaxLength="10" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChucVus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="ChucVus">
-    <Key>
-      <PropertyRef Name="MaCV" />
-    </Key>
-    <Property Name="MaCV" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenCV" Type="nvarchar" MaxLength="50" />
-    <Property Name="ViTri" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.ChuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="ChuyenBays">
     <Key>
       <PropertyRef Name="MaCB" />
@@ -53,40 +26,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.ChuyenBays' does not have a pr
     <Property Name="SoLuongGheHang3" Type="int" />
     <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.DoanhThuNams' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="DoanhThuNams">
-    <Key>
-      <PropertyRef Name="MaDTNam" />
-    </Key>
-    <Property Name="MaDTNam" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="MaDTThang" Type="varchar" MaxLength="10" />
-    <Property Name="SoLuongVeBan" Type="int" />
-    <Property Name="DoanhThu" Type="float" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.DoanhThuThangs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="DoanhThuThangs">
-    <Key>
-      <PropertyRef Name="MaDTThang" />
-    </Key>
-    <Property Name="MaDTThang" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="MaHD" Type="varchar" MaxLength="10" />
-    <Property Name="SoLuongVeBan" Type="int" />
-    <Property Name="DoanhThu" Type="float" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.HangVes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="HangVes">
-    <Key>
-      <PropertyRef Name="MaHV" />
-    </Key>
-    <Property Name="MaHV" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenHV" Type="nvarchar" MaxLength="50" />
-    <Property Name="PhuPhi" Type="float" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.HoaDons' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="HoaDons">
     <Key>
       <PropertyRef Name="MaHD" />
@@ -101,8 +40,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.HoaDons' does not have a prima
     <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
     <Property Name="MaVC" Type="varchar" MaxLength="10" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.KhachHangs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="KhachHangs">
     <Key>
       <PropertyRef Name="IDKH" />
@@ -119,18 +56,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.KhachHangs' does not have a pr
     <Property Name="NgaySinh" Type="nvarchar" MaxLength="50" />
     <Property Name="HinhAnh" Type="nvarchar" MaxLength="500" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.LoaiKHs' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="LoaiKHs">
-    <Key>
-      <PropertyRef Name="MaLKH" />
-    </Key>
-    <Property Name="MaLKH" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenLKH" Type="nvarchar" MaxLength="50" />
-    <Property Name="ChietKhau" Type="float" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.MayBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="MayBays">
     <Key>
       <PropertyRef Name="MaMB" />
@@ -138,8 +63,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.MayBays' does not have a prima
     <Property Name="MaMB" Type="varchar" MaxLength="10" Nullable="false" />
     <Property Name="LoaiMayBay" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.NhanViens' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="NhanViens">
     <Key>
       <PropertyRef Name="IDNV" />
@@ -154,8 +77,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.NhanViens' does not have a pri
     <Property Name="GioiTinh" Type="nvarchar" MaxLength="50" />
     <Property Name="NgaySinh" Type="datetime" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.OrderStatus' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="OrderStatus">
     <Key>
       <PropertyRef Name="IDUser" />
@@ -165,8 +86,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.OrderStatus' does not have a p
     <Property Name="MaCBve" Type="varchar" MaxLength="10" />
     <Property Name="Status" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.PhieuDatChoes' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="PhieuDatChoes">
     <Key>
       <PropertyRef Name="MaPhieu" />
@@ -178,8 +97,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.PhieuDatChoes' does not have a
     <Property Name="NgayDat" Type="datetime" />
     <Property Name="SoGhe" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Phis' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Phis">
     <Key>
       <PropertyRef Name="MaPhi" />
@@ -189,17 +106,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Phis' does not have a primary 
     <Property Name="DonGia" Type="float" />
     <Property Name="DonVi" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.SanBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="SanBays">
-    <Key>
-      <PropertyRef Name="MaSB" />
-    </Key>
-    <Property Name="MaSB" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="TenSB" Type="nvarchar" MaxLength="50" />
-  </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.save_log_chuyenbay' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="save_log_chuyenbay">
     <Key>
       <PropertyRef Name="Malog" />
@@ -222,8 +128,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.save_log_chuyenbay' does not h
     <Property Name="version" Type="int" />
     <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.TuyenBays' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="TuyenBays">
     <Key>
       <PropertyRef Name="MaTBay" />
@@ -232,8 +136,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.TuyenBays' does not have a pri
     <Property Name="SanBayDi" Type="varchar" MaxLength="10" />
     <Property Name="SanBayDen" Type="varchar" MaxLength="10" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Ves' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Ves">
     <Key>
       <PropertyRef Name="MaVe" />
@@ -248,8 +150,6 @@ warning 6002: The table/view 'BookingAirLight.dbo.Ves' does not have a primary k
     <Property Name="CCCD" Type="nvarchar" MaxLength="50" />
     <Property Name="XacNhan" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Vouchers' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="Vouchers">
     <Key>
       <PropertyRef Name="MaVC" />
@@ -261,219 +161,229 @@ warning 6002: The table/view 'BookingAirLight.dbo.Vouchers' does not have a prim
     <Property Name="NgayHetHan" Type="datetime" />
     <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'BookingAirLight.dbo.Wishlists' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="Wishlists">
-    <Key>
-      <PropertyRef Name="MaWL" />
-    </Key>
-    <Property Name="MaWL" Type="varchar" MaxLength="10" Nullable="false" />
-    <Property Name="MaCB" Type="varchar" MaxLength="10" />
-    <Property Name="MaKH" Type="varchar" MaxLength="10" />
-    <Property Name="NgayThem" Type="datetime" />
-    <Property Name="MaCBVe" Type="varchar" MaxLength="10" />
-    <Property Name="SoLuong" Type="int" />
-  </EntityType>
+  <Association Name="FK_ChiTietHD_HoaDon">
+    <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChiTietHDs" Type="Self.ChiTietHDs" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HoaDons">
+        <PropertyRef Name="MaHD" />
+      </Principal>
+      <Dependent Role="ChiTietHDs">
+        <PropertyRef Name="MaHD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenBay_MayBay">
+    <End Role="MayBays" Type="Self.MayBays" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MayBays">
+        <PropertyRef Name="MaMB" />
+      </Principal>
+      <Dependent Role="ChuyenBays">
+        <PropertyRef Name="MaMB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenBay_TuyenBay">
+    <End Role="TuyenBays" Type="Self.TuyenBays" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenBays">
+        <PropertyRef Name="MaTBay" />
+      </Principal>
+      <Dependent Role="ChuyenBays">
+        <PropertyRef Name="MaTBay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_KhachHang1">
+    <End Role="KhachHangs" Type="Self.KhachHangs" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHangs">
+        <PropertyRef Name="IDKH" />
+      </Principal>
+      <Dependent Role="HoaDons">
+        <PropertyRef Name="IDKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_NhanVien">
+    <End Role="NhanViens" Type="Self.NhanViens" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NhanViens">
+        <PropertyRef Name="IDNV" />
+      </Principal>
+      <Dependent Role="HoaDons">
+        <PropertyRef Name="IDNV" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_Phi">
+    <End Role="Phis" Type="Self.Phis" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Phis">
+        <PropertyRef Name="MaPhi" />
+      </Principal>
+      <Dependent Role="HoaDons">
+        <PropertyRef Name="MaPhi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_HoaDon_Voucher">
+    <End Role="Vouchers" Type="Self.Vouchers" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="HoaDons" Type="Self.HoaDons" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vouchers">
+        <PropertyRef Name="MaVC" />
+      </Principal>
+      <Dependent Role="HoaDons">
+        <PropertyRef Name="MaVC" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PhieuDatCho_ChuyenBay">
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="0..1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="PhieuDatChoes" Type="Self.PhieuDatChoes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenBays">
+        <PropertyRef Name="MaCB" />
+      </Principal>
+      <Dependent Role="PhieuDatChoes">
+        <PropertyRef Name="MaCB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ve_ChuyenBay">
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="Ves" Type="Self.Ves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ChuyenBays">
+        <PropertyRef Name="MaCB" />
+      </Principal>
+      <Dependent Role="Ves">
+        <PropertyRef Name="MaCB" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Ve_KhachHang">
+    <End Role="KhachHangs" Type="Self.KhachHangs" Multiplicity="0..1" />
+    <End Role="Ves" Type="Self.Ves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHangs">
+        <PropertyRef Name="IDKH" />
+      </Principal>
+      <Dependent Role="Ves">
+        <PropertyRef Name="IDKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="BookingAirLightModelStoreContainer">
+    <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHDs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HoaDons" EntityType="Self.HoaDons" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHangs" EntityType="Self.KhachHangs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MayBays" EntityType="Self.MayBays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NhanViens" EntityType="Self.NhanViens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PhieuDatChoes" EntityType="Self.PhieuDatChoes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Phis" EntityType="Self.Phis" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="save_log_chuyenbay" EntityType="Self.save_log_chuyenbay" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ChiTietChuyenBays" EntityType="Self.ChiTietChuyenBays" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ChiTietChuyenBays].[STT] AS [STT], 
-    [ChiTietChuyenBays].[MaCTCB] AS [MaCTCB], 
-    [ChiTietChuyenBays].[SanBayTrungGian] AS [SanBayTrungGian], 
-    [ChiTietChuyenBays].[ThoiGianDung] AS [ThoiGianDung], 
-    [ChiTietChuyenBays].[GhiChu] AS [GhiChu]
-    FROM [dbo].[ChiTietChuyenBays] AS [ChiTietChuyenBays]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ChiTietHDs" EntityType="Self.ChiTietHDs" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ChiTietHDs].[STT] AS [STT], 
-    [ChiTietHDs].[MaHD] AS [MaHD], 
-    [ChiTietHDs].[MaVe] AS [MaVe], 
-    [ChiTietHDs].[SoLuong] AS [SoLuong], 
-    [ChiTietHDs].[DonGia] AS [DonGia], 
-    [ChiTietHDs].[TongTien] AS [TongTien], 
-    [ChiTietHDs].[MaCB] AS [MaCB]
-    FROM [dbo].[ChiTietHDs] AS [ChiTietHDs]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ChucVus" EntityType="Self.ChucVus" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ChucVus].[MaCV] AS [MaCV], 
-    [ChucVus].[TenCV] AS [TenCV], 
-    [ChucVus].[ViTri] AS [ViTri]
-    FROM [dbo].[ChucVus] AS [ChucVus]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBays" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [ChuyenBays].[MaCB] AS [MaCB], 
-    [ChuyenBays].[MaMB] AS [MaMB], 
-    [ChuyenBays].[MaTBay] AS [MaTBay], 
-    [ChuyenBays].[NgayGio] AS [NgayGio], 
-    [ChuyenBays].[ThoiGianBay] AS [ThoiGianBay], 
-    [ChuyenBays].[SoLuongGheHang1] AS [SoLuongGheHang1], 
-    [ChuyenBays].[SoLuongGheHang2] AS [SoLuongGheHang2], 
-    [ChuyenBays].[SoLuongGheHang3] AS [SoLuongGheHang3], 
-    [ChuyenBays].[TinhTrang] AS [TinhTrang]
-    FROM [dbo].[ChuyenBays] AS [ChuyenBays]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="DoanhThuNams" EntityType="Self.DoanhThuNams" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DoanhThuNams].[MaDTNam] AS [MaDTNam], 
-    [DoanhThuNams].[MaDTThang] AS [MaDTThang], 
-    [DoanhThuNams].[SoLuongVeBan] AS [SoLuongVeBan], 
-    [DoanhThuNams].[DoanhThu] AS [DoanhThu]
-    FROM [dbo].[DoanhThuNams] AS [DoanhThuNams]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="DoanhThuThangs" EntityType="Self.DoanhThuThangs" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [DoanhThuThangs].[MaDTThang] AS [MaDTThang], 
-    [DoanhThuThangs].[MaHD] AS [MaHD], 
-    [DoanhThuThangs].[SoLuongVeBan] AS [SoLuongVeBan], 
-    [DoanhThuThangs].[DoanhThu] AS [DoanhThu]
-    FROM [dbo].[DoanhThuThangs] AS [DoanhThuThangs]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="HangVes" EntityType="Self.HangVes" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [HangVes].[MaHV] AS [MaHV], 
-    [HangVes].[TenHV] AS [TenHV], 
-    [HangVes].[PhuPhi] AS [PhuPhi]
-    FROM [dbo].[HangVes] AS [HangVes]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="HoaDons" EntityType="Self.HoaDons" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [HoaDons].[MaHD] AS [MaHD], 
-    [HoaDons].[IDNV] AS [IDNV], 
-    [HoaDons].[MaPhi] AS [MaPhi], 
-    [HoaDons].[TinhTrang] AS [TinhTrang], 
-    [HoaDons].[NgayLap] AS [NgayLap], 
-    [HoaDons].[ThanhTien] AS [ThanhTien], 
-    [HoaDons].[IDKH] AS [IDKH], 
-    [HoaDons].[CCCD] AS [CCCD], 
-    [HoaDons].[MaVC] AS [MaVC]
-    FROM [dbo].[HoaDons] AS [HoaDons]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="KhachHangs" EntityType="Self.KhachHangs" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [KhachHangs].[IDKH] AS [IDKH], 
-    [KhachHangs].[CCCD] AS [CCCD], 
-    [KhachHangs].[MaLKH] AS [MaLKH], 
-    [KhachHangs].[UserName] AS [UserName], 
-    [KhachHangs].[Password] AS [Password], 
-    [KhachHangs].[TenKH] AS [TenKH], 
-    [KhachHangs].[SDT] AS [SDT], 
-    [KhachHangs].[Email] AS [Email], 
-    [KhachHangs].[GioiTinh] AS [GioiTinh], 
-    [KhachHangs].[NgaySinh] AS [NgaySinh], 
-    [KhachHangs].[HinhAnh] AS [HinhAnh]
-    FROM [dbo].[KhachHangs] AS [KhachHangs]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="LoaiKHs" EntityType="Self.LoaiKHs" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [LoaiKHs].[MaLKH] AS [MaLKH], 
-    [LoaiKHs].[TenLKH] AS [TenLKH], 
-    [LoaiKHs].[ChietKhau] AS [ChietKhau]
-    FROM [dbo].[LoaiKHs] AS [LoaiKHs]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="MayBays" EntityType="Self.MayBays" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [MayBays].[MaMB] AS [MaMB], 
-    [MayBays].[LoaiMayBay] AS [LoaiMayBay]
-    FROM [dbo].[MayBays] AS [MayBays]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="NhanViens" EntityType="Self.NhanViens" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [NhanViens].[IDNV] AS [IDNV], 
-    [NhanViens].[MaCV] AS [MaCV], 
-    [NhanViens].[UserName] AS [UserName], 
-    [NhanViens].[Password] AS [Password], 
-    [NhanViens].[TenNV] AS [TenNV], 
-    [NhanViens].[SDT_NV] AS [SDT_NV], 
-    [NhanViens].[Email_NV] AS [Email_NV], 
-    [NhanViens].[GioiTinh] AS [GioiTinh], 
-    [NhanViens].[NgaySinh] AS [NgaySinh]
-    FROM [dbo].[NhanViens] AS [NhanViens]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [OrderStatus].[IDUser] AS [IDUser], 
-    [OrderStatus].[MaCBdi] AS [MaCBdi], 
-    [OrderStatus].[MaCBve] AS [MaCBve], 
-    [OrderStatus].[Status] AS [Status]
-    FROM [dbo].[OrderStatus] AS [OrderStatus]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="PhieuDatChoes" EntityType="Self.PhieuDatChoes" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [PhieuDatChoes].[MaPhieu] AS [MaPhieu], 
-    [PhieuDatChoes].[MaCB] AS [MaCB], 
-    [PhieuDatChoes].[IDKH] AS [IDKH], 
-    [PhieuDatChoes].[CCCD] AS [CCCD], 
-    [PhieuDatChoes].[NgayDat] AS [NgayDat], 
-    [PhieuDatChoes].[SoGhe] AS [SoGhe]
-    FROM [dbo].[PhieuDatChoes] AS [PhieuDatChoes]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Phis" EntityType="Self.Phis" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Phis].[MaPhi] AS [MaPhi], 
-    [Phis].[TenPhi] AS [TenPhi], 
-    [Phis].[DonGia] AS [DonGia], 
-    [Phis].[DonVi] AS [DonVi]
-    FROM [dbo].[Phis] AS [Phis]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="SanBays" EntityType="Self.SanBays" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [SanBays].[MaSB] AS [MaSB], 
-    [SanBays].[TenSB] AS [TenSB]
-    FROM [dbo].[SanBays] AS [SanBays]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="save_log_chuyenbay" EntityType="Self.save_log_chuyenbay" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [save_log_chuyenbay].[Malog] AS [Malog], 
-    [save_log_chuyenbay].[ThaoTac] AS [ThaoTac], 
-    [save_log_chuyenbay].[MaCB] AS [MaCB], 
-    [save_log_chuyenbay].[MaMB] AS [MaMB], 
-    [save_log_chuyenbay].[MaTBay] AS [MaTBay], 
-    [save_log_chuyenbay].[NgayGio] AS [NgayGio], 
-    [save_log_chuyenbay].[ThoiGianBay] AS [ThoiGianBay]
-    FROM [dbo].[save_log_chuyenbay] AS [save_log_chuyenbay]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="TuyenBays" EntityType="Self.TuyenBays" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [TuyenBays].[MaTBay] AS [MaTBay], 
-    [TuyenBays].[SanBayDi] AS [SanBayDi], 
-    [TuyenBays].[SanBayDen] AS [SanBayDen]
-    FROM [dbo].[TuyenBays] AS [TuyenBays]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Ves" EntityType="Self.Ves" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Ves].[MaVe] AS [MaVe], 
-    [Ves].[MaCB] AS [MaCB], 
-    [Ves].[MaHV] AS [MaHV], 
-    [Ves].[IDKH] AS [IDKH], 
-    [Ves].[TinhTrang] AS [TinhTrang], 
-    [Ves].[GiaVe] AS [GiaVe], 
-    [Ves].[CCCD] AS [CCCD], 
-    [Ves].[XacNhan] AS [XacNhan]
-    FROM [dbo].[Ves] AS [Ves]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Vouchers" EntityType="Self.Vouchers" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Vouchers].[MaVC] AS [MaVC], 
-    [Vouchers].[TenVC] AS [TenVC], 
-    [Vouchers].[ChietKhau] AS [ChietKhau], 
-    [Vouchers].[NgayApDung] AS [NgayApDung], 
-    [Vouchers].[NgayHetHan] AS [NgayHetHan], 
-    [Vouchers].[TinhTrang] AS [TinhTrang]
-    FROM [dbo].[Vouchers] AS [Vouchers]</DefiningQuery>
-    </EntitySet>
-    <EntitySet Name="Wishlists" EntityType="Self.Wishlists" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Wishlists].[MaWL] AS [MaWL], 
-    [Wishlists].[MaCB] AS [MaCB], 
-    [Wishlists].[MaKH] AS [MaKH], 
-    [Wishlists].[NgayThem] AS [NgayThem], 
-    [Wishlists].[MaCBVe] AS [MaCBVe], 
-    [Wishlists].[SoLuong] AS [SoLuong]
-    FROM [dbo].[Wishlists] AS [Wishlists]</DefiningQuery>
-    </EntitySet>
+    <EntitySet Name="TuyenBays" EntityType="Self.TuyenBays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Ves" EntityType="Self.Ves" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vouchers" EntityType="Self.Vouchers" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ChiTietHD_HoaDon" Association="Self.FK_ChiTietHD_HoaDon">
+      <End Role="HoaDons" EntitySet="HoaDons" />
+      <End Role="ChiTietHDs" EntitySet="ChiTietHDs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChuyenBay_MayBay" Association="Self.FK_ChuyenBay_MayBay">
+      <End Role="MayBays" EntitySet="MayBays" />
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChuyenBay_TuyenBay" Association="Self.FK_ChuyenBay_TuyenBay">
+      <End Role="TuyenBays" EntitySet="TuyenBays" />
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_KhachHang1" Association="Self.FK_HoaDon_KhachHang1">
+      <End Role="KhachHangs" EntitySet="KhachHangs" />
+      <End Role="HoaDons" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_NhanVien" Association="Self.FK_HoaDon_NhanVien">
+      <End Role="NhanViens" EntitySet="NhanViens" />
+      <End Role="HoaDons" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_Phi" Association="Self.FK_HoaDon_Phi">
+      <End Role="Phis" EntitySet="Phis" />
+      <End Role="HoaDons" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_HoaDon_Voucher" Association="Self.FK_HoaDon_Voucher">
+      <End Role="Vouchers" EntitySet="Vouchers" />
+      <End Role="HoaDons" EntitySet="HoaDons" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PhieuDatCho_ChuyenBay" Association="Self.FK_PhieuDatCho_ChuyenBay">
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+      <End Role="PhieuDatChoes" EntitySet="PhieuDatChoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ve_ChuyenBay" Association="Self.FK_Ve_ChuyenBay">
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+      <End Role="Ves" EntitySet="Ves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Ve_KhachHang" Association="Self.FK_Ve_KhachHang">
+      <End Role="KhachHangs" EntitySet="KhachHangs" />
+      <End Role="Ves" EntitySet="Ves" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

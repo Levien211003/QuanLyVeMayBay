@@ -21,5 +21,7 @@ namespace MayBay.Models
         public Nullable<double> DonGia { get; set; }
         public Nullable<double> TongTien { get; set; }
         public string MaCB { get; set; }
+    
+        public virtual HoaDon HoaDon { get; set; }
     }
 }

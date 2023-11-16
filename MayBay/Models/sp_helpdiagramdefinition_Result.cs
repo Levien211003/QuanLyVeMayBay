@@ -10,11 +10,10 @@
 namespace MayBay.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class SanBay
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public string MaSB { get; set; }
-        public string TenSB { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

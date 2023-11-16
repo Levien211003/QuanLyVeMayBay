@@ -10,12 +10,13 @@
 namespace MayBay.Models
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class ChucVu
+    public partial class sp_helpdiagrams_Result
     {
-        public string MaCV { get; set; }
-        public string TenCV { get; set; }
-        public string ViTri { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

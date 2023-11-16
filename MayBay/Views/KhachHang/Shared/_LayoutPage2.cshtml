@@ -43,7 +43,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "KhachHang")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Session["TaiKhoan"] != null)
+                    @if (Session["UserKH"] != null)
                     {
                         <a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a>
                     }

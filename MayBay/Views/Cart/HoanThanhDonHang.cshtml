@@ -1,0 +1,28 @@
+﻿@using MayBay.Models
+@using MayBay
+
+@{
+    ViewBag.Title = "Hoàn thành đơn hàng";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var customer = Session["UserKH"] as AccountInfo;
+
+}
+
+<div class="container">
+    <h2>Thành công!</h2>
+    <p>Đơn hàng của bạn đã được đặt thành công.</p>
+    <p>Cảm ơn bạn đã tin tưởng và mua hàng từ chúng tôi!</p>
+
+
+
+    <h4>Thông tin người đặt hàng:</h4>
+    <p>Tên: @customer.FullName</p>
+    <p>Số điện thoại: @customer.PhoneNumber</p>
+    <p>Email: @customer.Email</p>
+
+
+    @*<h4>Thông tin đặt phòng:</h4>
+        <p>Ngày nhận phòng: @Model.CheckInDate</p>
+        <p>Ngày trả phòng: @Model.CheckOutDate</p>*@
+</div>
