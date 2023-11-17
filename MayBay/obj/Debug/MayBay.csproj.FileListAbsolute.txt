@@ -80,3 +80,8 @@ C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\EntityFramework.dll
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\EntityFramework.SqlServer.dll
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\EntityFramework.xml
 C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\EntityFramework.SqlServer.xml
+C:\Users\Mr.Vien\source\repos\MayBay\MayBay\obj\Debug\MayBay.csproj.AssemblyReference.cache
+C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\PagedList.dll
+C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\PagedList.Mvc.dll
+C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\PagedList.xml
+C:\Users\Mr.Vien\source\repos\MayBay\MayBay\bin\PagedList.Mvc.xml

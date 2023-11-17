@@ -11,7 +11,7 @@ namespace MayBay.Models
     {
         
         BookingAirLightEntities db = new BookingAirLightEntities();
-        public string MaCB { get; set; }
+        public string MaCBay { get; set; }
         public int MaMB { get; set; }
         public int MaTBay { get; set; }
         public string ThoiGianBay { get; set; }
@@ -30,11 +30,11 @@ namespace MayBay.Models
 
         public Cart(string MaCB)
         {
-            this.MaCB = MaCB;
-            var CB = db.ChuyenBays.Single(s => s.MaCB == this.MaCB.ToString());
-            this.ThoiGianBay = CB.ThoiGianBay;
-            this.NgayGio = CB.NgayGio.ToString();
-            this.TrangThai = CB.TinhTrang;
+            this.MaCBay = MaCB;
+            var chuyenbay = db.ChuyenBays.Single(s => s.MaCB == this.MaCBay);
+            this.ThoiGianBay = chuyenbay.ThoiGianBay;
+            this.NgayGio = chuyenbay.NgayGio.ToString();
+            this.TrangThai = chuyenbay.TinhTrang;
 
           
 

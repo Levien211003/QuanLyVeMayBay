@@ -52,6 +52,12 @@
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -136,6 +142,7 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuyenBaysController.cs" />
     <Compile Include="Areas\Admin\Controllers\MayBaysController.cs" />
+    <Compile Include="Areas\Admin\Controllers\QLDHController.cs" />
     <Compile Include="Areas\Admin\Controllers\TuyenBaysController.cs" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -220,6 +227,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Data\Avatar\135017829_1026004181228801_2637032699560275_n-1.jpg" />
     <Content Include="Data\Avatar\135017829_1026004181228801_2637032699560275_n-10.jpg" />
     <Content Include="Data\Avatar\135017829_1026004181228801_2637032699560275_n-2.jpg" />
@@ -390,6 +398,16 @@
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\ChuyenBays\Index.cshtml" />
     <Content Include="Areas\Admin\Views\MayBays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenBays\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenBays\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\ChuyenBays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\MayBays\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\MayBays\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\MayBays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenBays\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenBays\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenBays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\TuyenBays\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -519,6 +537,8 @@
     <Content Include="Views\KhachHangHA\TrangChu.cshtml" />
     <Content Include="Views\LoginUser\ForgotPassword.cshtml" />
     <Content Include="Views\LoginUser\ResetPass.cshtml" />
+    <Content Include="Views\Cart\LichSuDatHang.cshtml" />
+    <Content Include="Views\KhachHang\Shared\_LayoutPage3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

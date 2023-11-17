@@ -1,0 +1,121 @@
+﻿@using MayBay.Models
+@inherits System.Web.Mvc.WebViewPage<List<TuyenBay>>
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-pdKg0WXWNAdn4IVpvjPRzPqyp+22Vj4J6VFI4FxCk99i3LepJcE5r7Q1pAMarPr/RmuOsAxVQkD0Dh7+L4Zww=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f8ff;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .list-title {
+        text-align: center;
+        background-color: #20b2aa;
+        color: white;
+        padding: 20px;
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+
+    .action-links a {
+        color: #20b2aa;
+        margin-right: 10px;
+        text-decoration: none;
+    }
+
+        .action-links a:hover {
+            text-decoration: underline;
+        }
+
+    .card {
+        width: 18rem;
+        height: 100%;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        background-color: #fffacd;
+        border-radius: 8px;
+    }
+
+    .card-header {
+        background-color: #20b2aa;
+        color: white;
+        font-weight: bold;
+        flex: 0 0 auto;
+        padding: 15px;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+    }
+
+    .card-body {
+        padding: 15px;
+        flex: 1 1 auto;
+    }
+
+    .hotel-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+        border-radius: 4px;
+    }
+
+    .hotel-details {
+        font-size: 18px;
+        margin-bottom: 5px;
+    }
+
+    .card-footer {
+        flex: 0 0 auto;
+        padding: 15px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+</style>
+
+<div class="list-title">
+    <h1>Danh Sách Khách Sạn</h1>
+</div>
+
+<p>
+    @Html.ActionLink("Thêm khách sạn mới", "Create", null, new { @class = "btn btn-primary" })
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-header">
+                    @Html.DisplayFor(modelItem => item.hotel_name)
+                </div>
+                <div class="card-body">
+                    <img src="/Images/@item.ImageName" alt="@item.hotel_name" class="hotel-image" />
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.address)
+                    </div>
+                    <div class="hotel-details">
+                        @Html.DisplayFor(modelItem => item.phone_number)
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <div class="action-links">
+                        @Html.ActionLink("Chỉnh sửa", "Edit", new { id = item.hotel_id }, new { @class = "btn btn-outline-primary" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.hotel_id }, new { @class = "btn btn-outline-danger" }) |
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

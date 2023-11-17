@@ -65,11 +65,11 @@
         <div>
             @foreach (var chuyenBay in Model)
             {
-                var imageFileName = "r" + chuyenBay.MaCB;
-                <a href="@Url.Action("Details", "KhachHang", new { id = chuyenBay.MaCB })">
+                var imageFileName = "r" + chuyenBay.MaCBay;
+                <a href="@Url.Action("Details", "KhachHang", new { id = chuyenBay.MaCBay })">
                     <div class="cart-item">
                         <img class="card-img-top hotel-picture" src="~/hinh/@(imageFileName).jpg" alt=" Image 1">
-                        <h4>Mã chuyến bay: @chuyenBay.MaCB</h4>
+                        <h4>Mã chuyến bay: @chuyenBay.MaCBay</h4>
                         <h4>Thời Gian Bay: @chuyenBay.ThoiGianBay</h4>
                         <h4>Ngày Giờ: @chuyenBay.NgayGio</h4>
                     </div>

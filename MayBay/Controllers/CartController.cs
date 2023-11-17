@@ -1,6 +1,8 @@
 ﻿using MayBay.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+
 using System.Linq;
 using System.Web.Mvc;
 
@@ -29,14 +31,17 @@ namespace MayBay.Controllers
         public ActionResult AddTicketToCart(string MaCB)
         {
             List<Cart> carts = GetCarts();
-            Cart chuyenBay = carts.FirstOrDefault(s => s.MaCB == MaCB);
+            Cart chuyenBay = carts.FirstOrDefault(s => s.MaCBay == MaCB);
             if (chuyenBay == null)
             {
                 chuyenBay = new Cart(MaCB);
                 carts.Add(chuyenBay);
             }
-           
-            return RedirectToAction("HienThiGioHang", "Cart", new { id = chuyenBay.MaCB });
+            else
+            {
+                chuyenBay.SoLuong++;
+            }
+            return RedirectToAction("HienThiGioHang", "Cart", new { id = chuyenBay.MaCBay });
         }
 
         private double TongSL()

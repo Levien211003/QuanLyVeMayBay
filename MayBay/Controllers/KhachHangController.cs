@@ -1,6 +1,8 @@
 ﻿using MayBay.Models;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using PagedList;
+
 using System.Linq;
 
 namespace MayBay.Controllers
@@ -14,11 +16,15 @@ namespace MayBay.Controllers
         {
             return View();
         }
-
-        public ActionResult DSachCB()
+   
+        public ActionResult DSachCB(int? page)
         {
-            var recentlyUpdatedCB = GetChuyenBays();
-            return View(recentlyUpdatedCB);
+            int PageSize = 18;
+            int PageNum = (page ?? 1);
+
+
+            var chuyenBays = GetChuyenBays();
+            return View(chuyenBays.ToPagedList(PageNum, PageSize));
         }
 
         private List<ChuyenBay> GetChuyenBays()

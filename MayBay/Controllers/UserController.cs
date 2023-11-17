@@ -1,6 +1,7 @@
 ﻿using MayBay.Models;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -28,9 +29,16 @@ namespace MayBay.Controllers
             }
             else if (data != null)
             {
-                //add session
+                Debug.WriteLine($"test null data: {data.IDKH}");
+                var accountInfo = new AccountInfo
+                {
+                    TenKH = data.TenKH,
+                    Email = data.Email,
+                    SDT = data.SDT,
+                };
+                Session["userKH"] = accountInfo;
                 database.Configuration.ValidateOnSaveEnabled = false;
-                Session["userKH"] = data;
+               
                 return RedirectToAction("TrangChu", "KhachHang");
             }
             return View();

@@ -1,0 +1,81 @@
+﻿@model List<MayBay.Models.Ve>
+
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    h2 {
+        color: #333;
+    }
+
+    /* Add some basic styling to the table */
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #3498db;
+        color: #fff;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #e5e5e5;
+    }
+</style>
+
+@{
+    Layout = "~/Views/Shared/_3.cshtml";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lịch Sử Đặt Hàng</title>
+</head>
+<body>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <h2>Lịch Sử Đặt Hàng</h2>
+
+        <table class="table">
+            <tr>
+                <th>Mã Đặt Hàng</th>
+                <th>Mã Phòng</th>
+                <th>Ngày Nhận Phòng</th>
+                <th>Ngày Trả Phòng</th>
+                <th>Trạng Thái</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.booking_id</td>
+                    <td>@item.room_id</td>
+                    <td>@item.ngay_nhan_phong.ToString("dd/MM/yyyy")</td>
+                    <td>@item.ngay_tra_phong.ToString("dd/MM/yyyy")</td>
+                    <td>@item.trang_thai</td>
+                    <!-- Thêm các ô dữ liệu khác cần hiển thị -->
+                </tr>
+            }
+        </table>
+    </div>
+
+</body>
+</html>
