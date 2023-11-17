@@ -9,7 +9,7 @@ namespace MayBay.Controllers
 {
     public class KhachHangController : Controller
     {
-        BookingAirLightEntities database = new BookingAirLightEntities();
+        BookingAirLineEntities1 database = new BookingAirLineEntities1();
 
         // GET: KhachHang
         public ActionResult TrangChu()
@@ -32,7 +32,7 @@ namespace MayBay.Controllers
             return database.ChuyenBays.OrderBy(r => r.MaCB).ToList();
         }
 
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
             ChuyenBay chuyenBay = database.ChuyenBays.FirstOrDefault(r => r.MaCB == id);
 

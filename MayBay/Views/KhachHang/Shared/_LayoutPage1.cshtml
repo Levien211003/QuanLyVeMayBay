@@ -1,6 +1,6 @@
 ﻿@using MayBay.Models;
 @{
-    BookingAirLightEntities db01 = new BookingAirLightEntities();
+    BookingAirLineEntities1 db01 = new BookingAirLineEntities1();
 }
 <!DOCTYPE html>
 
@@ -43,15 +43,17 @@
                     <li>@Html.ActionLink("Contact", "Contact", "KhachHang")</li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    @if (Session["UserKH"] != null)
+                    @if (Session["TaiKhoan"] != null)
                     {
-                        <a href="@Url.Action("LogOut", "LoginUser")" class="logout-text">Đăng xuất</a>
+                        <a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a>
                     }
                     else
                     {
-                        <li><a href="~/LoginUser/Login"><span class="fa fa-user"></span> Login</a></li>
-                        <li><a href="@Url.Action("SignUp","LoginUser")">Register</a></li>
+                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Login</a></li>
+                        <li><a href="@Url.Action("SignUp","User")">Register</a></li>
                     }
+                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ Hàng</a></li>
+                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch Sử </a></li>
 
                 </ul>
             </div>

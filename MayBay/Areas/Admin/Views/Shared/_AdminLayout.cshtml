@@ -67,7 +67,7 @@
 <body>
     <nav class="navbar navbar-expand-sm">
         <div class="container-fluid row">
-            <div class="col-md-2"><img src="~/Images/logo.png"></div>
+            <div class="col-md-2"><img src="~/hinh/logo.png"></div>
             <!-- Links -->
             <button class="navbar-toggler btn btn-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
                 <span class="navbar-toggler-icon"></span>
@@ -75,10 +75,13 @@
             <div class="collapse navbar-collapse justify-content-center col-md-8" id="collapsibleNavbar">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Hotels")"><i class="bi bi-receipt-cutoff"></i> Quản lý khách sạn</a>
+                        <a class="nav-link" href="@Url.Action("Index","ChuyenBays")"><i class="bi bi-receipt-cutoff"></i> Quản lý Chuyến Bay</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="@Url.Action("Index","Room")"> <i class="bi bi-book"></i> Quản lý phòng</a>
+                        <a class="nav-link" href="@Url.Action("Index","MayBays")"> <i class="bi bi-book"></i> Quản lý Máy Bay</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Index","TuyenBays")"> <i class="bi bi-book"></i> Quản lý Tuyến Bay</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="@Url.Action("Index","QLDH")"><i class="bi bi-shop"></i> Quản lý đơn hàng</a>

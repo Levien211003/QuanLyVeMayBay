@@ -1,0 +1,416 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BookingAirLineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="account_id" />
+          </Key>
+          <Property Name="account_id" Type="int" Nullable="false" />
+          <Property Name="username" Type="nvarchar" MaxLength="50" />
+          <Property Name="password" Type="nvarchar" MaxLength="50" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="is_admin" Type="bit" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="int" Nullable="false" />
+          <Property Name="MaCB" Type="int" />
+          <Property Name="customer_id" Type="int" />
+          <Property Name="ngay_bay" Type="date" />
+          <Property Name="trang_thai" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="ChuyenBay">
+          <Key>
+            <PropertyRef Name="MaCB" />
+          </Key>
+          <Property Name="MaCB" Type="int" Nullable="false" />
+          <Property Name="MaMB" Type="int" />
+          <Property Name="MaTBay" Type="int" />
+          <Property Name="NgayGio" Type="datetime" />
+          <Property Name="ThoiGianBay" Type="int" />
+          <Property Name="SoLuongGheHang1" Type="int" />
+          <Property Name="SoLuongGheHang2" Type="int" />
+          <Property Name="SoLuongGheHang3" Type="int" />
+          <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
+          <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="int" Nullable="false" />
+          <Property Name="full_name" Type="nvarchar" MaxLength="50" />
+          <Property Name="address" Type="nvarchar" MaxLength="100" />
+          <Property Name="phone_number" Type="nvarchar" MaxLength="20" />
+          <Property Name="email" Type="nvarchar" MaxLength="50" />
+          <Property Name="CCCD" Type="nvarchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="MayBay">
+          <Key>
+            <PropertyRef Name="MaMB" />
+          </Key>
+          <Property Name="MaMB" Type="int" Nullable="false" />
+          <Property Name="LoaiMayBay" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TuyenBay">
+          <Key>
+            <PropertyRef Name="MaTBay" />
+          </Key>
+          <Property Name="MaTBay" Type="int" Nullable="false" />
+          <Property Name="SanBayDi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SanBayDen" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK__ChuyenBay__MaMB__412EB0B6">
+          <End Role="MayBay" Type="Self.MayBay" Multiplicity="0..1" />
+          <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MayBay">
+              <PropertyRef Name="MaMB" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaMB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChuyenBay__MaTBa__4222D4EF">
+          <End Role="TuyenBay" Type="Self.TuyenBay" Multiplicity="0..1" />
+          <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Account_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Account" Type="Self.Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_ChuyenBay">
+          <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBay">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Customer">
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookingAirLineModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ChuyenBay" EntityType="Self.ChuyenBay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MayBay" EntityType="Self.MayBay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TuyenBay" EntityType="Self.TuyenBay" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__ChuyenBay__MaMB__412EB0B6" Association="Self.FK__ChuyenBay__MaMB__412EB0B6">
+            <End Role="MayBay" EntitySet="MayBay" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBay" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChuyenBay__MaTBa__4222D4EF" Association="Self.FK__ChuyenBay__MaTBa__4222D4EF">
+            <End Role="TuyenBay" EntitySet="TuyenBay" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBay" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Customer" Association="Self.FK_Account_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Account" EntitySet="Account" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_ChuyenBay" Association="Self.FK_Booking_ChuyenBay">
+            <End Role="ChuyenBay" EntitySet="ChuyenBay" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Customer" Association="Self.FK_Booking_Customer">
+            <End Role="Customer" EntitySet="Customer" />
+            <End Role="Booking" EntitySet="Booking" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BookingAirLineModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="account_id" />
+          </Key>
+          <Property Name="account_id" Type="Int32" Nullable="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="is_admin" Type="Boolean" />
+          <NavigationProperty Name="Customer" Relationship="BookingAirLineModel.FK_Account_Customer" FromRole="Account" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="booking_id" />
+          </Key>
+          <Property Name="booking_id" Type="Int32" Nullable="false" />
+          <Property Name="MaCB" Type="Int32" />
+          <Property Name="customer_id" Type="Int32" />
+          <Property Name="ngay_bay" Type="DateTime" Precision="0" />
+          <Property Name="trang_thai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBay" Relationship="BookingAirLineModel.FK_Booking_ChuyenBay" FromRole="Booking" ToRole="ChuyenBay" />
+          <NavigationProperty Name="Customer" Relationship="BookingAirLineModel.FK_Booking_Customer" FromRole="Booking" ToRole="Customer" />
+        </EntityType>
+        <EntityType Name="ChuyenBay">
+          <Key>
+            <PropertyRef Name="MaCB" />
+          </Key>
+          <Property Name="MaCB" Type="Int32" Nullable="false" />
+          <Property Name="MaMB" Type="Int32" />
+          <Property Name="MaTBay" Type="Int32" />
+          <Property Name="NgayGio" Type="DateTime" Precision="3" />
+          <Property Name="ThoiGianBay" Type="Int32" />
+          <Property Name="SoLuongGheHang1" Type="Int32" />
+          <Property Name="SoLuongGheHang2" Type="Int32" />
+          <Property Name="SoLuongGheHang3" Type="Int32" />
+          <Property Name="TinhTrang" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MayBay" Relationship="Self.FK__ChuyenBay__MaMB__412EB0B6" FromRole="ChuyenBay" ToRole="MayBay" />
+          <NavigationProperty Name="TuyenBay" Relationship="Self.FK__ChuyenBay__MaTBa__4222D4EF" FromRole="ChuyenBay" ToRole="TuyenBay" />
+          <NavigationProperty Name="Bookings" Relationship="BookingAirLineModel.FK_Booking_ChuyenBay" FromRole="ChuyenBay" ToRole="Booking" />
+          <Property Name="HinhAnh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="customer_id" />
+          </Key>
+          <Property Name="customer_id" Type="Int32" Nullable="false" />
+          <Property Name="full_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="phone_number" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CCCD" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Accounts" Relationship="BookingAirLineModel.FK_Account_Customer" FromRole="Customer" ToRole="Account" />
+          <NavigationProperty Name="Bookings" Relationship="BookingAirLineModel.FK_Booking_Customer" FromRole="Customer" ToRole="Booking" />
+        </EntityType>
+        <EntityType Name="MayBay">
+          <Key>
+            <PropertyRef Name="MaMB" />
+          </Key>
+          <Property Name="MaMB" Type="Int32" Nullable="false" />
+          <Property Name="LoaiMayBay" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBays" Relationship="Self.FK__ChuyenBay__MaMB__412EB0B6" FromRole="MayBay" ToRole="ChuyenBay" />
+        </EntityType>
+        <EntityType Name="TuyenBay">
+          <Key>
+            <PropertyRef Name="MaTBay" />
+          </Key>
+          <Property Name="MaTBay" Type="Int32" Nullable="false" />
+          <Property Name="SanBayDi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SanBayDen" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ChuyenBays" Relationship="Self.FK__ChuyenBay__MaTBa__4222D4EF" FromRole="TuyenBay" ToRole="ChuyenBay" />
+        </EntityType>
+        <Association Name="FK__ChuyenBay__MaMB__412EB0B6">
+          <End Role="MayBay" Type="Self.MayBay" Multiplicity="0..1" />
+          <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MayBay">
+              <PropertyRef Name="MaMB" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaMB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ChuyenBay__MaTBa__4222D4EF">
+          <End Role="TuyenBay" Type="Self.TuyenBay" Multiplicity="0..1" />
+          <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Principal>
+            <Dependent Role="ChuyenBay">
+              <PropertyRef Name="MaTBay" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BookingAirLineEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Accounts" EntityType="Self.Account" />
+          <EntitySet Name="Bookings" EntityType="Self.Booking" />
+          <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBay" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="MayBays" EntityType="Self.MayBay" />
+          <EntitySet Name="TuyenBays" EntityType="Self.TuyenBay" />
+          <AssociationSet Name="FK__ChuyenBay__MaMB__412EB0B6" Association="Self.FK__ChuyenBay__MaMB__412EB0B6">
+            <End Role="MayBay" EntitySet="MayBays" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ChuyenBay__MaTBa__4222D4EF" Association="Self.FK__ChuyenBay__MaTBa__4222D4EF">
+            <End Role="TuyenBay" EntitySet="TuyenBays" />
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Account_Customer" Association="BookingAirLineModel.FK_Account_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Account" EntitySet="Accounts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_ChuyenBay" Association="BookingAirLineModel.FK_Booking_ChuyenBay">
+            <End Role="ChuyenBay" EntitySet="ChuyenBays" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Customer" Association="BookingAirLineModel.FK_Booking_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+        </EntityContainer>
+        <Association Name="FK_Account_Customer">
+          <End Type="BookingAirLineModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="BookingAirLineModel.Account" Role="Account" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Account">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_ChuyenBay">
+          <End Type="BookingAirLineModel.ChuyenBay" Role="ChuyenBay" Multiplicity="0..1" />
+          <End Type="BookingAirLineModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ChuyenBay">
+              <PropertyRef Name="MaCB" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="MaCB" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Customer">
+          <End Type="BookingAirLineModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="BookingAirLineModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="customer_id" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="customer_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BookingAirLineModelStoreContainer" CdmEntityContainer="BookingAirLineEntities1">
+          <EntitySetMapping Name="Accounts">
+            <EntityTypeMapping TypeName="BookingAirLineModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="account_id" ColumnName="account_id" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="BookingAirLineModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+                <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="ngay_bay" ColumnName="ngay_bay" />
+                <ScalarProperty Name="trang_thai" ColumnName="trang_thai" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ChuyenBays">
+            <EntityTypeMapping TypeName="BookingAirLineModel.ChuyenBay">
+              <MappingFragment StoreEntitySet="ChuyenBay">
+                <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+                <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+                <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+                <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+                <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+                <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+                <ScalarProperty Name="SoLuongGheHang1" ColumnName="SoLuongGheHang1" />
+                <ScalarProperty Name="SoLuongGheHang2" ColumnName="SoLuongGheHang2" />
+                <ScalarProperty Name="SoLuongGheHang3" ColumnName="SoLuongGheHang3" />
+                <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="BookingAirLineModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+                <ScalarProperty Name="full_name" ColumnName="full_name" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MayBays">
+            <EntityTypeMapping TypeName="BookingAirLineModel.MayBay">
+              <MappingFragment StoreEntitySet="MayBay">
+                <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+                <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TuyenBays">
+            <EntityTypeMapping TypeName="BookingAirLineModel.TuyenBay">
+              <MappingFragment StoreEntitySet="TuyenBay">
+                <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+                <ScalarProperty Name="SanBayDi" ColumnName="SanBayDi" />
+                <ScalarProperty Name="SanBayDen" ColumnName="SanBayDen" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

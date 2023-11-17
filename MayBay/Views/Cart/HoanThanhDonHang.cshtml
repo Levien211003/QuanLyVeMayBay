@@ -3,26 +3,101 @@
 
 @{
     ViewBag.Title = "Hoàn thành đơn hàng";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_3.cshtml";
 
-    var customer = Session["UserKH"] as KhachHang;
+    var customer = Session["TaiKhoan"] as AccountInfo;
 
+    var ngayNhanPhong = Request.QueryString["ngay_nhan_phong"];
+    var ngayTraPhong = Request.QueryString["ngay_tra_phong"];
 }
 
 <div class="container">
+
+
     <h2>Thành công!</h2>
     <p>Đơn hàng của bạn đã được đặt thành công.</p>
     <p>Cảm ơn bạn đã tin tưởng và mua hàng từ chúng tôi!</p>
 
-
-
     <h4>Thông tin người đặt hàng:</h4>
-    <p>Tên: @customer.TenKH</p>
-    <p>Số điện thoại: @customer.SDT</p>
+    <p>Tên: @customer.FullName</p>
+    <p>Số điện thoại: @customer.PhoneNumber</p>
     <p>Email: @customer.Email</p>
 
 
-    @*<h4>Thông tin đặt phòng:</h4>
-        <p>Ngày nhận phòng: @Model.CheckInDate</p>
-        <p>Ngày trả phòng: @Model.CheckOutDate</p>*@
 </div>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #e0f2f1; /* Màu xanh da trời nhạt */
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .cart-item {
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #fff;
+    }
+
+        .cart-item h4 {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+
+        .cart-item img {
+            width: 100%;
+            max-height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+
+        .cart-item p {
+            margin: 5px 0;
+        }
+
+        .cart-item strong {
+            animation: blink 1s linear infinite;
+        }
+
+        .cart-item .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+            .cart-item .btn:hover {
+                background-color: #0056b3;
+            }
+
+    .total {
+        font-weight: bold;
+        text-align: right;
+        color: red;
+        margin-top: 20px;
+    }
+
+    .checkout-btn {
+        text-align: center;
+        margin-top: 20px;
+    }
+
+        .checkout-btn .btn {
+            background-color: #4caf50;
+        }
+
+            .checkout-btn .btn:hover {
+                background-color: #45a049;
+            }
+</style>

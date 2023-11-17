@@ -147,78 +147,47 @@
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KhachHangController.cs" />
-    <Compile Include="Controllers\LoginAdminController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Account.cs">
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\AccountInfo.cs" />
+    <Compile Include="Models\Booking.cs">
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingAirLine.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookingAirLine.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingAirLine.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingAirLine.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BookingAirLine.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BookingViewModel.cs" />
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\ChiTietHD.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\ChuyenBay.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\customer.cs" />
-    <Compile Include="Models\HoaDon.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\KhachHang.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+    <Compile Include="Models\Customer.cs">
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\MayBay.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model1.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\NhanVien.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderStatu.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Phi.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PhieuDatCho.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\save_log_chuyenbay1.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\SelectTT.cs" />
-    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sp_helpdiagrams_Result.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\sysdiagram.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\TuyenBay.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Ve.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Voucher.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -302,15 +271,15 @@
     <Content Include="hinh\place-02.jpg" />
     <Content Include="hinh\place-03.jpg" />
     <Content Include="hinh\place-04.jpg" />
-    <Content Include="hinh\rCB001.jpg" />
-    <Content Include="hinh\rCB002.jpg" />
-    <Content Include="hinh\rCB003.jpg" />
-    <Content Include="hinh\rCB004.jpg" />
-    <Content Include="hinh\rCB005.jpg" />
-    <Content Include="hinh\rCB006.jpg" />
-    <Content Include="hinh\rCB007.jpg" />
-    <Content Include="hinh\rCB008.jpg" />
-    <Content Include="hinh\rCB009.jpg" />
+    <Content Include="hinh\1.jpg" />
+    <Content Include="hinh\2.jpg" />
+    <Content Include="hinh\3.jpg" />
+    <Content Include="hinh\4.jpg" />
+    <Content Include="hinh\5.jpg" />
+    <Content Include="hinh\6.jpg" />
+    <Content Include="hinh\7.jpg" />
+    <Content Include="hinh\8.jpg" />
+    <Content Include="hinh\9.jpg" />
     <Content Include="hinh\service-icon-01.1.png" />
     <Content Include="hinh\service-icon-01.png" />
     <Content Include="hinh\service-icon-02.2.png" />
@@ -367,25 +336,18 @@
     <Content Include="lib\font-awesome\sprites\brands.svg" />
     <Content Include="lib\font-awesome\sprites\regular.svg" />
     <Content Include="lib\font-awesome\sprites\solid.svg" />
-    <Content Include="Models\Model1.Context.tt">
+    <Content Include="Models\BookingAirLine.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model1.Context.cs</LastGenOutput>
-      <DependentUpon>Model1.edmx</DependentUpon>
+      <DependentUpon>BookingAirLine.edmx</DependentUpon>
+      <LastGenOutput>BookingAirLine.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model1.tt">
+    <Content Include="Models\BookingAirLine.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model1.edmx</DependentUpon>
-      <LastGenOutput>Model1.cs</LastGenOutput>
+      <DependentUpon>BookingAirLine.edmx</DependentUpon>
+      <LastGenOutput>BookingAirLine.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model1.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model1.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\Model1.edmx.diagram">
-      <DependentUpon>Model1.edmx</DependentUpon>
-    </Content>
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.ttf" />
     <Content Include="lib\font-awesome\webfonts\fa-brands-400.woff2" />
     <Content Include="lib\font-awesome\webfonts\fa-regular-400.ttf" />
@@ -408,6 +370,14 @@
     <Content Include="Areas\Admin\Views\TuyenBays\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Index.cshtml" />
+    <EntityDeploy Include="Models\BookingAirLine.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>BookingAirLine.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\BookingAirLine.edmx.diagram">
+      <DependentUpon>BookingAirLine.edmx</DependentUpon>
+    </Content>
+    <Content Include="Areas\Admin\Views\QLDH\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -505,40 +475,13 @@
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\HienThiGioHang.cshtml" />
     <Content Include="Views\KhachHang\Details.cshtml" />
-    <Content Include="Views\LoginUser\Login.cshtml" />
-    <Content Include="Views\LoginUser\SignUp.cshtml" />
+    <Content Include="Views\User\Login.cshtml" />
+    <Content Include="Views\User\SignUp.cshtml" />
     <Content Include="Views\Cart\DatHang.cshtml" />
     <Content Include="Views\Cart\HoanThanhDonHang.cshtml" />
-    <Content Include="Views\LoginAdmin\Login.cshtml" />
-    <Content Include="Views\LoginAdmin\Register.cshtml" />
-    <Content Include="Views\KhachHangHA\About.cshtml" />
-    <Content Include="Views\KhachHangHA\Booking.cshtml" />
-    <Content Include="Views\KhachHangHA\ChooseSeat.cshtml" />
-    <Content Include="Views\KhachHangHA\ChooseSeatVe.cshtml" />
-    <Content Include="Views\KhachHangHA\Contact.cshtml" />
-    <Content Include="Views\KhachHangHA\DetailBooking.cshtml" />
-    <Content Include="Views\KhachHangHA\DienThongTinKH.cshtml" />
-    <Content Include="Views\KhachHangHA\DSachCB.cshtml" />
-    <Content Include="Views\KhachHangHA\DSachCBVe.cshtml" />
-    <Content Include="Views\KhachHangHA\EditProfile.cshtml" />
-    <Content Include="Views\KhachHangHA\FailePayment.cshtml" />
-    <Content Include="Views\KhachHangHA\HienThiWL.cshtml" />
-    <Content Include="Views\KhachHangHA\MyCard.cshtml" />
-    <Content Include="Views\KhachHangHA\PrintDetails.cshtml" />
-    <Content Include="Views\KhachHangHA\Shared\_LayoutContact.cshtml" />
-    <Content Include="Views\KhachHangHA\Shared\_LayoutInfoCustomer.cshtml" />
-    <Content Include="Views\KhachHangHA\Shared\_LayoutPage1.cshtml" />
-    <Content Include="Views\KhachHangHA\Shared\_LayoutPage2.cshtml" />
-    <Content Include="Views\KhachHangHA\Shared\_LayoutPayment.cshtml" />
-    <Content Include="Views\KhachHangHA\ThanhToan.cshtml" />
-    <Content Include="Views\KhachHangHA\ThankYou.cshtml" />
-    <Content Include="Views\KhachHangHA\ThongtinCaNhan.cshtml" />
-    <Content Include="Views\KhachHangHA\ThongTinKH.cshtml" />
-    <Content Include="Views\KhachHangHA\TrangChu.cshtml" />
-    <Content Include="Views\LoginUser\ForgotPassword.cshtml" />
-    <Content Include="Views\LoginUser\ResetPass.cshtml" />
     <Content Include="Views\Cart\LichSuDatHang.cshtml" />
     <Content Include="Views\KhachHang\Shared\_LayoutPage3.cshtml" />
+    <Content Include="Views\Shared\_3.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

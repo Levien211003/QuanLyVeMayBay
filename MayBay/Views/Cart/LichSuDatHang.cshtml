@@ -1,4 +1,4 @@
-﻿@model List<MayBay.Models.Ve>
+﻿@model List<MayBay.Models.Booking>
 
 <style>
     body {
@@ -41,9 +41,7 @@
     }
 </style>
 
-@{
-    Layout = "~/Views/Shared/_3.cshtml";
-}
+@{ ViewBag.Title = "HienThiGioHang"; Layout = "~/Views/Shared/_3.cshtml"; }
 
 <!DOCTYPE html>
 <html>
@@ -57,22 +55,34 @@
 
         <table class="table">
             <tr>
-                <th>Mã Đặt Hàng</th>
-                <th>Mã Phòng</th>
-                <th>Ngày Nhận Phòng</th>
-                <th>Ngày Trả Phòng</th>
+                <th>Mã Chuyến Bay</th>
+                <th>Người đặt</th>
+                <th>Số điện thoại</th>
+
+                <th>CCCD</th>
+                <th>Email</th>
+
+                <th>Ngày đặt: </th>
+
                 <th>Trạng Thái</th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.booking_id</td>
-                    <td>@item.room_id</td>
-                    <td>@item.ngay_nhan_phong.ToString("dd/MM/yyyy")</td>
-                    <td>@item.ngay_tra_phong.ToString("dd/MM/yyyy")</td>
-                    <td>@item.trang_thai</td>
-                    <!-- Thêm các ô dữ liệu khác cần hiển thị -->
-                </tr>
+        <tr>
+            <td>@item.MaCB</td>
+            <td>@item.Customer.full_name</td>
+            <td>@item.Customer.phone_number</td>
+
+            <td>@item.Customer.CCCD</td>
+            <td>@item.Customer.email</td>
+
+
+
+            <td>@DateTime.Now.ToShortDateString()</td>
+
+            <td>@item.trang_thai</td>
+            <!-- Thêm các ô dữ liệu khác cần hiển thị -->
+        </tr>
             }
         </table>
     </div>

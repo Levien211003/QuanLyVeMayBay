@@ -132,15 +132,15 @@
             <label for="locationFilter">Lọc theo tuyến:</label>
             <select id="locationFilter">
                 <option value="All">All</option>
-                <option value="TB001">Sai Gon    Ha Noi</option>
-                <option value="TB002">Cam Ranh   Ha Noi</option>
-                <option value="TB003">Ha Noi	Sai Gon</option>
-                <option value="TB004">Sai Gon	Cam Ranh</option>
-                <option value="TB005">Phu Quoc	Da Nang</option>
-                <option value="TB006">Cam Ranh	Vung Tau</option>
-                <option value="TB007">Can Tho 	Dak Lak</option>
-                <option value="TB008">Dien Bien	  Gia Lai</option>
-                <option value="TB009">Phu Yen	Kien Giang</option>
+                <option value="1">Sai Gon    Ha Noi</option>
+                <option value="2">Cam Ranh   Ha Noi</option>
+                <option value="3">Ha Noi	Sai Gon</option>
+                <option value="4">Sai Gon	Cam Ranh</option>
+                <option value="5">Phu Quoc	Da Nang</option>
+                <option value="6">Cam Ranh	Vung Tau</option>
+                <option value="7">Can Tho 	Dak Lak</option>
+                <option value="8">Dien Bien	  Gia Lai</option>
+                <option value="9">Phu Yen	Kien Giang</option>
             </select>
 
             @*<label for="searchFilter">Search:</label>
@@ -153,11 +153,12 @@
                 var imageFileName = "r" + chuyenBay.MaCB;
                 <a href="@Url.Action("Details", "KhachHang", new { id = chuyenBay.MaCB })">
                     <div class="room-card">
-                        <img class="card-img-top hotel-picture" src="~/hinh/@(imageFileName).jpg" alt=" Image 1">
+                        <img class="card-img-top hotel-picture" src="~/hinh/@chuyenBay.HinhAnh" alt=" Image 1">
                         <p class="card-text">Mã Chuyến Bay: @chuyenBay.MaCB</p>
                         <p class="card-text">Mã Máy Bay: @chuyenBay.MaMB</p>
                         <p class="card-text">Mã Tuyến Bay: @chuyenBay.MaTBay</p>
                         <p class="card-text">Ngày Giờ: @chuyenBay.NgayGio</p>
+                        
 
                         <a class="btn btn-primary" href="@Url.Action("AddTicketToCart", "Cart", new { MaCB = chuyenBay.MaCB })" onclick="redirectToCart()">
                             Đặt vé

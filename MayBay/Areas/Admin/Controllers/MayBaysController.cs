@@ -15,7 +15,7 @@ namespace MayBay.Areas.Admin.Controllers
 {
     public class MayBaysController : Controller
     {
-        BookingAirLightEntities database = new BookingAirLightEntities();
+        BookingAirLineEntities1 database = new BookingAirLineEntities1();
 
         // GET: Admin/Hotels
      

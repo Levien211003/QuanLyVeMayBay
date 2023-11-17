@@ -20,7 +20,7 @@ namespace MayBay.Models
             this.ChuyenBays = new HashSet<ChuyenBay>();
         }
     
-        public string MaTBay { get; set; }
+        public int MaTBay { get; set; }
         public string SanBayDi { get; set; }
         public string SanBayDen { get; set; }
     

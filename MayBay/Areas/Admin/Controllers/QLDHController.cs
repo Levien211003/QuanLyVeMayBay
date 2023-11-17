@@ -11,55 +11,54 @@ namespace MayBay.Areas.Admin.Controllers
 {
     public class QLDHController : Controller
     {
-        private BookingAirLightEntities db = new BookingAirLightEntities();
+        private BookingAirLineEntities1 db = new BookingAirLineEntities1();
 
-        //public ActionResult Index()
-        //{
-        //    var bookings = (from b in db.Bookings
-        //                    join c in db.Customers on b.customer_id equals c.customer_id
-        //                    select new BookingViewModel
-        //                    {
-        //                        booking_id = b.booking_id,
-        //                        room_id = (int)b.room_id,
-        //                        customer_name = c.full_name,
-        //                        ngay_nhan_phong = b.ngay_nhan_phong,
-        //                        ngay_tra_phong = b.ngay_tra_phong,
-        //                        trang_thai = b.trang_thai
-        //                    }).ToList();
+        public ActionResult Index()
+        {
+            var bookings = (from b in db.Bookings
+                            join c in db.Customers on b.customer_id equals c.customer_id
+                            select new BookingViewModel
+                            {
+                                booking_id = b.booking_id,
+                                MaCB = (int)b.MaCB,
+                                customer_name = c.full_name,
+                             
+                                trang_thai = b.trang_thai
+                            }).ToList();
 
-        //    foreach (var b in bookings)
-        //    {
-        //        int intValue = (int)b.room_id;
-        //    }
+            foreach (var b in bookings)
+            {
+                int intValue = (int)b.MaCB;
+            }
 
-        //    return View(bookings);
-        //}
+            return View(bookings);
+        }
 
-        //[HttpPost]
-        //public ActionResult UpdateStatus()
-        //{
-        //    var bookingIdValue = Request.Form["bookingId"];
-        //    Debug.WriteLine($"Received bookingId from form: {bookingIdValue}");
+        [HttpPost]
+        public ActionResult UpdateStatus()
+        {
+            var bookingIdValue = Request.Form["bookingId"];
+            Debug.WriteLine($"Received bookingId from form: {bookingIdValue}");
 
-        //    if (int.TryParse(bookingIdValue, out int bookingId))
-        //    {
-        //        Debug.WriteLine($"Parsed bookingId: {bookingId}");
+            if (int.TryParse(bookingIdValue, out int bookingId))
+            {
+                Debug.WriteLine($"Parsed bookingId: {bookingId}");
 
-        //        var booking = db.Bookings.Find(bookingId);
+                var booking = db.Bookings.Find(bookingId);
 
-        //        if (booking != null)
-        //        {
-        //            booking.trang_thai = "Da Xac Nhan";
-        //            db.SaveChanges();
+                if (booking != null)
+                {
+                    booking.trang_thai = "Da Xac Nhan";
+                    db.SaveChanges();
 
-        //            // Tải lại trang hiện tại
-        //            return RedirectToAction("Index");
-        //        }
-        //    }
+                    // Tải lại trang hiện tại
+                    return RedirectToAction("Index");
+                }
+            }
 
-        //    // Trả về một giá trị trong trường hợp không tìm thấy đơn đặt phòng hoặc giá trị bookingId không hợp lệ
-        //    return RedirectToAction("Index");
-        //}
+            // Trả về một giá trị trong trường hợp không tìm thấy đơn đặt phòng hoặc giá trị bookingId không hợp lệ
+            return RedirectToAction("Index");
+        }
 
 
     }

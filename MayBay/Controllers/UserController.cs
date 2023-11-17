@@ -1,155 +1,148 @@
-﻿using MayBay.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
+using System.Data.Entity.Validation;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
+using MayBay.Models;
+using System.Diagnostics;
 
 namespace MayBay.Controllers
 {
-    public class LoginUserController : Controller
+    public class UserController : Controller
     {
-        BookingAirLightEntities database = new BookingAirLightEntities();
-        // GET: LoginUser
+        BookingAirLineEntities1 db = new BookingAirLineEntities1();
+
+        // GET: User
+        public ActionResult Index()
+        {
+            if (Session["TaiKhoan"] != null)
+            {
+                // Đã đăng nhập, chuyển hướng đến trang chính
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View();
+        }
+
+        [HttpGet]
         public ActionResult Login()
         {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Login(string user, string password)
-        {
-            var data = database.KhachHangs.Where(s => s.UserName == user && s.Password == password).FirstOrDefault();
-            var taikhoan = database.KhachHangs.SingleOrDefault(s => s.UserName == user && s.Password == password);
-            if (data == null)
+            if (Session["TaiKhoan"] != null)
             {
-                TempData["error"] = "Tài khoản đăng nhập không đúng";
-                return View("Login");
+                // Đã đăng nhập, chuyển hướng đến trang chính
+                return RedirectToAction("Index", "Home");
             }
-            else if (data != null)
-            {
-                Debug.WriteLine($"test null data: {data.IDKH}");
-                var accountInfo = new AccountInfo
-                {
-                    TenKH = data.TenKH,
-                    Email = data.Email,
-                    SDT = data.SDT,
-                };
-                Session["userKH"] = accountInfo;
-                database.Configuration.ValidateOnSaveEnabled = false;
-               
-                return RedirectToAction("TrangChu", "KhachHang");
-            }
-            return View();
-        }
-        public ActionResult SignUp()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult SignUp([Bind(Include = "UserName,Email,Password")] KhachHang kh, string password, string confirm)
-        {
-            var checkuser = database.KhachHangs.FirstOrDefault(s => s.UserName == kh.UserName);
-            var checkemail = database.KhachHangs.FirstOrDefault(s => s.Email == kh.Email);
-            if (checkuser != null)
-            {
-                TempData["error01"] = "User này đã có vui lòng đổi user khác !";
-                return View("SignUp");
-            }
-            else if (checkemail != null)
-            {
-                TempData["error02"] = "Email này đã tồn tại! ";
-                return View("SignUp");
-            }
-            else if (password != confirm)
-            {
-                TempData["error03"] = "Vui lòng nhập lại xác nhận password ";
-                return View("SignUp");
-            }
-            else if (password == confirm)
-            {
-                if (ModelState.IsValid)
-                {
-                    Random rd = new Random();
-                    var makh = "KH" + rd.Next(1, 1000);
-                    kh.IDKH = makh;
-                    kh.MaLKH = "Normal";
-                    database.KhachHangs.Add(kh);
-                    database.SaveChanges();
 
-                    return RedirectToAction("TrangChu", "KhachHang");
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult Login(Account taikhoan)
+        {
+            if (ModelState.IsValid)
+            {
+                var taikhoanAdmin = db.Accounts.FirstOrDefault(k => k.username == taikhoan.username && k.password == taikhoan.password && k.is_admin == true);
+
+                if (taikhoanAdmin != null && taikhoanAdmin.is_admin.HasValue && taikhoanAdmin.is_admin.Value)
+                {
+                    Session["TaiKhoan"] = taikhoanAdmin;
+                    // Kiểm tra quyền Admin trước khi chuyển hướng đến trang Admin
+                    if (taikhoanAdmin.is_admin.Value)
+                    {
+                        return RedirectToAction("Index", "Admin/ChuyenBays");
+                    }
+                    else
+                    {
+                        // Nếu không phải là Admin, có thể thực hiện chuyển hướng khác hoặc thông báo lỗi
+                        ViewBag.ThongBao = "Bạn không có quyền truy cập trang Admin.";
+                        return RedirectToAction("Index", "Home");
+                    }
                 }
 
 
+                var account = db.Accounts.FirstOrDefault(k => k.username == taikhoan.username && k.password == taikhoan.password);
+                if (account != null)
+                {
+                    var customer = db.Customers.FirstOrDefault(c => c.customer_id == account.customer_id);
+                    if (customer != null)
+                    {
+                        Session["customer_id"] = customer.customer_id;
+                        Debug.WriteLine($"user: {customer.customer_id}");
+
+                        var accountInfo = new AccountInfo
+                        {
+                            FullName = customer.full_name,
+                            Address = customer.address,
+                            PhoneNumber = customer.phone_number,
+                            Email = customer.email
+                        };
+
+                        Session["TaiKhoan"] = accountInfo;
+                        return RedirectToAction("TrangChu", "KhachHang");
+                    }
+                }
+                else
+                {
+                    ViewBag.ThongBao = "Tài Khoản hoặc mật khẩu không chính xác";
+                }
             }
             return View();
         }
-        public ActionResult ForgotPassword()
-        {
-            return View();
-        }
+
         [HttpPost]
-        public ActionResult ForgotPassword(string email)
+        public ActionResult SignUp(Account account)
         {
-            var data = database.KhachHangs.FirstOrDefault(s => s.Email == email);
-            if (data == null)
+            if (ModelState.IsValid)
             {
-                TempData["error04"] = "Không tồn tại email này !";
-                return View();
+                var existingAccount = db.Accounts.FirstOrDefault(a => a.username == account.username);
+                if (existingAccount != null)
+                {
+                    ModelState.AddModelError("", "Username đã tồn tại");
+                    return View();
+                }
 
+                // Lấy thông tin khách hàng từ CSDL dựa trên customer_id
+                var customer = db.Customers.FirstOrDefault(c => c.customer_id == account.customer_id);
+                if (customer != null)
+                {
+                    // Tạo một đối tượng AccountInfo để lưu trữ thông tin tài khoản và thông tin khách hàng
+                    var accountInfo = new AccountInfo
+                    {
+                        FullName = customer.full_name,
+                        Address = customer.address,
+                        PhoneNumber = customer.phone_number,
+                        Email = customer.email
+                    };
+
+                    // Lưu thông tin tài khoản vào session
+                    Session["TaiKhoan"] = accountInfo;
+                }
+
+                db.Accounts.Add(account);
+                db.SaveChanges();
+
+                return RedirectToAction("Login", "User");
             }
-            else
+
+            return View(account);
+        }
+        [HttpGet]
+        public ActionResult SignUp()
+        {
+            if (Session["TaiKhoan"] != null)
             {
-                TempData["Succeed"] = "Đã gửi yêu cầu đặt lại mật khẩu thông qua email của bạn !";
-                return View();
+                // Đã đăng nhập, chuyển hướng đến trang chính
+                return RedirectToAction("TrangChu", "KhachHang");
             }
-        }
-        public ActionResult Logout()
-        {
-            Session.Clear();//remove session
-            FormsAuthentication.SignOut();
-            return RedirectToAction("Login");
-        }
 
-        public ActionResult ResetPass()
-        {
             return View();
         }
-        [HttpPost]
-        public ActionResult ResetPass(string email, string username)
+        public ActionResult LogOut()
         {
-
-            var mail = database.KhachHangs.Where(s => s.Email == email).FirstOrDefault();
-            var user = database.KhachHangs.Where(s => s.UserName == username).FirstOrDefault();
-
-            if (mail != null && user != null)
-            {
-                var kh = database.KhachHangs.Where(s => s.Email == email).FirstOrDefault();
-
-                kh.Password = "12345678";
-                database.Entry(kh).State = System.Data.Entity.EntityState.Modified;
-                database.SaveChanges();
-
-                return RedirectToAction("Login");
-
-
-
-            }
-            else
-            {
-                TempData["error"] = "Tài khoản không tồn tại";
-                return View();
-            }
-
-
-
+            Session["TaiKhoan"] = null;
+            return RedirectToAction("TrangChu", "KhachHang");
         }
     }
 }
-
-
-
-
-
-

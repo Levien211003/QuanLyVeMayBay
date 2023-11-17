@@ -1,43 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
 namespace MayBay.Models
 {
-    
     public class Cart
     {
-        
-        BookingAirLightEntities db = new BookingAirLightEntities();
-        public string MaCBay { get; set; }
-        public int MaMB { get; set; }
-        public int MaTBay { get; set; }
-        public string ThoiGianBay { get; set; }
-        public string NgayGio { get; set; }
-        public string TrangThai { get; set; }
+        BookingAirLineEntities1 db = new BookingAirLineEntities1();
+        public int MaChuyenBay { get; set; }
+        public int MaMayBay { get; set; }
+        public int MaTuyenBay { get; set; }
 
-        public double ThanhTien()
-        {
-            return SoLuong * Gia;
-        }
-        public double Gia { get; set; }
+        public string TinhTrang { get; set; }
+        public string HinhAnh { get; set; }
         public int SoLuong { get; set; }
 
 
+        public DateTime NgayGio { get; set; } // Thêm thuộc tính NgayNhanPhong
 
+        public Booking Booking { get; set; }
 
-        public Cart(string MaCB)
+        public Cart(int MaCB)
         {
-            this.MaCBay = MaCB;
-            var chuyenbay = db.ChuyenBays.Single(s => s.MaCB == this.MaCBay);
-            this.ThoiGianBay = chuyenbay.ThoiGianBay;
-            this.NgayGio = chuyenbay.NgayGio.ToString();
-            this.TrangThai = chuyenbay.TinhTrang;
-
-          
-
+            this.MaChuyenBay = MaCB;
+            var chuyenbay = db.ChuyenBays.Single(s => s.MaCB == this.MaChuyenBay);
+            this.MaMayBay = (int)chuyenbay.MaMB;
+            this.HinhAnh = chuyenbay.HinhAnh;
             this.SoLuong = 1;
         }
     }

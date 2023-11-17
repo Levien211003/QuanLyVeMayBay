@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "DatHang";
     Layout = "~/Views/KhachHang/Shared/_LayoutPage3.cshtml";
-    var data = Session["UserKH"] as AccountInfo;
+    var customer = Session["TaiKhoan"] as AccountInfo;
 }
 <style>
     .container {
@@ -30,19 +30,27 @@
                 <thead>
                     <tr>
                         <th>Mã Chuyến Bay</th>
-                        <th>MaMB</th>
-                        <th>Ảnh Phòng</th>
-                       
+                        <th>Mã Máy Bay</th>
+                        <th>Mã Tuyến Bay</th>
+                        <th>Ngày Bay</th>
+                        <th>Tình Trạng</th>
+
+
                     </tr>
                 </thead>
                 <tbody>
                     @foreach (var cart in Model)
                     {
-                        <tr>
-                            <td>@cart.MaCBay</td>
-                            <td>@cart.MaMB</td>
-                           
-                        </tr>
+                    <tr>
+                        <td>@cart.MaChuyenBay</td>
+                        <td>@cart.MaMayBay</td>
+                        <td>@cart.MaTuyenBay</td>
+                        <td>@cart.NgayGio</td>
+                        <td>@cart.TinhTrang</td>
+
+
+
+                    </tr>
                     }
                     <tr style="font-weight:bold; text-align:right; color:red;">
                     </tr>
@@ -57,15 +65,15 @@
             <table class="table table-bordered customer-info-table">
                 <tr>
                     <td>Họ tên: </td>
-                    <td>@data.TenKH</td>
+                    <td>@customer.FullName</td>
                 </tr>
                 <tr>
                     <td>Địa chỉ Email: </td>
-                    <td>@data.Email</td>
+                    <td>@customer.Email</td>
                 </tr>
                 <tr>
                     <td>Điện thoại: </td>
-                    <td>@data.SDT</td>
+                    <td>@customer.PhoneNumber</td>
                 </tr>
                 <tr>
                     <td>Ngày đặt: </td>
@@ -74,7 +82,7 @@
                
                 <tr>
                     <td colspan="2" style="text-align: center;">
-                        @Html.ActionLink("ĐỒNG Ý ĐẶT PHÒNG", "DongYDatHang", null, new { @class = "btn btn-primary" })
+                        @Html.ActionLink("ĐỒNG Ý ĐẶT Vé", "DongYDatHang", null, new { @class = "btn btn-primary" })
                     </td>
                 </tr>
 

@@ -1,8 +1,8 @@
 ﻿@using MayBay.Models
 @model List<Cart>
 
-<!DOCTYPE html>
-<html>
+                     @{ ViewBag.Title = "HienThiGioHang"; Layout = "~/Views/Shared/_3.cshtml"; }
+
 <head>
     <title>THÔNG TIN GIỎ HÀNG</title>
     <style>
@@ -12,24 +12,54 @@
         }
 
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 20px;
         }
 
         .cart-item {
-            border: 1px solid black;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             padding: 10px;
             margin-bottom: 10px;
+            background-color: #fff;
         }
 
-        h2 {
-            text-align: center;
-        }
+            .cart-item h4 {
+                margin: 5px 0;
+                font-size: 18px;
+            }
 
-        h4 {
-            margin: 5px 0;
-        }
+            .cart-item img {
+                width: 100%;
+                max-height: 200px;
+                object-fit: cover;
+                margin-bottom: 10px;
+            }
+
+            .cart-item p {
+                margin: 5px 0;
+            }
+
+            .cart-item strong {
+                animation: blink 1s linear infinite;
+            }
+
+            .cart-item .btn {
+                display: inline-block;
+                padding: 10px 20px;
+                font-size: 16px;
+                text-align: center;
+                text-decoration: none;
+                background-color: #007bff;
+                color: #fff;
+                border-radius: 4px;
+                margin-right: 10px;
+            }
+
+                .cart-item .btn:hover {
+                    background-color: #0056b3;
+                }
 
         .total {
             font-weight: bold;
@@ -38,59 +68,53 @@
             margin-top: 20px;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
+        .checkout-btn {
             text-align: center;
-            text-decoration: none;
-            background-color: #007bff;
-            color: #fff;
-            border-radius: 4px;
+            margin-top: 20px;
         }
 
-            .btn:hover {
-                background-color: #0056b3;
+            .checkout-btn .btn {
+                background-color: #4caf50;
             }
 
-        .text-center {
-            text-align: center;
-        }
+                .checkout-btn .btn:hover {
+                    background-color: #45a049;
+                }
     </style>
 </head>
-<body>
-    <div class="container">
-        <h2>THÔNG TIN GIỎ HÀNG</h2>
+<div class="container">
+    <h2 class="text-center">THÔNG TIN GIỎ HÀNG</h2>
+    <div>
+        @foreach (var cart in Model)
+        {
+        <div class="cart-item">
+            <img class="card-img-top hotel-picture" src="~/hinh/@cart.HinhAnh" alt=" Image 1">
 
-        <div>
-            @foreach (var chuyenBay in Model)
-            {
-                var imageFileName = "r" + chuyenBay.MaCBay;
-                <a href="@Url.Action("Details", "KhachHang", new { id = chuyenBay.MaCBay })">
-                    <div class="cart-item">
-                        <img class="card-img-top hotel-picture" src="~/hinh/@(imageFileName).jpg" alt=" Image 1">
-                        <h4>Mã chuyến bay: @chuyenBay.MaCBay</h4>
-                        <h4>Thời Gian Bay: @chuyenBay.ThoiGianBay</h4>
-                        <h4>Ngày Giờ: @chuyenBay.NgayGio</h4>
-                    </div>
+            <h4>Mã CB: @cart.MaChuyenBay</h4>
+            <h4>MÃ Máy Bay: @cart.MaMayBay</h4>
+            <h4>Mã Tuyến Bay: @cart.MaTuyenBay</h4>
 
-                </a>
-            }
+            <p>Số lượng: @cart.SoLuong</p>
+
+
+
+
+            <div>
+                <a href="@Url.Action("Details", "KhachHang", new { id = cart.MaChuyenBay })" class="btn btn-success">Chi tiết</a>
+                <a href="@Url.Action("XoaMatHang", "Cart", new { MaPhong = cart.MaChuyenBay })" class="btn btn-danger">Xóa </a>
+            </div>
         </div>
-
-        <div class="total">
-            <p>Tổng số lượng: </p>
-            <p>Tổng tiền: $</p>
-        </div>
-
-        <div class="checkout-btn">
-            <a href="@Url.Action("DatHang", "Cart")" class="btn btn-primary">Đặt Hàng</a>
-        </div>
-
-
-        <div class="text-center">
-            <a class="btn" href="@Url.Action("DSachCB", "KhachHang")">Đi đến đặt vé?</a>
-        </div>
+        }
     </div>
-</body>
-</html>
+</div>
+
+<div class="container">
+  
+    <div class="checkout-btn">
+        <a href="@Url.Action("DatHang", "Cart")" class="btn btn-primary">Đặt Hàng</a>
+    </div>
+
+    <div class="checkout-btn">
+        <a href="@Url.Action("DSachCB", "KhachHang")" class="btn btn-primary">Đi đến đặt phòng</a>
+    </div>
+</div></html>

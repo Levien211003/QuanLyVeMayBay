@@ -16,7 +16,7 @@ namespace Demo1.Areas.Admin.Controllers
 
     public class TuyenBaysController : Controller
     {
-        BookingAirLightEntities database = new BookingAirLightEntities();
+        BookingAirLineEntities1 database = new BookingAirLineEntities1();
 
         public ActionResult Index()
         {
@@ -112,7 +112,7 @@ namespace Demo1.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "hotel_id,room_type_id,room_number, status, DonGia,HinhAnh, TenPhong, location, MoTa")] TuyenBay tuyenBay)
+        public ActionResult Edit([Bind(Include = "MaTBay, SanBayDi, SanBayDen")] TuyenBay tuyenBay)
         {
             if (ModelState.IsValid)
             {

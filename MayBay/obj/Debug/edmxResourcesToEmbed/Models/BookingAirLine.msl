@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BookingAirLineModelStoreContainer" CdmEntityContainer="BookingAirLineEntities1">
+    <EntitySetMapping Name="Accounts">
+      <EntityTypeMapping TypeName="BookingAirLineModel.Account">
+        <MappingFragment StoreEntitySet="Account">
+          <ScalarProperty Name="account_id" ColumnName="account_id" />
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="is_admin" ColumnName="is_admin" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Bookings">
+      <EntityTypeMapping TypeName="BookingAirLineModel.Booking">
+        <MappingFragment StoreEntitySet="Booking">
+          <ScalarProperty Name="booking_id" ColumnName="booking_id" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="ngay_bay" ColumnName="ngay_bay" />
+          <ScalarProperty Name="trang_thai" ColumnName="trang_thai" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ChuyenBays">
+      <EntityTypeMapping TypeName="BookingAirLineModel.ChuyenBay">
+        <MappingFragment StoreEntitySet="ChuyenBay">
+          <ScalarProperty Name="HinhAnh" ColumnName="HinhAnh" />
+          <ScalarProperty Name="MaCB" ColumnName="MaCB" />
+          <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+          <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+          <ScalarProperty Name="NgayGio" ColumnName="NgayGio" />
+          <ScalarProperty Name="ThoiGianBay" ColumnName="ThoiGianBay" />
+          <ScalarProperty Name="SoLuongGheHang1" ColumnName="SoLuongGheHang1" />
+          <ScalarProperty Name="SoLuongGheHang2" ColumnName="SoLuongGheHang2" />
+          <ScalarProperty Name="SoLuongGheHang3" ColumnName="SoLuongGheHang3" />
+          <ScalarProperty Name="TinhTrang" ColumnName="TinhTrang" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="BookingAirLineModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="customer_id" ColumnName="customer_id" />
+          <ScalarProperty Name="full_name" ColumnName="full_name" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="CCCD" ColumnName="CCCD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MayBays">
+      <EntityTypeMapping TypeName="BookingAirLineModel.MayBay">
+        <MappingFragment StoreEntitySet="MayBay">
+          <ScalarProperty Name="MaMB" ColumnName="MaMB" />
+          <ScalarProperty Name="LoaiMayBay" ColumnName="LoaiMayBay" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TuyenBays">
+      <EntityTypeMapping TypeName="BookingAirLineModel.TuyenBay">
+        <MappingFragment StoreEntitySet="TuyenBay">
+          <ScalarProperty Name="MaTBay" ColumnName="MaTBay" />
+          <ScalarProperty Name="SanBayDi" ColumnName="SanBayDi" />
+          <ScalarProperty Name="SanBayDen" ColumnName="SanBayDen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -20,7 +20,7 @@ namespace MayBay.Models
             this.ChuyenBays = new HashSet<ChuyenBay>();
         }
     
-        public string MaMB { get; set; }
+        public int MaMB { get; set; }
         public string LoaiMayBay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

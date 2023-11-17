@@ -64,14 +64,14 @@
         {
             var imageFileName = "r" + Model.MaCB;
             <a href="@Url.Action("Details", "KhachHang", new { id = Model.MaCB })">
-                <img class="room-image" src="~/hinh/@(imageFileName).jpg" alt="Room Image 1" width="300" height="200">
             </a>
          
             <div class="room-info">
+                <img class="card-img-top hotel-picture" src="~/hinh/@Model.HinhAnh" alt=" Image 1">
 
                 <h2>Mã Chuyến Bay: @Model.MaCB</h2>
                 <p>Mã Tuyến Bay: @Model.MaTBay</p>
-                
+
                 <p>Thời Gian Bay: @Model.ThoiGianBay</p>
                 <p>Ngày Giờ: @Model.NgayGio</p>
                 <p>Số Ghế Hàng 1: @Model.SoLuongGheHang1</p>

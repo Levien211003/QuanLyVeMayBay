@@ -17,25 +17,23 @@ namespace MayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ChuyenBay()
         {
-            this.PhieuDatChoes = new HashSet<PhieuDatCho>();
-            this.Ves = new HashSet<Ve>();
+            this.Bookings = new HashSet<Booking>();
         }
     
-        public string MaCB { get; set; }
-        public string MaMB { get; set; }
-        public string MaTBay { get; set; }
+        public int MaCB { get; set; }
+        public Nullable<int> MaMB { get; set; }
+        public Nullable<int> MaTBay { get; set; }
         public Nullable<System.DateTime> NgayGio { get; set; }
-        public string ThoiGianBay { get; set; }
+        public Nullable<int> ThoiGianBay { get; set; }
         public Nullable<int> SoLuongGheHang1 { get; set; }
         public Nullable<int> SoLuongGheHang2 { get; set; }
         public Nullable<int> SoLuongGheHang3 { get; set; }
         public string TinhTrang { get; set; }
+        public string HinhAnh { get; set; }
     
         public virtual MayBay MayBay { get; set; }
         public virtual TuyenBay TuyenBay { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PhieuDatCho> PhieuDatChoes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Ve> Ves { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
     }
 }
