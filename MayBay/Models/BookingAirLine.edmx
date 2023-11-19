@@ -19,10 +19,10 @@
           <Key>
             <PropertyRef Name="booking_id" />
           </Key>
-          <Property Name="booking_id" Type="int" Nullable="false" />
+          <Property Name="booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="MaCB" Type="int" />
           <Property Name="customer_id" Type="int" />
-          <Property Name="ngay_bay" Type="date" />
+          <Property Name="ngay_bay" Type="datetime" />
           <Property Name="trang_thai" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="ChuyenBay">
@@ -176,7 +176,7 @@
           <Property Name="booking_id" Type="Int32" Nullable="false" />
           <Property Name="MaCB" Type="Int32" />
           <Property Name="customer_id" Type="Int32" />
-          <Property Name="ngay_bay" Type="DateTime" Precision="0" />
+          <Property Name="ngay_bay" Type="DateTime" Precision="3" />
           <Property Name="trang_thai" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="ChuyenBay" Relationship="BookingAirLineModel.FK_Booking_ChuyenBay" FromRole="Booking" ToRole="ChuyenBay" />
           <NavigationProperty Name="Customer" Relationship="BookingAirLineModel.FK_Booking_Customer" FromRole="Booking" ToRole="Customer" />

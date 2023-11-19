@@ -38,14 +38,25 @@ namespace MayBay.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaCB,MaMB,MaTBay,NgayGio, ThoiGianBay,SoLuongGheHang1,SoLuongGheHang2,SoLuongGheHang3,TinhTrang")] ChuyenBay chuyenBay)
+        public ActionResult Create([Bind(Include = "MaCB,MaMB,MaTBay,NgayGio, ThoiGianBay,SoLuongGheHang1,SoLuongGheHang2,SoLuongGheHang3,TinhTrang, HinhAnh")] ChuyenBay chuyenBay, HttpPostedFileBase HinhAnh)
         {
             if (ModelState.IsValid)
             {
-               
 
-             
-                 database.ChuyenBays.Add(chuyenBay);
+                if (HinhAnh != null && HinhAnh.ContentLength > 0)
+                {
+                    // Xử lý lưu trữ tệp tin vào thư mục hoặc cơ sở dữ liệu
+                    string fileName = Path.GetFileName(HinhAnh.FileName);
+                    string filePath = Path.Combine(Server.MapPath("~/hinh"), fileName);
+                    HinhAnh.SaveAs(filePath);
+
+                    // Gán tên tệp tin cho thuộc tính ImageName của đối tượng Hotel
+                    chuyenBay.HinhAnh = fileName;
+                }
+
+
+
+                database.ChuyenBays.Add(chuyenBay);
                  database.SaveChanges();
 
                 return RedirectToAction("Index");

@@ -118,11 +118,13 @@ namespace MayBay.Controllers
                         Booking booking = new Booking();
                         booking.MaCB = cart.MaChuyenBay;
                         booking.customer_id = customer.customer_id;
-                        booking.ngay_bay = cart.NgayGio;
                         booking.trang_thai = "Dang Cho Xac Nhan";
 
                         database.Bookings.Add(booking);
+
+                        Console.WriteLine(booking.booking_id);
                     }
+
 
                     database.SaveChanges();
 

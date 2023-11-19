@@ -14,10 +14,10 @@
     <Key>
       <PropertyRef Name="booking_id" />
     </Key>
-    <Property Name="booking_id" Type="int" Nullable="false" />
+    <Property Name="booking_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaCB" Type="int" />
     <Property Name="customer_id" Type="int" />
-    <Property Name="ngay_bay" Type="date" />
+    <Property Name="ngay_bay" Type="datetime" />
     <Property Name="trang_thai" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="ChuyenBay">

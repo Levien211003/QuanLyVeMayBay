@@ -65,6 +65,9 @@
                 <th>Ngày đặt: </th>
 
                 <th>Trạng Thái</th>
+                <th>Xác Nhận Thanh Toán</th>
+
+
             </tr>
             @foreach (var item in Model)
             {
@@ -72,17 +75,17 @@
             <td>@item.MaCB</td>
             <td>@item.Customer.full_name</td>
             <td>@item.Customer.phone_number</td>
-
             <td>@item.Customer.CCCD</td>
             <td>@item.Customer.email</td>
-
-
-
             <td>@DateTime.Now.ToShortDateString()</td>
-
             <td>@item.trang_thai</td>
+            <td>
+                <a href="/ThanhToan/KhachHang?id=@item.MaCB" class="btn btn-primary">Thanh toán</a>
+            </td>
             <!-- Thêm các ô dữ liệu khác cần hiển thị -->
         </tr>
+
+
             }
         </table>
     </div>

@@ -11,7 +11,7 @@ using System.Net;
 using System.Web.Mvc;
 
 
-namespace Demo1.Areas.Admin.Controllers
+namespace MayBay.Areas.Admin.Controllers
 {
 
     public class TuyenBaysController : Controller

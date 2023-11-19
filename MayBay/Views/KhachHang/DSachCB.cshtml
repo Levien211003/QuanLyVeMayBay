@@ -88,33 +88,20 @@
     <title>Danh sách chuyến bay</title>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 
-
-    <title>Danh sách chuyến bay</title>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
-
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const locationFilter = document.getElementById("locationFilter");
-            const searchFilter = document.getElementById("searchFilter");
-            const cbList = document.getElementById("cbList").getElementsByClassName("room-card");
+            const cbList = document.querySelectorAll(".room-card");
 
             locationFilter.addEventListener("change", updateFilters);
-            searchFilter.addEventListener("input", updateFilters);
 
             function updateFilters() {
                 const selectedLocation = locationFilter.value;
-                const searchKeyword = searchFilter.value.toLowerCase();
 
-                const cbArray = Array.from(cbList);
+                cbList.forEach((cb) => {
+                    const maTuyenBay = cb.querySelector(".card-text:nth-child(4)").textContent.trim().split(":")[1].trim();
 
-                cbArray.forEach((cb) => {
-                    const tuyenBay = cb.getElementsByClassName("card-text")[2].textContent.trim();
-                    const maCB = cb.getElementsByClassName("card-text")[0].textContent.trim();
-                    const maTuyenBay = tuyenBay.split(":")[1].trim(); // Lấy mã tuyến bay từ chuỗi "Mã Tuyến Bay: TB001"
-
-                    const showCB =
-                        (selectedLocation === "All" || maTuyenBay === selectedLocation) &&
-                        maCB.toLowerCase().startsWith(searchKeyword); // Kiểm tra chuỗi mã chuyến bay có bắt đầu bằng từ khóa tìm kiếm hay không
+                    const showCB = (selectedLocation === "0" || maTuyenBay === selectedLocation);
 
                     cb.style.display = showCB ? "block" : "none";
                 });
@@ -131,7 +118,7 @@
         <div style="text-align: center;">
             <label for="locationFilter">Lọc theo tuyến:</label>
             <select id="locationFilter">
-                <option value="All">All</option>
+                <option value="0">All</option>
                 <option value="1">Sai Gon    Ha Noi</option>
                 <option value="2">Cam Ranh   Ha Noi</option>
                 <option value="3">Ha Noi	Sai Gon</option>
@@ -142,9 +129,6 @@
                 <option value="8">Dien Bien	  Gia Lai</option>
                 <option value="9">Phu Yen	Kien Giang</option>
             </select>
-
-            @*<label for="searchFilter">Search:</label>
-                <input type="text" id="searchFilter" placeholder="Nhập mã chuyến bay">*@
         </div>
 
         <div id="cbList">
@@ -158,8 +142,6 @@
                         <p class="card-text">Mã Máy Bay: @chuyenBay.MaMB</p>
                         <p class="card-text">Mã Tuyến Bay: @chuyenBay.MaTBay</p>
                         <p class="card-text">Ngày Giờ: @chuyenBay.NgayGio</p>
-                        
-
                         <a class="btn btn-primary" href="@Url.Action("AddTicketToCart", "Cart", new { MaCB = chuyenBay.MaCB })" onclick="redirectToCart()">
                             Đặt vé
                         </a>
@@ -170,14 +152,13 @@
 
         Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
         <div class="MenuTrang">
-            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+            @Html.PagedListPager(Model, page => Url.Action("DSachCB", new { page }))
         </div>
 
 
     </div>
 </body>
 </html>
-
 
 <section id="most-visited">
     <div class="container">

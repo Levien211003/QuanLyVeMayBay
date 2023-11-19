@@ -65,11 +65,11 @@
             var imageFileName = "r" + Model.MaCB;
             <a href="@Url.Action("Details", "KhachHang", new { id = Model.MaCB })">
             </a>
-         
+
             <div class="room-info">
                 <img class="card-img-top hotel-picture" src="~/hinh/@Model.HinhAnh" alt=" Image 1">
 
-                <h2>Mã Chuyến Bay: @Model.MaCB</h2>
+                <h2> Chuyến Bay: @Model.MaCB</h2>
                 <p>Mã Tuyến Bay: @Model.MaTBay</p>
 
                 <p>Thời Gian Bay: @Model.ThoiGianBay</p>
@@ -89,7 +89,7 @@
                 Đặt Vé
             </a>
 
-          
+
             <script>
      function redirectToCart() {
                 window.location.href = '@Url.Action("HienThiGioHang", "Cart")';

@@ -19,7 +19,7 @@ namespace MayBay.Controllers
    
         public ActionResult DSachCB(int? page)
         {
-            int PageSize = 18;
+            int PageSize = 9;
             int PageNum = (page ?? 1);
 
 

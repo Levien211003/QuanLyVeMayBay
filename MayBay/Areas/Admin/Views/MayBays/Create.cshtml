@@ -7,46 +7,20 @@
 
 }
 
-<h2>Thêm khách sạn mới</h2>
+<h2>Thêm Máy Bay mới</h2>
 
-@using (Html.BeginForm("Create", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+@using (Html.BeginForm("Create", "MayBays", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
-    <a>Tên Khách Sạn:</a>
+    <a>Loại Máy Bay:</a>
 
     <div class="form-group">
         <div class="col-md-10">
-            @Html.EditorFor(model => model.hotel_name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.hotel_name, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.LoaiMayBay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.LoaiMayBay, "", new { @class = "text-danger" })
         </div>
     </div>
-    <a>Địa Chỉ:</a>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
-        </div>
-    </div>
-    <a>Số Điện Thoại:</a>
-    <div class="form-group">
-
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <a>Hình ảnh minh họa:</a>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="file" name="ImageName" class="form-control" />
-            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
+    
     <div class="form-group">
         <div class="col-md-offset-0 col-md-10">
             <input type="submit" value="Thêm" class="btn btn-primary" />

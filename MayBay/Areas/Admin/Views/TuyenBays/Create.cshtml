@@ -7,45 +7,30 @@
 
 }
 
-<h2>Thêm khách sạn mới</h2>
+<h2>Thêm tuyến bay mới</h2>
 
-@using (Html.BeginForm("Create", "Hotels", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
+@using (Html.BeginForm("Create", "TuyenBays", FormMethod.Post, new { enctype = "multipart/form-data", @class = "form-horizontal" }))
 {
     @Html.AntiForgeryToken()
-    <a>Tên Khách Sạn:</a>
+    <a>SanBayDen:</a>
 
     <div class="form-group">
         <div class="col-md-10">
-            @Html.EditorFor(model => model.hotel_name, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.hotel_name, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SanBayDen, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SanBayDen, "", new { @class = "text-danger" })
         </div>
     </div>
-    <a>Địa Chỉ:</a>
+    <a>SanBayDi:</a>
 
     <div class="form-group">
         <div class="col-md-10">
-            @Html.EditorFor(model => model.address, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.address, "", new { @class = "text-danger" })
+            @Html.EditorFor(model => model.SanBayDi, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.SanBayDi, "", new { @class = "text-danger" })
         </div>
     </div>
-    <a>Số Điện Thoại:</a>
-    <div class="form-group">
+   
 
-        <div class="col-md-10">
-            @Html.EditorFor(model => model.phone_number, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.phone_number, "", new { @class = "text-danger" })
-        </div>
-    </div>
-
-
-    <a>Hình ảnh minh họa:</a>
-
-    <div class="form-group">
-        <div class="col-md-10">
-            <input type="file" name="ImageName" class="form-control" />
-            @Html.ValidationMessageFor(model => model.ImageName, "", new { @class = "text-danger" })
-        </div>
-    </div>
+    
 
     <div class="form-group">
         <div class="col-md-offset-0 col-md-10">
