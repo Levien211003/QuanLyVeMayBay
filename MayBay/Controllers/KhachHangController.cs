@@ -9,7 +9,7 @@ namespace MayBay.Controllers
 {
     public class KhachHangController : Controller
     {
-        BookingAirLineEntities1 database = new BookingAirLineEntities1();
+        BookingAirLineEntities4 database = new BookingAirLineEntities4();
 
         // GET: KhachHang
         public ActionResult TrangChu()

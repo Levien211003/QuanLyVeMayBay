@@ -17,20 +17,19 @@ namespace MayBay.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
-            this.Accounts = new HashSet<Account>();
             this.Bookings = new HashSet<Booking>();
+            this.Payments = new HashSet<Payment>();
         }
     
         public int customer_id { get; set; }
         public string full_name { get; set; }
-        public string address { get; set; }
         public string phone_number { get; set; }
         public string email { get; set; }
-        public string CCCD { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Account> Accounts { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

@@ -1,16 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="BookingAirLineModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-  <EntityType Name="Account">
+  <EntityType Name="Accounts">
     <Key>
       <PropertyRef Name="account_id" />
     </Key>
-    <Property Name="account_id" Type="int" Nullable="false" />
+    <Property Name="account_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="username" Type="nvarchar" MaxLength="50" />
     <Property Name="password" Type="nvarchar" MaxLength="50" />
     <Property Name="customer_id" Type="int" />
     <Property Name="is_admin" Type="bit" />
+    <Property Name="HoTen" Type="nvarchar(max)" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="Email" Type="nvarchar(max)" />
+    <Property Name="SoDienThoai" Type="nvarchar(max)" />
   </EntityType>
-  <EntityType Name="Booking">
+  <EntityType Name="Bookings">
     <Key>
       <PropertyRef Name="booking_id" />
     </Key>
@@ -19,15 +23,18 @@
     <Property Name="customer_id" Type="int" />
     <Property Name="ngay_bay" Type="datetime" />
     <Property Name="trang_thai" Type="nvarchar" MaxLength="50" />
+    <Property Name="payment_id" Type="int" />
+    <Property Name="Id_Guest" Type="int" />
   </EntityType>
-  <EntityType Name="ChuyenBay">
+  <EntityType Name="ChuyenBays">
     <Key>
       <PropertyRef Name="MaCB" />
     </Key>
-    <Property Name="MaCB" Type="int" Nullable="false" />
-    <Property Name="MaMB" Type="int" />
+    <Property Name="MaCB" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="MaTBay" Type="int" />
+    <Property Name="MaHangHang" Type="int" />
     <Property Name="NgayGio" Type="datetime" />
+    <Property Name="Gia" Type="decimal" Precision="18" Scale="2" />
     <Property Name="ThoiGianBay" Type="int" />
     <Property Name="SoLuongGheHang1" Type="int" />
     <Property Name="SoLuongGheHang2" Type="int" />
@@ -35,118 +42,209 @@
     <Property Name="TinhTrang" Type="nvarchar" MaxLength="50" />
     <Property Name="HinhAnh" Type="nvarchar" MaxLength="100" />
   </EntityType>
-  <EntityType Name="Customer">
+  <EntityType Name="Customers">
     <Key>
       <PropertyRef Name="customer_id" />
     </Key>
-    <Property Name="customer_id" Type="int" Nullable="false" />
+    <Property Name="customer_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="full_name" Type="nvarchar" MaxLength="50" />
-    <Property Name="address" Type="nvarchar" MaxLength="100" />
     <Property Name="phone_number" Type="nvarchar" MaxLength="20" />
     <Property Name="email" Type="nvarchar" MaxLength="50" />
-    <Property Name="CCCD" Type="nvarchar" MaxLength="20" />
+    <Property Name="NgaySinh" Type="date" />
   </EntityType>
-  <EntityType Name="MayBay">
+  <EntityType Name="Guest">
     <Key>
-      <PropertyRef Name="MaMB" />
+      <PropertyRef Name="Id_Guest" />
     </Key>
-    <Property Name="MaMB" Type="int" Nullable="false" />
-    <Property Name="LoaiMayBay" Type="nvarchar" MaxLength="50" />
+    <Property Name="Id_Guest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTenG" Type="nvarchar(max)" />
+    <Property Name="EmailG" Type="nvarchar(max)" />
+    <Property Name="SoDienThoaiG" Type="nvarchar(max)" />
+    <Property Name="NgaySinhG" Type="date" />
+    <Property Name="SoHoChieu" Type="nvarchar(max)" />
+    <Property Name="QuocGiaCap" Type="nvarchar(max)" />
+    <Property Name="NgayHetHan" Type="date" />
   </EntityType>
-  <EntityType Name="TuyenBay">
+  <EntityType Name="HangHangKhongs">
+    <Key>
+      <PropertyRef Name="MaHangHang" />
+    </Key>
+    <Property Name="MaHangHang" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HinhAnh" Type="varchar" MaxLength="255" />
+    <Property Name="TenHH" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="Payments">
+    <Key>
+      <PropertyRef Name="payment_id" />
+    </Key>
+    <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="booking_id" Type="int" />
+    <Property Name="payment_date" Type="datetime" />
+    <Property Name="payment_method" Type="nvarchar" MaxLength="50" />
+    <Property Name="amount" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="customer_id" Type="int" />
+    <Property Name="payment_status" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="TuyenBays">
     <Key>
       <PropertyRef Name="MaTBay" />
     </Key>
-    <Property Name="MaTBay" Type="int" Nullable="false" />
+    <Property Name="MaTBay" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="SanBayDi" Type="nvarchar" MaxLength="50" />
     <Property Name="SanBayDen" Type="nvarchar" MaxLength="50" />
   </EntityType>
-  <Association Name="FK__ChuyenBay__MaMB__412EB0B6">
-    <End Role="MayBay" Type="Self.MayBay" Multiplicity="0..1" />
-    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
+  <Association Name="FK_Accounts_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Accounts" Type="Self.Accounts" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="MayBay">
-        <PropertyRef Name="MaMB" />
-      </Principal>
-      <Dependent Role="ChuyenBay">
-        <PropertyRef Name="MaMB" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK__ChuyenBay__MaTBa__4222D4EF">
-    <End Role="TuyenBay" Type="Self.TuyenBay" Multiplicity="0..1" />
-    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="TuyenBay">
-        <PropertyRef Name="MaTBay" />
-      </Principal>
-      <Dependent Role="ChuyenBay">
-        <PropertyRef Name="MaTBay" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Account_Customer">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-    <End Role="Account" Type="Self.Account" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Customer">
+      <Principal Role="Customers">
         <PropertyRef Name="customer_id" />
       </Principal>
-      <Dependent Role="Account">
+      <Dependent Role="Accounts">
         <PropertyRef Name="customer_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Booking_ChuyenBay">
-    <End Role="ChuyenBay" Type="Self.ChuyenBay" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+  <Association Name="FK_Bookings_ChuyenBays">
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="ChuyenBay">
+      <Principal Role="ChuyenBays">
         <PropertyRef Name="MaCB" />
       </Principal>
-      <Dependent Role="Booking">
+      <Dependent Role="Bookings">
         <PropertyRef Name="MaCB" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Booking_Customer">
-    <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
-    <End Role="Booking" Type="Self.Booking" Multiplicity="*" />
+  <Association Name="FK_Bookings_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Customer">
+      <Principal Role="Customers">
         <PropertyRef Name="customer_id" />
       </Principal>
-      <Dependent Role="Booking">
+      <Dependent Role="Bookings">
+        <PropertyRef Name="customer_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_Guest">
+    <End Role="Guest" Type="Self.Guest" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Guest">
+        <PropertyRef Name="Id_Guest" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="Id_Guest" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Bookings_Payments">
+    <End Role="Payments" Type="Self.Payments" Multiplicity="0..1" />
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payments">
+        <PropertyRef Name="payment_id" />
+      </Principal>
+      <Dependent Role="Bookings">
+        <PropertyRef Name="payment_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenBays_HangHangKhong">
+    <End Role="HangHangKhongs" Type="Self.HangHangKhongs" Multiplicity="0..1" />
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="HangHangKhongs">
+        <PropertyRef Name="MaHangHang" />
+      </Principal>
+      <Dependent Role="ChuyenBays">
+        <PropertyRef Name="MaHangHang" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ChuyenBays_TuyenBays">
+    <End Role="TuyenBays" Type="Self.TuyenBays" Multiplicity="0..1" />
+    <End Role="ChuyenBays" Type="Self.ChuyenBays" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TuyenBays">
+        <PropertyRef Name="MaTBay" />
+      </Principal>
+      <Dependent Role="ChuyenBays">
+        <PropertyRef Name="MaTBay" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_Bookings">
+    <End Role="Bookings" Type="Self.Bookings" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Bookings">
+        <PropertyRef Name="booking_id" />
+      </Principal>
+      <Dependent Role="Payments">
+        <PropertyRef Name="booking_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payments_Customers">
+    <End Role="Customers" Type="Self.Customers" Multiplicity="0..1" />
+    <End Role="Payments" Type="Self.Payments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customers">
+        <PropertyRef Name="customer_id" />
+      </Principal>
+      <Dependent Role="Payments">
         <PropertyRef Name="customer_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
   <EntityContainer Name="BookingAirLineModelStoreContainer">
-    <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Booking" EntityType="Self.Booking" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="ChuyenBay" EntityType="Self.ChuyenBay" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="MayBay" EntityType="Self.MayBay" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="TuyenBay" EntityType="Self.TuyenBay" Schema="dbo" store:Type="Tables" />
-    <AssociationSet Name="FK__ChuyenBay__MaMB__412EB0B6" Association="Self.FK__ChuyenBay__MaMB__412EB0B6">
-      <End Role="MayBay" EntitySet="MayBay" />
-      <End Role="ChuyenBay" EntitySet="ChuyenBay" />
+    <EntitySet Name="Accounts" EntityType="Self.Accounts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Bookings" EntityType="Self.Bookings" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ChuyenBays" EntityType="Self.ChuyenBays" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guest" EntityType="Self.Guest" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HangHangKhongs" EntityType="Self.HangHangKhongs" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TuyenBays" EntityType="Self.TuyenBays" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Accounts_Customers" Association="Self.FK_Accounts_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Accounts" EntitySet="Accounts" />
     </AssociationSet>
-    <AssociationSet Name="FK__ChuyenBay__MaTBa__4222D4EF" Association="Self.FK__ChuyenBay__MaTBa__4222D4EF">
-      <End Role="TuyenBay" EntitySet="TuyenBay" />
-      <End Role="ChuyenBay" EntitySet="ChuyenBay" />
+    <AssociationSet Name="FK_Bookings_ChuyenBays" Association="Self.FK_Bookings_ChuyenBays">
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
-    <AssociationSet Name="FK_Account_Customer" Association="Self.FK_Account_Customer">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Account" EntitySet="Account" />
+    <AssociationSet Name="FK_Bookings_Customers" Association="Self.FK_Bookings_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
-    <AssociationSet Name="FK_Booking_ChuyenBay" Association="Self.FK_Booking_ChuyenBay">
-      <End Role="ChuyenBay" EntitySet="ChuyenBay" />
-      <End Role="Booking" EntitySet="Booking" />
+    <AssociationSet Name="FK_Bookings_Guest" Association="Self.FK_Bookings_Guest">
+      <End Role="Guest" EntitySet="Guest" />
+      <End Role="Bookings" EntitySet="Bookings" />
     </AssociationSet>
-    <AssociationSet Name="FK_Booking_Customer" Association="Self.FK_Booking_Customer">
-      <End Role="Customer" EntitySet="Customer" />
-      <End Role="Booking" EntitySet="Booking" />
+    <AssociationSet Name="FK_Bookings_Payments" Association="Self.FK_Bookings_Payments">
+      <End Role="Payments" EntitySet="Payments" />
+      <End Role="Bookings" EntitySet="Bookings" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChuyenBays_HangHangKhong" Association="Self.FK_ChuyenBays_HangHangKhong">
+      <End Role="HangHangKhongs" EntitySet="HangHangKhongs" />
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ChuyenBays_TuyenBays" Association="Self.FK_ChuyenBays_TuyenBays">
+      <End Role="TuyenBays" EntitySet="TuyenBays" />
+      <End Role="ChuyenBays" EntitySet="ChuyenBays" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_Bookings" Association="Self.FK_Payments_Bookings">
+      <End Role="Bookings" EntitySet="Bookings" />
+      <End Role="Payments" EntitySet="Payments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payments_Customers" Association="Self.FK_Payments_Customers">
+      <End Role="Customers" EntitySet="Customers" />
+      <End Role="Payments" EntitySet="Payments" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

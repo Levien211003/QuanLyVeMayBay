@@ -13,10 +13,10 @@ namespace MayBay.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class BookingAirLineEntities1 : DbContext
+    public partial class BookingAirLineEntities4 : DbContext
     {
-        public BookingAirLineEntities1()
-            : base("name=BookingAirLineEntities1")
+        public BookingAirLineEntities4()
+            : base("name=BookingAirLineEntities4")
         {
         }
     
@@ -29,7 +29,9 @@ namespace MayBay.Models
         public virtual DbSet<Booking> Bookings { get; set; }
         public virtual DbSet<ChuyenBay> ChuyenBays { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<MayBay> MayBays { get; set; }
+        public virtual DbSet<Guest> Guests { get; set; }
+        public virtual DbSet<HangHangKhong> HangHangKhongs { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
         public virtual DbSet<TuyenBay> TuyenBays { get; set; }
     }
 }

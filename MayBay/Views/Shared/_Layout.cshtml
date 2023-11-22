@@ -1,11 +1,68 @@
-﻿<!DOCTYPE html>
+﻿@using MayBay.Models;
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>@ViewBag.Title</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width">
+    
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        <link href="~/Style/Css/Admin/footerStyle.css" rel="stylesheet" />
+        <link rel="apple-touch-icon" href="~/Style/apple-touch-icon.html">
+        <link rel="stylesheet" href="~/Style/Css/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Style/Css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="~/Style/Css/fontAwesome.css">
+        <link rel="stylesheet" href="~/Style/Css/hero-slider.css">
+        <link rel="stylesheet" href="~/Style/Css/owl-carousel.css">
+        <link rel="stylesheet" href="~/Style/Css/datepicker.css">
+        <link rel="stylesheet" href="~/Style/Css/tooplate-style.css">
+        <link rel="Shortcut Icon" href="~/hinh/logo-i.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="~/Style/Css/myStyle.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-JZ5Z3peMDS8v5RKPjNEvGwTtVR/uCtPbCOwjVaEAt/7dVT6toN2UoJQ3Re6fTBCjauK5TcZ5N3r0i49o1L0wGQ==" crossorigin="anonymous" />
+
+        <script src="~/Style/Js/modernizr-2.8.3-respond-1.4.2.min.js"></script>
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top" style="opacity:80%;">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Home","Home",new {area = ""}, new {@class = "navbar-brand"})*@
+            </div>
+            <div class="navbar-collapse collapse" style="font-size:16px;">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "TrangChu", "KhachHang")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (Session["TaiKhoan"] != null)
+                    {
+                        var taiKhoan = (AccountInfo)Session["TaiKhoan"];
+                        <li><span class="username-text" style="color: red;">Xin chào, @taiKhoan.FullName</span><a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a></li>
+                        <li><</li>
+                    }
+                    else
+                    {
+                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Đăng nhập</a></li>
+                        <li><a href="@Url.Action("SignUp","User")">Đăng ký</a></li>
+                    }
+                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ hàng</a></li>
+                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch sử</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
     <div>
         @RenderBody()
     </div>

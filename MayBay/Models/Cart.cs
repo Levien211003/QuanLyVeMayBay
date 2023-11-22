@@ -7,17 +7,21 @@ namespace MayBay.Models
 {
     public class Cart
     {
-        BookingAirLineEntities1 db = new BookingAirLineEntities1();
+        BookingAirLineEntities3 db = new BookingAirLineEntities3();
         public int MaChuyenBay { get; set; }
-        public int MaMayBay { get; set; }
+        public int MaHangBay { get; set; }
         public int MaTuyenBay { get; set; }
+        public double Gia { get; set; }
 
         public string TinhTrang { get; set; }
         public string HinhAnh { get; set; }
         public int SoLuong { get; set; }
 
-
-        public DateTime NgayGio { get; set; } // Thêm thuộc tính NgayNhanPhong
+        public double ThanhTien()
+        {
+            return SoLuong * Gia;
+        }
+        public DateTime NgayGio { get; set; } 
 
         public Booking Booking { get; set; }
 
@@ -25,8 +29,13 @@ namespace MayBay.Models
         {
             this.MaChuyenBay = MaCB;
             var chuyenbay = db.ChuyenBays.Single(s => s.MaCB == this.MaChuyenBay);
-            this.MaMayBay = (int)chuyenbay.MaMB;
+            this.MaHangBay = (int)chuyenbay.MaHangHang;
+            this.MaTuyenBay = (int)chuyenbay.MaTBay;
+            this.NgayGio = (DateTime)chuyenbay.NgayGio;
+            this.TinhTrang = chuyenbay.TinhTrang;
             this.HinhAnh = chuyenbay.HinhAnh;
+            this.Gia = double.Parse(chuyenbay.Gia.ToString());
+
             this.SoLuong = 1;
         }
     }

@@ -16,7 +16,7 @@ namespace MayBay.Areas.Admin.Controllers
 
     public class TuyenBaysController : Controller
     {
-        BookingAirLineEntities1 database = new BookingAirLineEntities1();
+        BookingAirLineEntities4 database = new BookingAirLineEntities4();
 
         public ActionResult Index()
         {

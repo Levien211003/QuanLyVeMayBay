@@ -3,7 +3,9 @@
 
 @{
     ViewBag.Title = "Hoàn thành đơn hàng";
-    Layout = "~/Views/Shared/_3.cshtml";
+    //Layout = "~/Views/Shared/_3.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
 
     var customer = Session["TaiKhoan"] as AccountInfo;
 
@@ -11,7 +13,7 @@
     var ngayTraPhong = Request.QueryString["ngay_tra_phong"];
 }
 
-<div class="container">
+<div class="container center-content">
 
 
     <h2>Thành công!</h2>
@@ -24,8 +26,16 @@
     <p>Email: @customer.Email</p>
 
 
+
+
 </div>
 <style>
+    .center-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
     body {
         font-family: Arial, sans-serif;
         background-color: #e0f2f1; /* Màu xanh da trời nhạt */

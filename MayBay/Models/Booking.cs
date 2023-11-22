@@ -14,13 +14,25 @@ namespace MayBay.Models
     
     public partial class Booking
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Booking()
+        {
+            this.Payments = new HashSet<Payment>();
+        }
+    
         public int booking_id { get; set; }
         public Nullable<int> MaCB { get; set; }
         public Nullable<int> customer_id { get; set; }
         public Nullable<System.DateTime> ngay_bay { get; set; }
         public string trang_thai { get; set; }
+        public Nullable<int> payment_id { get; set; }
+        public Nullable<int> Id_Guest { get; set; }
     
         public virtual ChuyenBay ChuyenBay { get; set; }
         public virtual Customer Customer { get; set; }
+        public virtual Guest Guest { get; set; }
+        public virtual Payment Payment { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

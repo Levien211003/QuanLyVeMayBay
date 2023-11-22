@@ -43,17 +43,29 @@ namespace MayBay.Controllers
             return RedirectToAction("HienThiGioHang", "Cart", new { id = room.MaChuyenBay });
         }
 
-     
+        private double TongTien()
+        {
+            List<Cart> carts = GetCarts();
+            double tongTien = 0;
+            if (carts != null)
+            {
+                tongTien = carts.Sum(sp => sp.ThanhTien());
+            }
+            return tongTien;
+        }
+
         public ActionResult HienThiGioHang()
         {
             List<Cart> carts = GetCarts();
-         
+            ViewBag.TongTien = TongTien();
             return View(carts);
         }
 
         public ActionResult CartPartial()
         {
-   
+            ViewBag.TongTien = TongTien();
+
+
             return PartialView();
         }
 
@@ -67,7 +79,7 @@ namespace MayBay.Controllers
                 return RedirectToAction("HienThiGioHang");
             }
             if (carts.Count == 0)
-                return RedirectToAction("Index", "BookHotel");
+                return RedirectToAction("DSachCB", "KhachHang");
             return RedirectToAction("HienThiGioHang");
         }
 
@@ -94,14 +106,14 @@ namespace MayBay.Controllers
 
             List<Cart> carts = GetCarts();
             if (carts == null || carts.Count == 0)
-                return RedirectToAction("Index", "BookHotel");
+                return RedirectToAction("Index", "Home");
 
 
 
             return View(carts);
         }
 
-        BookingAirLineEntities1 database = new BookingAirLineEntities1();
+        BookingAirLineEntities4 database = new BookingAirLineEntities4();
 
         public ActionResult DongYDatHang()
         {

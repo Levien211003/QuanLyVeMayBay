@@ -1,6 +1,6 @@
 ﻿@using MayBay.Models;
 @{
-    BookingAirLineEntities1 db01 = new BookingAirLineEntities1();
+    BookingAirLineEntities4 db01 = new BookingAirLineEntities4();
 }
 <!DOCTYPE html>
 
@@ -45,16 +45,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["TaiKhoan"] != null)
                     {
-                        <a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a>
+                        var taiKhoan = (AccountInfo)Session["TaiKhoan"];
+                    <li><span class="username-text" style="color: red;">Xin chào, @taiKhoan.FullName</span><a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a></li>
+                    <li><</li>
                     }
                     else
                     {
-                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Login</a></li>
-                        <li><a href="@Url.Action("SignUp","User")">Register</a></li>
+                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Đăng nhập</a></li>
+                        <li><a href="@Url.Action("SignUp","User")">Đăng ký</a></li>
                     }
-                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ Hàng</a></li>
-                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch Sử </a></li>
-
+                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ hàng</a></li>
+                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch sử</a></li>
                 </ul>
             </div>
         </div>
@@ -71,9 +72,9 @@
                             <h4>Explore the world with us</h4>
                             <br />
                             <ul class="social-links">
-                                <li><a href="#">Find us on <em>Facebook</em><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#">Our <em>YouTube</em> Channel<i class="fa fa-youtube"></i></a></li>
-                                <li><a href="#">Follow our <em>instagram</em><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="https://www.facebook.com/profile.php?id=100071211090904">Find us on <em>Facebook</em><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://www.youtube.com/channel/UCks_kSLpt2tFUfRxLsx5FZw">Our <em>YouTube</em> Channel<i class="fa fa-youtube"></i></a></li>
+                                <li><a href="https://r.search.yahoo.com/_ylt=Awr1QLATFV5lKJghMyprUwx.;_ylu=Y29sbwNzZzMEcG9zAzIEdnRpZAMEc2VjA3Ny/RV=2/RE=1700693395/RO=10/RU=https%3a%2f%2fwww.instagram.com%2fleevies%2f/RK=2/RS=_SjaHAwf.pFvFDEj2P.ek4mIkr8-">Follow our <em>instagram</em><i class="fa fa-instagram"></i></a></li>
                                 <li><a href="~/Home/Contact">Contact our <em>Infomations</em><i class="fa fa-phone"></i></a></li>
                             </ul>
                         </div>
@@ -129,7 +130,7 @@
             </div>
             <div class="col-md-12">
                 <ul class="social-icons">
-                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100071211090904"><i class="fa fa-facebook"></i></a></li>
                     <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
 

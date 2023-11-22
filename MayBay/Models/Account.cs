@@ -14,12 +14,13 @@ namespace MayBay.Models
     
     public partial class Account
     {
-        public int account_id { get; set; }
         public string username { get; set; }
         public string password { get; set; }
-        public Nullable<int> customer_id { get; set; }
+        public int customer_id { get; set; }
         public Nullable<bool> is_admin { get; set; }
-    
-        public virtual Customer Customer { get; set; }
+        public string HoTen { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
+        public string Email { get; set; }
+        public string SoDienThoai { get; set; }
     }
 }

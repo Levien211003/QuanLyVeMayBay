@@ -12,18 +12,25 @@ namespace MayBay.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class MayBay
+    public partial class Payment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MayBay()
+        public Payment()
         {
-            this.ChuyenBays = new HashSet<ChuyenBay>();
+            this.Bookings = new HashSet<Booking>();
         }
     
-        public int MaMB { get; set; }
-        public string LoaiMayBay { get; set; }
+        public int payment_id { get; set; }
+        public Nullable<int> booking_id { get; set; }
+        public Nullable<System.DateTime> payment_date { get; set; }
+        public string payment_method { get; set; }
+        public Nullable<decimal> amount { get; set; }
+        public Nullable<int> customer_id { get; set; }
+        public string payment_status { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<ChuyenBay> ChuyenBays { get; set; }
+        public virtual ICollection<Booking> Bookings { get; set; }
+        public virtual Booking Booking { get; set; }
+        public virtual Customer Customer { get; set; }
     }
 }

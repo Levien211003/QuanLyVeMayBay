@@ -11,7 +11,7 @@ namespace MayBay.Areas.Admin.Controllers
 {
     public class QLDHController : Controller
     {
-        private BookingAirLineEntities1 db = new BookingAirLineEntities1();
+        private BookingAirLineEntities4 db = new BookingAirLineEntities4();
 
         public ActionResult Index()
         {

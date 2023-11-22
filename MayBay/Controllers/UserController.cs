@@ -11,7 +11,7 @@ namespace MayBay.Controllers
 {
     public class UserController : Controller
     {
-        BookingAirLineEntities1 db = new BookingAirLineEntities1();
+        BookingAirLineEntities4 db = new BookingAirLineEntities4();
 
         // GET: User
         public ActionResult Index()
@@ -37,7 +37,6 @@ namespace MayBay.Controllers
             return View();
         }
 
-
         [HttpPost]
         public ActionResult Login(Account taikhoan)
         {
@@ -48,21 +47,10 @@ namespace MayBay.Controllers
                 if (taikhoanAdmin != null && taikhoanAdmin.is_admin.HasValue && taikhoanAdmin.is_admin.Value)
                 {
                     Session["TaiKhoan"] = taikhoanAdmin;
-                    // Kiểm tra quyền Admin trước khi chuyển hướng đến trang Admin
-                    if (taikhoanAdmin.is_admin.Value)
-                    {
-                        return RedirectToAction("Index", "Admin/ChuyenBays");
-                    }
-                    else
-                    {
-                        // Nếu không phải là Admin, có thể thực hiện chuyển hướng khác hoặc thông báo lỗi
-                        ViewBag.ThongBao = "Bạn không có quyền truy cập trang Admin.";
-                        return RedirectToAction("Index", "Home");
-                    }
+                    return RedirectToAction("Index", "Admin/ChuyenBays");
                 }
 
-
-                var account = db.Accounts.FirstOrDefault(k => k.username == taikhoan.username && k.password == taikhoan.password);
+                var account = db.Accounts.FirstOrDefault(k => k.username == taikhoan.username && k.password == taikhoan.password );
                 if (account != null)
                 {
                     var customer = db.Customers.FirstOrDefault(c => c.customer_id == account.customer_id);
@@ -74,7 +62,7 @@ namespace MayBay.Controllers
                         var accountInfo = new AccountInfo
                         {
                             FullName = customer.full_name,
-                            Address = customer.address,
+                            NgaySinh = (DateTime)customer.NgaySinh,
                             PhoneNumber = customer.phone_number,
                             Email = customer.email
                         };
@@ -91,6 +79,7 @@ namespace MayBay.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult SignUp(Account account)
         {
@@ -103,24 +92,21 @@ namespace MayBay.Controllers
                     return View();
                 }
 
-                // Lấy thông tin khách hàng từ CSDL dựa trên customer_id
-                var customer = db.Customers.FirstOrDefault(c => c.customer_id == account.customer_id);
-                if (customer != null)
+                // Tạo một đối tượng Customer từ thông tin trong đối tượng Account
+                Customer customer = new Customer
                 {
-                    // Tạo một đối tượng AccountInfo để lưu trữ thông tin tài khoản và thông tin khách hàng
-                    var accountInfo = new AccountInfo
-                    {
-                        FullName = customer.full_name,
-                        Address = customer.address,
-                        PhoneNumber = customer.phone_number,
-                        Email = customer.email
-                    };
+                    customer_id = account.customer_id ,
+                    full_name = account.HoTen,
+                    NgaySinh = account.NgaySinh,
+                    email = account.Email,
+                    phone_number = account.SoDienThoai,
 
-                    // Lưu thông tin tài khoản vào session
-                    Session["TaiKhoan"] = accountInfo;
-                }
+                };
+                account.is_admin = false;
+
 
                 db.Accounts.Add(account);
+                db.Customers.Add(customer);
                 db.SaveChanges();
 
                 return RedirectToAction("Login", "User");
@@ -128,6 +114,7 @@ namespace MayBay.Controllers
 
             return View(account);
         }
+
         [HttpGet]
         public ActionResult SignUp()
         {
@@ -145,4 +132,20 @@ namespace MayBay.Controllers
             return RedirectToAction("TrangChu", "KhachHang");
         }
     }
-}
+} 
+//// Lấy thông tin khách hàng từ CSDL dựa trên customer_id
+        //var customer = db.Customers.FirstOrDefault(c => c.customer_id == account.customer_id);
+        //if (customer != null)
+        //{
+        //    // Tạo một đối tượng AccountInfo để lưu trữ thông tin tài khoản và thông tin khách hàng
+        //    //var accountInfo = new AccountInfo
+        //    //{
+        //    //    FullName = customer.full_name,
+        //    //    Address = customer.address,
+        //    //    PhoneNumber = customer.phone_number,
+        //    //    Email = customer.email
+        //    //};
+
+        //    //// Lưu thông tin tài khoản vào session
+        //    //Session["TaiKhoan"] = accountInfo;
+        //}

@@ -12,29 +12,19 @@ namespace MayBay.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class ChuyenBay
+    public partial class HangHangKhong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public ChuyenBay()
+        public HangHangKhong()
         {
-            this.Bookings = new HashSet<Booking>();
+            this.ChuyenBays = new HashSet<ChuyenBay>();
         }
     
-        public int MaCB { get; set; }
-        public Nullable<int> MaTBay { get; set; }
-        public Nullable<int> MaHangHang { get; set; }
-        public Nullable<System.DateTime> NgayGio { get; set; }
-        public Nullable<decimal> Gia { get; set; }
-        public Nullable<int> ThoiGianBay { get; set; }
-        public Nullable<int> SoLuongGheHang1 { get; set; }
-        public Nullable<int> SoLuongGheHang2 { get; set; }
-        public Nullable<int> SoLuongGheHang3 { get; set; }
-        public string TinhTrang { get; set; }
+        public int MaHangHang { get; set; }
         public string HinhAnh { get; set; }
+        public string TenHH { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Booking> Bookings { get; set; }
-        public virtual HangHangKhong HangHangKhong { get; set; }
-        public virtual TuyenBay TuyenBay { get; set; }
+        public virtual ICollection<ChuyenBay> ChuyenBays { get; set; }
     }
 }

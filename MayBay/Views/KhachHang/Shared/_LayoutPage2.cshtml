@@ -1,6 +1,6 @@
 ﻿@using MayBay.Models;
 @{
-    BookingAirLineEntities1 db01 = new BookingAirLineEntities1();
+    BookingAirLineEntities4 db01 = new BookingAirLineEntities4();
 }
 <!DOCTYPE html>
 
@@ -45,16 +45,17 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (Session["TaiKhoan"] != null)
                     {
-                        <a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a>
+                        var taiKhoan = (AccountInfo)Session["TaiKhoan"];
+                        <li><span class="username-text" style="color: red;">Xin chào, @taiKhoan.FullName</span><a href="@Url.Action("LogOut", "User")" class="logout-text">Đăng xuất</a></li>
+                        <li><</li>
                     }
                     else
                     {
-                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Login</a></li>
-                        <li><a href="@Url.Action("SignUp","User")">Register</a></li>
+                        <li><a href="~/User/Login"><span class="fa fa-user"></span> Đăng nhập</a></li>
+                        <li><a href="@Url.Action("SignUp","User")">Đăng ký</a></li>
                     }
-                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ Hàng</a></li>
-                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch Sử </a></li>
-
+                    <li><a href="~/Cart/HienThiGioHang"><span class="fa fa-shopping-cart"></span> Giỏ hàng</a></li>
+                    <li><a href="~/Cart/LichSuDatHang"><span class="fa fa-clock"></span> Lịch sử</a></li>
                 </ul>
             </div>
         </div>

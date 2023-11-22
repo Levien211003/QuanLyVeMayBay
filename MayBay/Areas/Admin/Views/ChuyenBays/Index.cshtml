@@ -89,22 +89,33 @@
             <tr>
                 <td>
                     <div>
-                        <img src="/hinh/@item.HinhAnh" alt="@item.MayBay" class="hotel-image" />
-
+                        <img src="@Url.Content("~/hinh/" + item.HinhAnh)" alt="@item.HinhAnh" class="hotel-image" />
                         <div class="hotel-details">
                             <label>Mã Chuyến Bay:</label> @Html.DisplayFor(modelItem => item.MaCB)
                         </div>
                         <div class="hotel-details">
-                            <label>Mã Máy Bay:</label> @Html.DisplayFor(modelItem => item.MaMB)
+                            <label>Mã Hãng Bay:</label> @Html.DisplayFor(modelItem => item.MaHangHang)
                         </div>
                         <div class="hotel-details">
                             <label>Mã Tuyến Bay:</label> @Html.DisplayFor(modelItem => item.MaTBay)
                         </div>
                         <div class="hotel-details">
-                            <label>Ngày Gio:</label> @Html.DisplayFor(modelItem => item.NgayGio)
+                            <label>Ngày Giờ:</label> @Html.DisplayFor(modelItem => item.NgayGio)
                         </div>
                         <div class="hotel-details">
-                            <label>Thời Gian Bay:</label> @Html.DisplayFor(modelItem => item.ThoiGianBay)
+                            <label>Giá:</label> @Html.DisplayFor(modelItem => item.Gia)
+                        </div>
+                        <div class="hotel-details">
+                            <label>Thời Gian Bay:</label> @Html.DisplayFor(modelItem => item.ThoiGianBay) Giờ
+                        </div>
+                        <div class="hotel-details">
+                            <label>Số Lượng Ghế Hàng 1:</label> @Html.DisplayFor(modelItem => item.SoLuongGheHang1)
+                        </div>
+                        <div class="hotel-details">
+                            <label>Số Lượng Ghế Hàng 2:</label> @Html.DisplayFor(modelItem => item.SoLuongGheHang2)
+                        </div>
+                        <div class="hotel-details">
+                            <label>Số Lượng Ghế Hàng 3:</label> @Html.DisplayFor(modelItem => item.SoLuongGheHang3)
                         </div>
                     </div>
                 </td>

@@ -141,7 +141,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\ChuyenBaysController.cs" />
-    <Compile Include="Areas\Admin\Controllers\MayBaysController.cs" />
+    <Compile Include="Areas\Admin\Controllers\HangHangKhongsController.cs" />
     <Compile Include="Areas\Admin\Controllers\QLDHController.cs" />
     <Compile Include="Areas\Admin\Controllers\TuyenBaysController.cs" />
     <Compile Include="Controllers\CartController.cs" />
@@ -181,10 +181,16 @@
     <Compile Include="Models\Customer.cs">
       <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\MayBay.cs">
+    <Compile Include="Models\Guest.cs">
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\HangHangKhong.cs">
       <DependentUpon>BookingAirLine.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Payment.cs">
+      <DependentUpon>BookingAirLine.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\SelectTT.cs" />
     <Compile Include="Models\TuyenBay.cs">
       <DependentUpon>BookingAirLine.tt</DependentUpon>
@@ -359,17 +365,18 @@
     <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
     <Content Include="Areas\Admin\Views\web.config" />
     <Content Include="Areas\Admin\Views\ChuyenBays\Index.cshtml" />
-    <Content Include="Areas\Admin\Views\MayBays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHangKhongs\Index.cshtml" />
     <Content Include="Areas\Admin\Views\ChuyenBays\Create.cshtml" />
     <Content Include="Areas\Admin\Views\ChuyenBays\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\ChuyenBays\Edit.cshtml" />
-    <Content Include="Areas\Admin\Views\MayBays\Create.cshtml" />
-    <Content Include="Areas\Admin\Views\MayBays\Delete.cshtml" />
-    <Content Include="Areas\Admin\Views\MayBays\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHangKhongs\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHangKhongs\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\HangHangKhongs\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Create.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Delete.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\TuyenBays\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\QLDH\Index.cshtml" />
     <EntityDeploy Include="Models\BookingAirLine.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>BookingAirLine.Designer.cs</LastGenOutput>
@@ -377,7 +384,6 @@
     <Content Include="Models\BookingAirLine.edmx.diagram">
       <DependentUpon>BookingAirLine.edmx</DependentUpon>
     </Content>
-    <Content Include="Areas\Admin\Views\QLDH\Index.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />

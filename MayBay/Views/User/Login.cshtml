@@ -4,6 +4,26 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
+<body>
+    <div class="login-container">
+        @if (ViewBag.ThongBao != null)
+        {
+            <p style="color: red;">@ViewBag.ThongBao</p>
+        }
+        <form action="@Url.Action("Login", "User")" method="post">
+            <h2>Đăng Nhập</h2>
+            <div class="input-group">
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+</body>
+</html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,22 +83,3 @@
     </style>
     <title>Login Form</title>
 </head>
-<body>
-    <div class="login-container">
-        @if (ViewBag.ThongBao != null)
-        {
-            <p style="color: red;">@ViewBag.ThongBao</p>
-        }
-        <form action="@Url.Action("Login", "User")" method="post">
-            <h2>Login</h2>
-            <div class="input-group">
-                <input type="text" id="username" name="username" required placeholder="Username">
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" required placeholder="Password">
-            </div>
-            <button type="submit">Login</button>
-        </form>
-    </div>
-</body>
-</html>

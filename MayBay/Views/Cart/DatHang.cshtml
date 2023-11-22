@@ -30,7 +30,7 @@
                 <thead>
                     <tr>
                         <th>Mã Chuyến Bay</th>
-                        <th>Mã Máy Bay</th>
+                        <th>Mã Hãng Bay</th>
                         <th>Mã Tuyến Bay</th>
                         <th>Ngày Bay</th>
                         <th>Tình Trạng</th>
@@ -43,7 +43,7 @@
                     {
                     <tr>
                         <td>@cart.MaChuyenBay</td>
-                        <td>@cart.MaMayBay</td>
+                        <td>@cart.MaHangBay</td>
                         <td>@cart.MaTuyenBay</td>
                         <td>@cart.NgayGio</td>
                         <td>@cart.TinhTrang</td>
@@ -79,7 +79,8 @@
                     <td>Ngày đặt: </td>
                     <td>@DateTime.Now.ToShortDateString()</td>
                 </tr>
-               
+            
+
                 <tr>
                     <td colspan="2" style="text-align: center;">
                         @Html.ActionLink("ĐỒNG Ý ĐẶT VÉ", "DongYDatHang", null, new { @class = "btn btn-primary" })

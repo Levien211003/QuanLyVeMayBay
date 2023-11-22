@@ -13,20 +13,21 @@ using System.Web.Mvc;
 
 namespace MayBay.Areas.Admin.Controllers
 {
-    public class ChuyenBaysController : Controller
+    public class HangHangKhongsController : Controller
     {
         BookingAirLineEntities4 database = new BookingAirLineEntities4();
 
         // GET: Admin/Hotels
+        // GET: Admin/Hotels
         public ActionResult Index()
         {
-            List<ChuyenBay> chuyenBays = GetChuyenBays(); // Lấy danh sách khách sạn từ nguồn dữ liệu
+            List<HangHangKhong> hangHangKhongs = GetHangHangs(); // Lấy danh sách khách sạn từ nguồn dữ liệu
 
-            return View(chuyenBays);
+            return View(hangHangKhongs);
         }
-        private List<ChuyenBay> GetChuyenBays()
+        private List<HangHangKhong> GetHangHangs()
         {
-            return database.ChuyenBays.OrderByDescending(r => r.MaCB).ToList();
+            return database.HangHangKhongs.OrderByDescending(r => r.MaHangHang).ToList();
 
         }
 
@@ -38,11 +39,10 @@ namespace MayBay.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MaCB,MaHangHang,MaTBay,NgayGio,Gia, ThoiGianBay,SoLuongGheHang1,SoLuongGheHang2,SoLuongGheHang3,TinhTrang, HinhAnh")] ChuyenBay chuyenBay, HttpPostedFileBase HinhAnh)
-        {
+        public ActionResult Create([Bind(Include = "MaHangHang, HinhAnh, TenHH")] HangHangKhong hangHangKhong, HttpPostedFileBase HinhAnh)
+        { 
             if (ModelState.IsValid)
             {
-
                 if (HinhAnh != null && HinhAnh.ContentLength > 0)
                 {
                     // Xử lý lưu trữ tệp tin vào thư mục hoặc cơ sở dữ liệu
@@ -51,19 +51,18 @@ namespace MayBay.Areas.Admin.Controllers
                     HinhAnh.SaveAs(filePath);
 
                     // Gán tên tệp tin cho thuộc tính ImageName của đối tượng Hotel
-                    chuyenBay.HinhAnh = fileName;
+                    hangHangKhong.HinhAnh = fileName;
                 }
 
-                chuyenBay.TinhTrang = "Available";
 
 
-                database.ChuyenBays.Add(chuyenBay);
-                 database.SaveChanges();
+                database.HangHangKhongs.Add(hangHangKhong);
+                database.SaveChanges();
 
                 return RedirectToAction("Index");
             }
 
-            return View(chuyenBay   );
+            return View(hangHangKhong);
         }
 
         public ActionResult Delete(int? id)
@@ -72,20 +71,20 @@ namespace MayBay.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuyenBay chuyenBay = database.ChuyenBays.Find(id);
-            if (chuyenBay == null)
+            HangHangKhong hangHangKhong = database.HangHangKhongs.Find(id);
+            if (hangHangKhong == null)
             {
                 return HttpNotFound();
             }
-            return View(chuyenBay);
+            return View();
         }
 
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            ChuyenBay chuyenBay = database.ChuyenBays.Find(id);
-            database.ChuyenBays.Remove(chuyenBay);
+            HangHangKhong hangHangKhong = database.HangHangKhongs.Find(id);
+            database.HangHangKhongs.Remove(hangHangKhong);
             database.SaveChanges();
             return RedirectToAction("Index");
         }
@@ -97,42 +96,42 @@ namespace MayBay.Areas.Admin.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuyenBay chuyenBay = database.ChuyenBays.Find(id);
-            if (chuyenBay == null)
+            HangHangKhong hangHangKhong = database.HangHangKhongs.Find(id);
+            if (hangHangKhong == null)
             {
                 return HttpNotFound();
             }
-            return View(chuyenBay);
+            return View(hangHangKhong);
 
 
         }
 
         public ActionResult Edit(int? id)
         {
-            if (id == null)
+            if (id == null) 
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ChuyenBay chuyenBay = database.ChuyenBays.Find(id);
-            if (chuyenBay == null)
+            HangHangKhong hangHangKhong = database.HangHangKhongs.Find(id);
+            if (hangHangKhong == null)
             {
                 return HttpNotFound();
             }
-            return View(chuyenBay);
+            return View(hangHangKhong);
         }
 
-        
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MaCB,MaHangHang,MaTBay,NgayGio,Gia, ThoiGianBay,SoLuongGheHang1,SoLuongGheHang2,SoLuongGheHang3,TinhTrang, HinhAnh")] ChuyenBay chuyenBay, HttpPostedFileBase HinhAnh)
+        public ActionResult Edit([Bind(Include = "MaHangHang, HinhAnh, TenHH")] HangHangKhong hangHangKhong)
         {
             if (ModelState.IsValid)
             {
-                database.Entry(chuyenBay).State = EntityState.Modified;
+                database.Entry(hangHangKhong).State = EntityState.Modified;
                 database.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(chuyenBay);
+            return View(hangHangKhong);
         }
 
     }

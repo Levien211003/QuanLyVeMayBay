@@ -1,8 +1,41 @@
 ﻿@{
-    Layout = null;
+        Layout = null;
 }
 <!DOCTYPE html>
 <html lang="en">
+
+<body>
+    <div class="register-container">
+        <form action="/User/SignUp" method="post">
+            <h2>Đăng ký tài khoản</h2>
+            <div class="input-group">
+                <input type="text" id="username" name="username" required placeholder="Username">
+            </div>
+            <div class="input-group">
+                <input type="password" id="password" name="password" required placeholder="Password">
+            </div>
+            <div class="input-group">
+                <input type="text" id="hoTen" name="hoTen" required placeholder="Họ và tên">
+            </div>
+            <div class="input-group">
+                <input type="date" id="ngaySinh" name="ngaySinh" required>
+            </div>
+            <div class="input-group">
+                <input type="email" id="email" name="email" required placeholder="Email">
+            </div>
+            <div class="input-group">
+                <input type="tel" id="soDienThoai" name="soDienThoai" required placeholder="Số điện thoại">
+            </div>
+
+            @if (!string.IsNullOrEmpty(ViewBag.ThongBao))
+            {
+                <p class="error-message">@ViewBag.ThongBao</p>
+            }
+            <button type="submit">Register</button>
+        </form>
+    </div>
+</body>
+</html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,25 +97,6 @@
             color: red;
         }
     </style>
+
     <title>Register Form</title>
 </head>
-<body>
-    <div class="register-container">
-        <form action="/User/SignUp" method="post">
-            <h2>Register</h2>
-            <div class="input-group">
-                <input type="text" id="username" name="username" required placeholder="Username">
-            </div>
-            <div class="input-group">
-                <input type="password" id="password" name="password" required placeholder="Password">
-            </div>
-
-            @if (!string.IsNullOrEmpty(ViewBag.ThongBao))
-            {
-                <p class="error-message">@ViewBag.ThongBao</p>
-            }
-            <button type="submit">Register</button>
-        </form>
-    </div>
-</body>
-</html>

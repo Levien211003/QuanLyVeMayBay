@@ -91,10 +91,11 @@
             <img class="card-img-top hotel-picture" src="~/hinh/@cart.HinhAnh" alt=" Image 1">
 
             <h4>Mã CB: @cart.MaChuyenBay</h4>
-            <h4>MÃ Máy Bay: @cart.MaMayBay</h4>
-            <h4>Mã Tuyến Bay: @cart.MaTuyenBay</h4>
-
+            <p>Mã Hãng Bay: @cart.MaHangBay</p>
+            <p>Mã Tuyến Bay: @cart.MaTuyenBay</p>
             <p>Số lượng: @cart.SoLuong</p>
+            <p>Giá: @cart.Gia</p>
+
 
 
 
@@ -109,7 +110,11 @@
 </div>
 
 <div class="container">
-  
+    <div class="total">
+        <p>Tổng tiền: @ViewBag.TongTien</p>
+    </div>
+
+
     <div class="checkout-btn">
         <a href="@Url.Action("DatHang", "Cart")" class="btn btn-primary">Đặt Hàng</a>
     </div>

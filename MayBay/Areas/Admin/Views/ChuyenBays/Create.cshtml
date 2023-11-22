@@ -7,6 +7,7 @@
 }
 
 <style>
+
     .form-container {
         max-width: 600px;
         margin: auto;
@@ -49,42 +50,65 @@
     {
         @Html.AntiForgeryToken()
 
-        <div class="form-group">
-            <a>Mã Chuyến Bay:</a>
-            @Html.EditorFor(model => model.MaCB, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaCB, "", new { @class = "text-danger" })
-        </div>
+        @*<div class="form-group">
+                <a>Mã Chuyến Bay:</a>
+                @Html.EditorFor(model => model.MaCB, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MaCB, "", new { @class = "text-danger" })
+            </div>*@
 
         <div class="form-group">
-            <a>Mã Máy Bay:</a>
-            @Html.EditorFor(model => model.MaMB, new { htmlAttributes = new { @class = "form-control" } })
-            @Html.ValidationMessageFor(model => model.MaMB, "", new { @class = "text-danger" })
+            <a>Mã Hãng Bay:</a>
+            @Html.EditorFor(model => model.MaHangHang, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Mã Hãng Bay" } })
+            @Html.ValidationMessageFor(model => model.MaHangHang, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             <a>Mã Tuyến Bay:</a>
-            @Html.EditorFor(model => model.MaTBay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.MaTBay, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Mã Tuyến Bay" } })
             @Html.ValidationMessageFor(model => model.MaTBay, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             <a>Ngày Bay:</a>
-            @Html.EditorFor(model => model.NgayGio, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.NgayGio, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Ngày Bay" } })
             @Html.ValidationMessageFor(model => model.NgayGio, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
             <a>Thời Gian Bay:</a>
-            @Html.EditorFor(model => model.ThoiGianBay, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.EditorFor(model => model.ThoiGianBay, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Thời Gian Bay" } })
             @Html.ValidationMessageFor(model => model.ThoiGianBay, "", new { @class = "text-danger" })
         </div>
 
         <div class="form-group">
-            <a>Hình ảnh minh họa:</a>
-            <input type="file" name="ImageName" class="form-control" />
-            @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+            <a>Giá:</a>
+            @Html.EditorFor(model => model.Gia, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Giá" } })
+            @Html.ValidationMessageFor(model => model.Gia, "", new { @class = "text-danger" })
         </div>
 
+        <div class="form-group">
+            <a>Số Lượng Ghế Hàng 1:</a>
+            @Html.EditorFor(model => model.SoLuongGheHang1, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Số Lượng Ghế Hàng 1" } })
+            @Html.ValidationMessageFor(model => model.SoLuongGheHang1, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <a>Số Lượng Ghế Hàng 2:</a>
+            @Html.EditorFor(model => model.SoLuongGheHang2, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Số Lượng Ghế Hàng 2" } })
+            @Html.ValidationMessageFor(model => model.SoLuongGheHang2, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <a>Số Lượng Ghế Hàng 3:</a>
+            @Html.EditorFor(model => model.SoLuongGheHang3, new { htmlAttributes = new { @class = "form-control", required = "required", data_val_required = "Vui lòng nhập Số Lượng Ghế Hàng 3" } })
+            @Html.ValidationMessageFor(model => model.SoLuongGheHang3, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group">
+            <a>Hình ảnh minh họa:</a>
+            <input type="file" name="HinhAnh" class="form-control" required="required" data_val_required="Vui lòng chọn Hình ảnh minh họa" />
+            @Html.ValidationMessageFor(model => model.HinhAnh, "", new { @class = "text-danger" })
+        </div>
         <div class="form-group">
             <input type="submit" value="Thêm" class="btn btn-primary" />
         </div>
